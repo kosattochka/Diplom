@@ -1,0 +1,329 @@
+header {
+    position: relative;
+    padding-bottom: 160px;
+}
+
+.header-logo {
+    position: absolute;
+    width: 100vw;
+    z-index: -1;
+}
+
+.header-logo.mobile {
+    display: none;
+
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Gabriela;
+    font-size: 28px;
+    padding: 35px 30px;
+
+}
+
+.MobileNav {
+    display: none;
+}
+
+.head a {
+    color: #0D504D;
+}
+
+.head a:hover {
+    color: #00847E;
+}
+
+.head a.active {
+    color: #FDB10B;
+}
+
+.share-content {
+    width: 227px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 10px;
+    padding: 12px 0;
+}
+
+.head-column a {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 15px;
+    color: #00847E;
+}
+
+.share-content a:hover {
+    color: #0D504D;
+}
+
+.head-column {
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: PlayfairDisplay_Bold;
+    font-size: 18px;
+}
+
+.share-content button {
+    width: 100%;
+    height: 50px;
+    background-color: #00847E;
+    color: white;
+    border: none;
+    font-family: PlayfairDisplay_Bold;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.share-content button:hover {
+    background-color: #0D504D;
+}
+
+.head-column > img {
+    padding-bottom: 20px;
+}
+
+.head-column .burger-img {
+    display: none;
+}
+
+.baner-content-index {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 150px;
+}
+
+.baner-content-index .icon-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    margin-left: 0; /* Начальное смещение */
+    transition: margin-left 0.3s ease; /* Плавное смещение */
+}
+
+.baner-content-index .icon-container:nth-child(1) {
+    margin-left: 280px; /* Первый элемент без смещения */
+}
+
+.baner-content-index .icon-container:nth-child(2) {
+    margin-left: 140px; /* Второй элемент смещен на 50px */
+}
+
+.baner-content-index .icon-container:nth-child(3) {
+    margin-left: 10px; /* Третий элемент смещен на 100px */
+}
+
+.baner-content-index .icon-container:nth-child(4) {
+    margin-left: -60px; /* Четвертый элемент смещен на 150px */
+}
+
+.baner-content-index .icon-container:nth-child(5) {
+    margin-left: -230px; /* Пятый элемент смещен на 200px */
+}
+
+.baner-content-index .icon-container div {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-icon-big {
+    font-family: PlayfairDisplay_Bold;
+    font-size: 28px;
+    color: #0D504D;
+}
+
+.text-icon-small {
+    font-family: PlayfairDisplay_Bold;
+    font-size: 24px;
+    color: #00847E;
+}
+
+.baner {
+    display: flex;
+    flex-direction: row;
+}
+
+.baner-content-placement {
+    padding-left: 180px;
+    padding-top: 220px;
+
+
+    span {
+        font-family: Gabriela;
+        font-size: 32px;
+        color: #FDB10B;
+
+    }
+
+    .rectangle-white-container {
+    width: 90%;
+    background-color: white;
+    border-radius: 34px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень */
+    padding: 20px 20px; /* Внутренние отступы (10px сверху/снизу, 20px слева/справа) */
+
+    span {
+        font-family: PlayfairDisplay_Bold;
+        font-size: 24px;
+        color:#0D504D;
+
+        a {
+            color: #FDB10B;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #00847E;
+        }
+    }
+}
+
+}
+
+@media (max-width: 768px) {
+    .header-logo.mobile {
+        display: block;
+    }
+    .header-logo.desktop {
+        display: none;
+    }
+    .head {
+        display: none;
+    }
+    .share-content {
+        display: none;
+
+    }
+    .baner {
+        flex-direction: column;
+    }
+    .baner-content-index .icon-container {
+        margin-left: 0 !important;
+        width: 80%;
+
+        img {
+            width: 80px;
+        }
+        .text-icon-big {
+            font-size: 24px;
+        }
+        .text-icon-small {
+            font-size: 20px;
+        }
+    }
+
+    .baner-content-index {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        padding-top: 50px;
+        gap: 20px;
+    }
+    .head-column .burger-img {
+        display: block;
+        height: 60px;
+    }
+
+    .logo-wrapper a {
+        display: flex;
+        justify-content: end;
+    }
+
+    .MobileNav {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 80vw;
+        top: 0;
+        left: 0;
+        border-bottom-right-radius: 70px;
+        background-color: white;
+        color: #FDB10B;
+
+        >a {
+            color: #FDB10B;
+            font-family: Gabriela;
+            padding: 15px 30px;
+        }
+
+        a.active {
+            background-color: #0D504D;
+            padding: 30px;
+        }
+    }
+
+    .MobileNav .share-content {
+        display: flex;
+        gap: 10px;
+
+    }
+
+    .burger-footer > img {
+        width: 45%;
+    }
+
+    .burger-footer {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        justify-content: space-between;
+        padding: 0 30px;
+        gap: 25px;
+
+    }
+
+    .share-content a {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        width: 200px;
+    }
+
+    .head-column .logo-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        justify-content: space-between;
+        width: 88vw;
+        padding-top: 30px;
+    }
+    .head-column {
+        background-image: url('/img/background-mobile.svg');
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-bottom: 120px;
+    }
+    .head-column .logo {
+        width: 60%;
+    }
+
+    .mobile-rectangle-black {
+        display: none;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+}
+
+@media (max-width: 550px) {
+    .burger-footer > img {
+        display: none;
+    }
+
+}

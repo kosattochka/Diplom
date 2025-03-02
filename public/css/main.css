@@ -1,0 +1,261 @@
+@font-face {
+    font-family: fontawesome;
+    src: url(/font/fontawesome.ttf);
+}
+
+@font-face {
+    font-family: PlayfairDisplay_Regular;
+    src: url(/font/Playfair_Display/static/PlayfairDisplay-Regular.ttf);
+}
+
+@font-face {
+    font-family: PlayfairDisplay_Bold;
+    src: url(/font/Playfair_Display/static/PlayfairDisplay-Bold.ttf);
+}
+
+@font-face {
+    font-family: PlayfairDisplay_ExtraBold;
+    src: url(/font/Playfair_Display/static/PlayfairDisplay-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: PlayfairDisplay_Black;
+    src: url(/font/Playfair_Display/static/PlayfairDisplay-Black.ttf);
+}
+
+@font-face {
+    font-family: Gabriela;
+    src: url(/font/Gabriela/Gabriela-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #C4FBBC;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.six {
+    padding: 0 50px 20px;
+    text-align: center;
+  }
+
+  .six p {
+    font-family: Gabriela;
+    color: #0D504D;
+    text-transform: uppercase;
+    font-size: 32px;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: .4em 1em .55em;
+  }
+
+  .six p span {
+    display: flex;
+    align-items: center; /* Выравниваем текст по центру относительно картинки */
+    gap: 10px; /* Добавляем расстояние между картинкой и текстом */
+  }
+
+  .six p:before,
+  .six p:after {
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: .1em;
+    background: #FDB10B;
+  }
+
+  .six p:before {
+    left: 0;
+    top: 0;
+  }
+
+  .six p:after {
+    right: 0;
+    bottom: 0;
+  }
+
+  .six p span:before,
+  .six p span:after {
+    content: "";
+    position: absolute;
+    width: .65em;
+    height: .65em;
+    border: .1em solid #FDB10B;
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+
+  .six p span:before {
+    top: -.55em;
+    left: -.325em;
+  }
+
+  .six p span:after {
+    bottom: -.55em;
+    right: -.325em;
+  }
+
+.Playfair_Bold_24 {
+    font-family: PlayfairDisplay_Bold;
+    font-size: 20px;
+    color: #0D504D;
+
+    >span {
+        color:#FDB10B;
+        font-size: 22px;
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transform: scale(0.8);
+
+    a {
+        width: 100%;
+        text-decoration: underline;
+        font-family: PlayfairDisplay_Regular;
+        font-size: 16px;
+        color: #0D504D;
+        text-align: end;
+        margin-top: -15px;
+        margin-right: 25px;
+    }
+
+    >img {
+        width: 100%;
+    }
+    >div:nth-child(2) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+
+        div {
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            font-family: Gabriela;
+            color: #FDB10B;
+            font-size: 24px;
+            gap: 15px;
+            padding: 5px 15px;
+        }
+
+    }
+
+    >div:nth-child(3) {
+        font-family: PlayfairDisplay_Regular;
+        color: #0D504D;
+        font-size: 18px;
+        text-align: center;
+        border-bottom: 2px solid #0D504D;
+        border-top: 2px solid #0D504D;
+        padding: 15px 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+
+        button {
+            background-color: #FDB10B;
+            font-family: PlayfairDisplay_Black;
+            border: none;
+            border-radius: 22px;
+            padding: 16px 18px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0D504D;
+            color: #D9D9D9;
+        }
+    }
+
+}
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    >div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    button {
+        border: none;
+        background: none;
+    }
+    .image-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .initial-image,
+    .hover-image {
+        width:  60px;
+        height: auto;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .hover-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+
+    .image-container:hover .hover-image {
+        opacity: 1;
+    }
+
+    .image-container:hover .initial-image {
+        opacity: 0;
+    }
+
+    .button_review {
+        border: none;
+        background-color: #C4FBBC;
+        cursor: pointer;
+    }
+
+}
+
+
+  @media (max-width: 768px) {
+    .six p {
+      font-size: 2em;
+    }
+  }
