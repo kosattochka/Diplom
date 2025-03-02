@@ -1,18 +1,9 @@
 <div class="slider">
-    <button class="button_review" onclick="prev()">
-        <div class="image-container">
-            <img
-                src="/img/arrow-left-yellow.svg"
-                alt=""
-                class="initial-image"
-            />
-            <img
-                src="/img/arrow-left-green.svg"
-                alt=""
-                class="hover-image"
-            />
-        </div>
-    </button>
+    <div>
+        <button class="slide_button" onclick="prev()">
+            <img src="/img/arrow-left-yellow.svg" alt="" />
+            <img src="/img/arrow-left-green.svg" alt="" />
+        </button>
         <div class="slider-window">
             <div class="slide">
                 @for ($i=0; $i<count($elements); $i++)
@@ -24,19 +15,9 @@
                 @endfor
             </div>
         </div>
-        <button class="button_review" onclick="prev()">
-            <div class="image-container">
-                <img
-                    src="/img/arrow-right-yellow.svg"
-                    alt=""
-                    class="initial-image"
-                />
-                <img
-                    src="/img/arrow-right-green.svg"
-                    alt=""
-                    class="hover-image"
-                />
-            </div>
+        <button class="slide_button" onclick="prev()">
+                <img src="/img/arrow-right-yellow.svg" alt="" />
+                <img src="/img/arrow-right-green.svg" alt="" />
         </button>
     </div>
     <div>

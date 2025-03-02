@@ -41,7 +41,7 @@
                         'capasity' => '2',
                         'text' => 'Однокомнатный номер с возможностью размещения +1 человека (за доплату). Всего 59 номеров, расположенных на 1-3 этажах.',
                         'link' => ''
-                    ]) ->render();
+                    ])->render();
             @endphp
             <div class="six"><p><span><img src="/img/placement.svg" alt="">Проживание</span></p></div>
             @include('block.slider', [
