@@ -10,7 +10,7 @@
 @section('title') Главная @endsection
 
 @php
-    $card=view('element/card', [
+    $card =view('element/card', [
             'img' => '/img/standart.svg',
             'name' => 'Стандарт',
             'square' => '22',
@@ -18,6 +18,7 @@
             'text' => 'Однокомнатный номер с возможностью размещения +1 человека (за доплату). Всего 59 номеров, расположенных на 1-3 этажах.',
             'link' => ''
         ])->render();
+    $card = array_fill(0, 3, $card);
 
     $galleryTitle = [];
     for($i=0; $i<8; $i++){
@@ -57,12 +58,8 @@
             </div>
             <div class="six"><p><span><img src="/img/placement.svg" alt="">Проживание</span></p></div>
             @include('block.slider', [
-                'count' => 1,
-                'elements' => [
-                    $card,
-                    $card,
-                    $card
-                ]
+                'desktopCount' => 1,
+                'elements' => $card
             ])
             <div class="six"><p><span><img src="/img/gallery.svg" alt="">Галерея</span></p></div>
         </div>
@@ -131,7 +128,8 @@
         </div>
         @include('block.slider', [
             'id'=>2,
-            'count' => 2,
+            'desktopCount' => 2,
+            'mobileCount' => 1,
             'elements' => $galleryPhoto
         ])
     </div>
