@@ -43,15 +43,18 @@
     gap: 10px;
 
     > div {
-        max-width: 900px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
+        max-width: 80vw;
         overflow-y: scroll;
         scrollbar-width: 0;
         -ms-overflow-style: none;
+
+        > div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
     }
 
     > div::-webkit-scrollbar {
@@ -166,5 +169,10 @@ aside.mobail {
     aside {
         padding: 50px;
         width: 100%;
+    }
+
+    .gallery-button {
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 }

@@ -346,4 +346,21 @@ a {
             font-size: 25px;
         }
     }
+
+    .slider {
+        transform: scale(0.8);
+        margin-top: -40px;
+        padding-bottom: 0;
+
+        .slide_button {
+            display: none;
+        }
+        .slider-window {
+            padding: 20px;
+        }
+    }
+
+    .galleryPhoto {
+        width: 80vw;
+    }
 }

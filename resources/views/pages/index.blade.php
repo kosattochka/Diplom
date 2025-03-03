@@ -25,7 +25,7 @@
         $gallery_title[] = json_decode(json_encode(['alias'=>'zima'.$i,'text'=>'Зима']), false);
     }
 
-    $galleryPhoto=array_fill(0,10,'<img src="/img/luh.svg">');
+    $galleryPhoto=array_fill(0,10,'<img src="/img/luh.svg" class="galleryPhoto">');
 @endphp
 
 @section('main_content')
@@ -116,14 +116,16 @@
     <div id="bottom-content">
         <div class="gallery-button" id="gallery-button">
             <div>
-                @foreach ($gallery_title as $item)
-                    <a
-                        href="{{request()->url() . '?gallery=' . $item->alias .  '#gallery-button'}}"
-                        @if (request()->input('gallery') == $item->alias)
-                            style="background-color: #FDB10B;"
-                        @endif
-                    >{{$item->text}}</a>
-                @endforeach
+                <div>
+                    @foreach ($gallery_title as $item)
+                        <a
+                            href="{{request()->url() . '?gallery=' . $item->alias .  '#gallery-button'}}"
+                            @if (request()->input('gallery') == $item->alias)
+                                style="background-color: #FDB10B;"
+                            @endif
+                        >{{$item->text}}</a>
+                    @endforeach
+                </div>
             </div>
         </div>
         @include('block.slider', [

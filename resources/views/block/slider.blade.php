@@ -52,6 +52,7 @@
         for(let i = 0; i < max{{ $id ?? 1 }}; i++) {
             const dot = document.createElement('figure');
             dots.appendChild(dot);
+            dot.addEventListener('click', () => gotoSlide{{$id??1}}(i));
         }
         dots{{$id??1}} = dots.querySelectorAll('figure')
 
@@ -88,6 +89,12 @@
         colorFigure{{$id??1}}()
     }
 
+    function gotoSlide{{$id??1}}(index) {
+        if(index>=max{{$id??1}}) index=0;
+        count{{$id??1}} = index-1
+        next{{$id??1}}()
+    }
+
     function colorFigure{{$id??1}}() {
         for(let i=0;i<dots{{$id??1}}.length;i++) {
             if(i==count{{$id??1}}) {
@@ -98,7 +105,7 @@
             dots{{$id??1}}[i].style.backgroundColor = '#0d504d';
             let len = Math.abs(i-count{{$id??1}});
             let scale = 1 - 0.2*len;
-            scale = scale >= 0.2? scale : 0.2;
+            scale = scale >= 0.4? scale : 0.4;
             dots{{$id??1}}[i].style.transform = 'scale('+scale+')'
         }
     }
