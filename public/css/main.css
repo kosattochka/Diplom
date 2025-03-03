@@ -256,7 +256,8 @@ a {
             align-items: center;
             gap: 45px;
             transition: 0.3s;
-            /* transform: translateX(-370px); */
+            padding: 0 45px;
+            transform: translateX(-45px);
         }
     }
 

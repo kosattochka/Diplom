@@ -34,24 +34,27 @@
     const row = document.getElementById('row')
     const slide = document.getElementById('slide')
     const figure = document.querySelectorAll('.slider figure')
-    slideWindow.style.width = slide.offsetWidth + 'px'
-    slideWindow.style.height = slide.offsetHeight + 'px'
-
     var count = 0
     var max = {{ceil(count($elements)/$count)}}
-    colorFigure()
+
+    setTimeout(()=>{
+        slideWindow.style.width = slide.offsetWidth + 'px'
+        slideWindow.style.height = slide.offsetHeight + 'px'
+
+        colorFigure()
+    }, 200)
 
     function next() {
         count++
         if(count>=max) count=0;
-        row.style.transform = 'translateX(-' + (slide.offsetWidth * count) + 'px)'
+        row.style.transform = 'translateX(-' + ((slide.offsetWidth + 45) * count+45) + 'px)'
         colorFigure()
     }
 
     function prev() {
         count--
         if(count<0) count=max-1
-        row.style.transform = 'translateX(-' + (slide.offsetWidth * count) + 'px)'
+        row.style.transform = 'translateX(-' + ((slide.offsetWidth + 45) * count+45) + 'px)'
         colorFigure()
     }
 
