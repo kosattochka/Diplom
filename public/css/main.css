@@ -280,6 +280,59 @@ a {
         background-color: #0d504d;
         transition: 0.3s;
     }
+
+}
+
+.new-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    span {
+        font-family: PlayfairDisplay_Regular;
+        color: #0d504d;
+        font-size: 20px;
+        text-align: start;
+    }
+
+    h1 {
+        color: #0d504d;
+        font-family: Gabriela;
+        text-transform: uppercase;
+        font-weight: normal;
+        margin: 0;
+        font-size: 22px;
+        text-align: start;
+    }
+
+    figure {
+        width: 100%;
+        height: 35px;
+        background-color: #FDB10B;
+        margin: 0 10px 0 0;
+    }
+
+    .row {
+        width: 100%;
+    }
+
+    > div:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    button {
+        background-color: #0d504d;
+        color: white;
+        font-family: PlayfairDisplay_Regular;
+        border: none;
+        border-radius: 15px;
+        padding: 10px 30px;
+        margin-top: 10px;
+    }
 }
 
 @media (max-width: 768px) {

@@ -42,6 +42,8 @@
                         'text' => 'Однокомнатный номер с возможностью размещения +1 человека (за доплату). Всего 59 номеров, расположенных на 1-3 этажах.',
                         'link' => ''
                     ])->render();
+                $gallery_title=array_fill(0,8,'Зима');
+                $galleryPhoto=array_fill(0,10,'<img src="/img/luh.svg">');
             @endphp
             <div class="six"><p><span><img src="/img/placement.svg" alt="">Проживание</span></p></div>
             @include('block.slider', [
@@ -52,6 +54,7 @@
                     $card
                 ]
             ])
+            <div class="six"><p><span><img src="/img/gallery.svg" alt="">Галерея</span></p></div>
         </div>
 
         <aside>
@@ -86,18 +89,32 @@
                     <span>Оценка в 2gis</span>
                 </a>
             </div>
-            <div class="New-block">
+            <div class="new-block">
                 <h1>Новости</h1>
-                <img src="/img/new-foto.svg" alt="">
-                <div class="row">
-                    <figure></figure>
-                    <span>27.12.24</span>
-                </div>
-                <h1>Идеальный зимний уикенд</h1>
-                <span>Зима — время для снежных пейзажей, активного отдыха и уютных вечеров у камина. Как совместить спорт, отдых и комфорт?</span>
-                <button>Подробнее</button>
+                @include('element.new-card', [
+                    'img' => '/img/new-foto.svg',
+                    'date' => '27.12.24',
+                    'title' => 'Идеальный зимний уикенд',
+                    'text' => 'Зима — время для снежных пейзажей, активного отдыха и уютных вечеров у камина. Как совместить спорт, отдых и комфорт?'
+                ])
+                @include('element.new-card', [
+                    'img' => '/img/new-foto.svg',
+                    'date' => '27.12.24',
+                    'title' => 'Идеальный зимний уикенд',
+                    'text' => 'Зима — время для снежных пейзажей, активного отдыха и уютных вечеров у камина. Как совместить спорт, отдых и комфорт?'
+                ])
             </div>
-
         </aside>
     </div>
+    <div class="gallery-button">
+        <div>
+            @foreach ($gallery_title as $item)
+                <a>{{$item}}</a>
+            @endforeach
+        </div>
+    </div>
+    @include('block.slider', [
+        'count' => 2,
+        'elements' => $galleryPhoto
+    ])
 @endsection
