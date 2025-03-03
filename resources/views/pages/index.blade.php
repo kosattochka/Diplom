@@ -1,10 +1,31 @@
 @extends('block.pattern')
+
 @section('links')
 <link href="https://api.rusmeteo.net/service/informers/css/widget-square.min.css" rel="stylesheet" type="text/css">
 <script async src="https://rusmeteo.net/api/informerV2/95d57fa976e77852942d0bd424383de2/" type="text/javascript"></script>
 <link rel="stylesheet" href="/css/index.css">
 @endsection
+
 @section('title') Главная @endsection
+
+@php
+    $card=view('element/card', [
+            'img' => '/img/standart.svg',
+            'name' => 'Стандарт',
+            'square' => '22',
+            'capasity' => '2',
+            'text' => 'Однокомнатный номер с возможностью размещения +1 человека (за доплату). Всего 59 номеров, расположенных на 1-3 этажах.',
+            'link' => ''
+        ])->render();
+
+    $galleryTitle = [];
+    for($i=0; $i<8; $i++){
+        $gallery_title[] = json_decode(json_encode(['alias'=>'zima'.$i,'text'=>'Зима']), false);
+    }
+
+    $galleryPhoto=array_fill(0,10,'<img src="/img/luh.svg">');
+@endphp
+
 @section('main_content')
     @include('block.header', [
         'active' => 0
@@ -33,18 +54,6 @@
                     </span>
                 </div>
             </div>
-            @php
-               $card=view('element/card', [
-                        'img' => '/img/standart.svg',
-                        'name' => 'Стандарт',
-                        'square' => '22',
-                        'capasity' => '2',
-                        'text' => 'Однокомнатный номер с возможностью размещения +1 человека (за доплату). Всего 59 номеров, расположенных на 1-3 этажах.',
-                        'link' => ''
-                    ])->render();
-                $gallery_title=array_fill(0,8,'Зима');
-                $galleryPhoto=array_fill(0,10,'<img src="/img/luh.svg">');
-            @endphp
             <div class="six"><p><span><img src="/img/placement.svg" alt="">Проживание</span></p></div>
             @include('block.slider', [
                 'count' => 1,
@@ -106,10 +115,15 @@
             </div>
         </aside>
     </div>
-    <div class="gallery-button">
+    <div class="gallery-button" id="gallery-button">
         <div>
             @foreach ($gallery_title as $item)
-                <a>{{$item}}</a>
+                <a
+                    href="{{request()->url() . '?gallery=' . $item->alias .  '#gallery-button'}}"
+                    @if (request()->input('gallery') == $item->alias)
+                        style="background-color: #FDB10B;"
+                    @endif
+                >{{$item->text}}</a>
             @endforeach
         </div>
     </div>
