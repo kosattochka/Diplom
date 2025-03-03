@@ -117,4 +117,8 @@
         'count' => 2,
         'elements' => $galleryPhoto
     ])
+    @include('block.footer', [
+
+    ]
+    )
 @endsection
