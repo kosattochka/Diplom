@@ -114,6 +114,7 @@
         </div>
     </div>
     @include('block.slider', [
+        'id'=>2,
         'count' => 2,
         'elements' => $galleryPhoto
     ])
