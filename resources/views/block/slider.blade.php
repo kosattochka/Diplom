@@ -67,7 +67,9 @@
             }
             figure{{$id??1}}[i].style.backgroundColor = '#0d504d';
             let len = Math.abs(i-count{{$id??1}});
-            figure{{$id??1}}[i].style.transform = 'scale('+(1 - 0.2*len)+')'
+            let scale = 1 - 0.2*len;
+            scale = scale >= 0.2? scale : 0.2;
+            figure{{$id??1}}[i].style.transform = 'scale('+scale+')'
         }
     }
 </script>
