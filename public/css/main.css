@@ -311,6 +311,10 @@ a {
         margin: 0 10px 0 0;
     }
 
+    img {
+        width: 100%;
+    }
+
     .row {
         width: 100%;
     }
@@ -335,7 +339,11 @@ a {
 }
 
 @media (max-width: 768px) {
-    .six p {
-        font-size: 2em;
+    .six {
+        padding: 0 0 20px;
+
+        p {
+            font-size: 25px;
+        }
     }
 }

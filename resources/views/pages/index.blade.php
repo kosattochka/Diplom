@@ -1,9 +1,10 @@
 @extends('block.pattern')
 
 @section('links')
-<link href="https://api.rusmeteo.net/service/informers/css/widget-square.min.css" rel="stylesheet" type="text/css">
-<script async src="https://rusmeteo.net/api/informerV2/95d57fa976e77852942d0bd424383de2/" type="text/javascript"></script>
-<link rel="stylesheet" href="/css/index.css">
+    <link href="https://api.rusmeteo.net/service/informers/css/widget-square.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script async src="https://rusmeteo.net/api/informerV2/95d57fa976e77852942d0bd424383de2/" type="text/javascript"></script>
+    <script defer src="/js/aside-index.js"></script>
 @endsection
 
 @section('title') Главная @endsection
@@ -115,21 +116,23 @@
             </div>
         </aside>
     </div>
-    <div class="gallery-button" id="gallery-button">
-        <div>
-            @foreach ($gallery_title as $item)
-                <a
-                    href="{{request()->url() . '?gallery=' . $item->alias .  '#gallery-button'}}"
-                    @if (request()->input('gallery') == $item->alias)
-                        style="background-color: #FDB10B;"
-                    @endif
-                >{{$item->text}}</a>
-            @endforeach
+    <div id="bottom-content">
+        <div class="gallery-button" id="gallery-button">
+            <div>
+                @foreach ($gallery_title as $item)
+                    <a
+                        href="{{request()->url() . '?gallery=' . $item->alias .  '#gallery-button'}}"
+                        @if (request()->input('gallery') == $item->alias)
+                            style="background-color: #FDB10B;"
+                        @endif
+                    >{{$item->text}}</a>
+                @endforeach
+            </div>
         </div>
+        @include('block.slider', [
+            'id'=>2,
+            'count' => 2,
+            'elements' => $galleryPhoto
+        ])
     </div>
-    @include('block.slider', [
-        'id'=>2,
-        'count' => 2,
-        'elements' => $galleryPhoto
-    ])
 @endsection
