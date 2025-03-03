@@ -255,7 +255,9 @@ a {
             flex-direction: row;
             align-items: center;
             gap: 45px;
-            /* transform: translateX(-370px); */
+            transition: 0.3s;
+            padding: 0 45px;
+            transform: translateX(-45px);
         }
     }
 
@@ -276,10 +278,9 @@ a {
         height: 30px;
         border-radius: 50px;
         background-color: #0d504d;
+        transition: 0.3s;
     }
 }
-
-
 
 @media (max-width: 768px) {
     .six p {

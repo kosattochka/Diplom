@@ -5,14 +5,14 @@
             <img src="/img/arrow-left-green.svg" alt="" />
         </button>
         <div class="slider-window">
-            <div id="slider_row">
+            <div id="row">
                 <div class="slide" id="slide">
-                    @for ($i=0; $i<count($elements); $i++)
+                    @for ($i=1; $i<=count($elements); $i++)
+                        {!!$elements[$i-1]!!}
                         @if (is_int($i/$count))
                             </div>
                             <div class="slide">
                         @endif
-                        {!!$elements[$i]!!}
                     @endfor
                 </div>
             </div>
@@ -30,29 +30,44 @@
 </div>
 
 <script defer>
-    // const slide = document.querySelector('.slide')
-    const slider_window = document.querySelector('.slider-window')
-    slider_window.style.width=slide.clientWidth+'px'
-    slider_window.style.height=slide.clientHeight+'px'
+    const slideWindow = document.querySelector('.slider-window')
+    const row = document.getElementById('row')
+    const slide = document.getElementById('slide')
+    const figure = document.querySelectorAll('.slider figure')
+    var count = 0
+    var max = {{ceil(count($elements)/$count)}}
 
-    var slider = 1
-    var count = {{ceil(count($elements)/$count)}}
+    setTimeout(()=>{
+        slideWindow.style.width = slide.offsetWidth + 'px'
+        slideWindow.style.height = slide.offsetHeight + 'px'
+
+        colorFigure()
+    }, 200)
 
     function next() {
-        slider++
-        if (slider > count) {
-            slider = 1
-        }
-        slider_row.style.transform = 'translateX(-'+(slide.clientWidth*(slider-1))+'px)'
-
+        count++
+        if(count>=max) count=0;
+        row.style.transform = 'translateX(-' + ((slide.offsetWidth + 45) * count+45) + 'px)'
+        colorFigure()
     }
 
-    function prex() {
-        slider--
-        if (slider < 1) {
-            slider = count
-        }
-        slider_row.style.transform = 'translateX(-'+(slide.clientWidth*(slider-1))+'px)'
+    function prev() {
+        count--
+        if(count<0) count=max-1
+        row.style.transform = 'translateX(-' + ((slide.offsetWidth + 45) * count+45) + 'px)'
+        colorFigure()
+    }
 
+    function colorFigure() {
+        for(let i=0;i<figure.length;i++) {
+            if(i==count) {
+                figure[i].style.backgroundColor = '#fdb10b';
+                figure[i].style.transform = 'scale(1)'
+                continue;
+            }
+            figure[i].style.backgroundColor = '#0d504d';
+            let len = Math.abs(i-count);
+            figure[i].style.transform = 'scale('+(1 - 0.2*len)+')'
+        }
     }
 </script>
