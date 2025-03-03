@@ -37,33 +37,33 @@
     slideWindow.style.width = slide.offsetWidth + 'px'
     slideWindow.style.height = slide.offsetHeight + 'px'
 
-    var slider = 0
+    var count = 0
     var max = {{ceil(count($elements)/$count)}}
     colorFigure()
 
     function next() {
-        slider++
-        if(slider>=max) slider=0;
-        row.style.transform = 'translateX(-' + (slide.offsetWidth * slider) + 'px)'
+        count++
+        if(count>=max) count=0;
+        row.style.transform = 'translateX(-' + (slide.offsetWidth * count) + 'px)'
         colorFigure()
     }
 
     function prev() {
-        slider--
-        if(slider<0) slider=max-1
-        row.style.transform = 'translateX(-' + (slide.offsetWidth * slider) + 'px)'
+        count--
+        if(count<0) count=max-1
+        row.style.transform = 'translateX(-' + (slide.offsetWidth * count) + 'px)'
         colorFigure()
     }
 
     function colorFigure() {
         for(let i=0;i<figure.length;i++) {
-            if(i==slider) {
+            if(i==count) {
                 figure[i].style.backgroundColor = '#fdb10b';
                 figure[i].style.transform = 'scale(1)'
                 continue;
             }
             figure[i].style.backgroundColor = '#0d504d';
-            let len = Math.abs(i-slider);
+            let len = Math.abs(i-count);
             figure[i].style.transform = 'scale('+(1 - 0.2*len)+')'
         }
     }
