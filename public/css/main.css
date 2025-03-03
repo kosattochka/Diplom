@@ -132,7 +132,6 @@ a {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    transform: scale(0.8);
 
     a {
         width: 100%;
@@ -237,6 +236,32 @@ a {
 
     .slide_button:hover img:nth-child(1) {
         opacity: 0;
+    }
+
+    .slider-window {
+        width: 420px;
+        height: 602px;
+        overflow: hidden;
+    }
+
+    #row {
+        display: flex;
+        flex-direction: row;
+        transition: 0.3s;
+    }
+
+    .slide {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    figure {
+        width: 30px;
+        height: 30px;
+        background-color: #0d504d;
+        border-radius: 50%;
+        transition: 0.3s;
     }
 }
 

@@ -45,7 +45,7 @@
             @endphp
             <div class="six"><p><span><img src="/img/placement.svg" alt="">Проживание</span></p></div>
             @include('block.slider', [
-                'count' => 1,
+                'count' => 2,
                 'elements' => [
                     $card,
                     $card,
