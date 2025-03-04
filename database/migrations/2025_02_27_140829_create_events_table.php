@@ -20,9 +20,9 @@ return new class extends Migration
             $table->text('short_description');
             $table->text('description');
             $table->text('detailed');
+
             $table->integer('sort') -> default(0);
             $table->integer('vis') ->default(0);
-
             $table->timestamp('limit_date')->nullable();
             $table->boolean('active')->default(true)->nullable();
         });

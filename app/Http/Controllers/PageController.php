@@ -30,12 +30,13 @@ class PageController extends Controller
             ->get();
 
         $news = News::query()
-            ->orderBy('created_at')
+            ->orderBy('date')
             ->get()
             ->take(2);
+
         $album = Album::query()
             ->where('alias', request('gallery'))
-            ->first()
+            ->firstOrFail()
             ->photos;
         $album = json_decode($album);
         return view('pages.index');
