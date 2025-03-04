@@ -18,7 +18,9 @@ class Event extends Model
         'description',
         'detailed',
         'limit_date',
-        'active'
+        'active',
+        'sort',
+        'vis'
     ];
 
     public function paragraphs () {
