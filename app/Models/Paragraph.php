@@ -19,4 +19,8 @@ class Paragraph extends Model
     ];
 
     public $timestamps = false;
+
+    public function parent() {
+        return $this->morphTo(__FUNCTION__, 'table', 'parent_id');
+    }
 }

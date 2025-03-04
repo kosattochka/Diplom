@@ -18,8 +18,14 @@ class Event extends Model
         'description',
         'detailed',
         'limit_date',
-        'active'
+        'active',
+        'sort',
+        'vis'
     ];
 
     public $timestamps = false;
+
+    public function paragraphs () {
+        return $this -> morphMany(Paragraph::class, 'table', 'parent_id');
+    }
 }
