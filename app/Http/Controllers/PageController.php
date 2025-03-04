@@ -11,10 +11,11 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function index () {
-        if(!request()->has('gallery')) {
+    public function index()
+    {
+        if (!request()->has('gallery')) {
             $album = Album::first();
-            return redirect('/?gallery='.$album->alias);
+            return redirect('/?gallery=' . $album->alias);
         }
 
         $contact = Contact::query()
@@ -41,5 +42,4 @@ class PageController extends Controller
         $album = json_decode($album);
         return view('pages.index');
     }
-
 }
