@@ -16,4 +16,6 @@ class News extends Model
         'short_description',
         'date'
     ];
+
+    public $timestamps = false;
 }

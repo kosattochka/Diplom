@@ -19,7 +19,7 @@ class ContactSeeder extends Seeder
                 'telegram'=>'https://t.me/Pavlovskij_Park',
                 'phone'=>'8 (800) 600-93-44',
                 'email' => 'pavlovpark@yandex.ru',
-                'address' => 'г. Уфа, ул. Российская, 98/2',
+                'address_office' => 'г. Уфа, ул. Российская, 98/2',
                 'address_place' => 'Республика Башкортостан, Нуримановский район, 7 км от села Павловка.',
                 'mail_index' => '450098',
                 'operator' => '+7 (987) 621-27-25',

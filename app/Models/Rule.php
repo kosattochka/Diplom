@@ -18,4 +18,6 @@ class Rule extends Model
         'vis',
         'sort'
     ];
+
+    public $timestamps = false;
 }

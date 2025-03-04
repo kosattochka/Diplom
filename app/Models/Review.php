@@ -17,4 +17,6 @@ class Review extends Model
         'stars',
         'vis'
     ];
+
+    public $timestamps = false;
 }

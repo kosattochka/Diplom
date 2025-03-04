@@ -1,0 +1,43 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Album;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Album>
+ */
+class AlbumFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        $title = $this->faker->word();
+        $alias = $this->generateUniqueAlias(Str::slug($title));
+        return [
+            'title' => $title,
+            'alias' => $alias,
+            'description' => $this->faker->text,
+            'photos' => json_encode(array_fill(0, 8, $this->faker->imageUrl(437, 291)))
+        ];
+    }
+
+    protected function generateUniqueAlias(string $alias): string
+    {
+        $attempt = 0;
+        $newAlias = $alias;
+
+        while (Album::where('alias', $newAlias)->exists()) {
+            $attempt++;
+            $newAlias = '' . $alias . $attempt;
+        }
+
+        return $newAlias;
+    }
+}

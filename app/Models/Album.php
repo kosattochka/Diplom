@@ -17,4 +17,6 @@ class Album extends Model
         'sort',
         'photos'
     ];
+
+    public $timestamps = false;
 }

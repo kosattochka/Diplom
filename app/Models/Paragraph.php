@@ -17,4 +17,6 @@ class Paragraph extends Model
         'sort',
         'vis'
     ];
+
+    public $timestamps = false;
 }

@@ -20,4 +20,6 @@ class Event extends Model
         'limit_date',
         'active'
     ];
+
+    public $timestamps = false;
 }

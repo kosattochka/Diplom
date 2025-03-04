@@ -14,11 +14,13 @@ class Service extends Model
         'alias',
         'description',
         'parent_id',
-        'short_description',
+        'page_description',
         'page_heading',
         'table_price',
         'page_text',
         'vis',
         'sort'
     ];
+
+    public $timestamps = false;
 }
