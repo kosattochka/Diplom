@@ -42,6 +42,9 @@ body {
     margin: 0;
     overflow-x: hidden;
 }
+body.modal-open {
+    overflow: hidden;
+}
 
 a {
     text-decoration: none;
@@ -50,63 +53,58 @@ a {
 .six {
     padding: 0 50px 20px;
     text-align: center;
-}
 
-.six p {
-    font-family: Gabriela;
-    color: #0d504d;
-    text-transform: uppercase;
-    font-size: 32px;
-    position: relative;
-    display: inline-block;
-    margin: 0;
-    padding: 0.4em 1em 0.55em;
-}
+    p {
+        font-family: Gabriela;
+        color: #0d504d;
+        text-transform: uppercase;
+        font-size: 32px;
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding: 0.4em 1em 0.55em;
 
-.six p span {
-    display: flex;
-    align-items: center; /* Выравниваем текст по центру относительно картинки */
-    gap: 10px; /* Добавляем расстояние между картинкой и текстом */
-}
+        span {
+            display: flex;
+            align-items: center; /* Выравниваем текст по центру относительно картинки */
+            gap: 10px; /* Добавляем расстояние между картинкой и текстом */
+        }
 
-.six p:before,
-.six p:after {
-    content: "";
-    position: absolute;
-    width: 60%;
-    height: 0.1em;
-    background: #fdb10b;
-}
-
-.six p:before {
-    left: 0;
-    top: 0;
-}
-
-.six p:after {
-    right: 0;
-    bottom: 0;
-}
-
-.six p span:before,
-.six p span:after {
-    content: "";
-    position: absolute;
-    width: 0.65em;
-    height: 0.65em;
-    border: 0.1em solid #fdb10b;
-    border-radius: 50%;
-    box-sizing: border-box;
-}
-
-.six p span:before {
-    top: -0.55em;
-    left: -0.325em;
-}
-
-.six p span:after {
-    bottom: -0.55em;
-    right: -0.325em;
+        span:before,
+        span:after {
+            content: "";
+            position: absolute;
+            width: 0.65em;
+            height: 0.65em;
+            border: 0.1em solid #fdb10b;
+            border-radius: 50%;
+            box-sizing: border-box;
+        }
+        span:before {
+            top: -0.55em;
+            left: -0.325em;
+        }
+        span:after {
+            bottom: -0.55em;
+            right: -0.325em;
+        }
+    }
+    p:before,
+    p:after {
+        content: "";
+        position: absolute;
+        width: 60%;
+        height: 0.1em;
+        background: #fdb10b;
+    }
+    p:before {
+        left: 0;
+        top: 0;
+    }
+    p:after {
+        right: 0;
+        bottom: 0;
+    }
 }
 
 .Playfair_Bold_24 {
