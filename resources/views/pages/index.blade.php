@@ -136,4 +136,11 @@
             'elements' => $galleryPhoto
         ])
     </div>
+    @include('block.footer', [
+        'phone' => '8 (800) 600-93-44',
+        'telegram' => 'https://t.me/Pavlovskij_Park',
+        'vk' => 'https://vk.com/club23119361',
+        'email' => 'pavlovpark@yandex.ru',
+        'address' => 'г. Уфа, ул. Российская, 98/2'
+    ])
 @endsection

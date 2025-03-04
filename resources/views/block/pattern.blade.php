@@ -8,6 +8,7 @@
     @yield('links')
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
 </head>
 <body>
     @yield('main_content')
