@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/css/index.css">
     <script async src="https://rusmeteo.net/api/informerV2/95d57fa976e77852942d0bd424383de2/" type="text/javascript"></script>
     <script defer src="/js/aside-index.js"></script>
+    <script defer src="/js/slider.js"></script>
 @endsection
 
 @section('title') Главная @endsection
