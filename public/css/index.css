@@ -47,14 +47,11 @@
         overflow-y: scroll;
         scrollbar-width: 0;
         -ms-overflow-style: none;
-
-        > div {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        gap: 10px;
     }
 
     > div::-webkit-scrollbar {
