@@ -18,4 +18,8 @@ class Rule extends Model
         'vis',
         'sort'
     ];
+
+    public function paragraphs () {
+        return $this -> morphMany(Paragraph::class, 'table', 'parent_id');
+    }
 }

@@ -21,4 +21,12 @@ class Service extends Model
         'vis',
         'sort'
     ];
+
+    public function child () {
+        return $this -> hasMany(Service::class);
+    }
+    public function parent () {
+        return $this -> belongsTo(Service::class);
+    }
+
 }

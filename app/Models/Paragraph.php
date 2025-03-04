@@ -17,4 +17,8 @@ class Paragraph extends Model
         'sort',
         'vis'
     ];
+
+    public function parent() {
+        return $this->morphTo(__FUNCTION__, 'table', 'parent_id');
+    }
 }

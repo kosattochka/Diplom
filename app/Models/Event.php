@@ -20,4 +20,8 @@ class Event extends Model
         'limit_date',
         'active'
     ];
+
+    public function paragraphs () {
+        return $this -> morphMany(Paragraph::class, 'table', 'parent_id');
+    }
 }

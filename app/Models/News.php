@@ -16,4 +16,9 @@ class News extends Model
         'short_description',
         'date'
     ];
+
+    public function paragraphs () {
+        return $this -> morphMany(Paragraph::class, 'table', 'parent_id');
+    }
+
 }
