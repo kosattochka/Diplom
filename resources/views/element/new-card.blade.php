@@ -9,6 +9,6 @@
         </div>
         <h1>{{$title}}</h1>
         <span>{{$text}}</span>
-        <button>Подробнее</button>
+        <a href="{{$link}}">Подробнее</a>
     </div>
 </div>

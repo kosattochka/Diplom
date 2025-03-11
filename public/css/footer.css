@@ -8,6 +8,7 @@ footer {
     display: flex;
     flex-direction: row;
     gap: 80px;
+    margin-top: 60px;
 
     .footer-content {
         display: flex;
@@ -51,6 +52,8 @@ footer {
             align-items: center;
             justify-content: start;
             gap: 10px;
+
+
         }
     }
 
