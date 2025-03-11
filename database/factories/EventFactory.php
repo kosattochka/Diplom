@@ -21,7 +21,7 @@ class EventFactory extends Factory
         $title = $this->faker->sentence;
         $alias = $this->generateUniqueAlias(Str::slug($title));
         return [
-            'img' => $this->faker->imageUrl(496,318),
+            'img' => $this->faker->imageUrl(496, 318),
             'title' => $title,
             'alias' => $alias,
             'slogan' => $this->faker->sentence,
@@ -29,7 +29,8 @@ class EventFactory extends Factory
             'description' => $this->faker->text(),
             'detailed' => $this->faker->text(),
             'limit_date' => $this->faker->date(),
-            'active' => $this->faker->boolean
+            'active' => $this->faker->boolean,
+            'vis' => 1
         ];
     }
 
