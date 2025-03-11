@@ -156,43 +156,54 @@ header {
 }
 
 .baner-content-placement {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
     padding-left: 180px;
-    padding-top: 220px;
+    padding-top: 180px;
 
 
     span {
+        display: block;
+        text-align: center;
+        width: 100%;
         font-family: Gabriela;
         font-size: 32px;
         color: #FDB10B;
-
     }
 
     .rectangle-white-container {
-    width: 90%;
-    background-color: white;
-    border-radius: 34px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень */
-    padding: 20px 20px; /* Внутренние отступы (10px сверху/снизу, 20px слева/справа) */
-
-    span {
+        width: 90%;
+        background-color: white;
+        border-radius: 34px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень */
+        padding: 20px 20px; /* Внутренние отступы (10px сверху/снизу, 20px слева/справа) */
         font-family: PlayfairDisplay_Bold;
         font-size: 24px;
-        color:#0D504D;
 
-        a {
-            color: #FDB10B;
-            text-decoration: underline;
+        p {
+            color:#0D504D;
+
+            a {
+                color: #FDB10B;
+                text-decoration: underline;
+            }
+
+            a:hover {
+                color: #00847E;
+            }
         }
 
-        a:hover {
-            color: #00847E;
-        }
     }
-}
 
 }
 
 @media (max-width: 768px) {
+
+    header {
+        padding-bottom: 40px;
+    }
+
     .header-logo.mobile {
         display: block;
     }
@@ -319,7 +330,20 @@ header {
         background-color: rgba(0, 0, 0, 0.5);
     }
 
+    .baner-content-placement {
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 0;
+        gap: 30px;
+
+        .rectangle-white-container {
+            width: 100%;
+            font-size: 20px;
+        }
+    }
 }
+
 
 @media (max-width: 550px) {
     .burger-footer > img {

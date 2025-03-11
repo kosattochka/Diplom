@@ -31,14 +31,17 @@
 
 @section('main_content')
     @include('block.header', [
-        'active' => 0
+        'active' => 0,
+        'phone' =>$contacts->phone,
+        'telegram' =>$contacts->telegram,
+        'vk' =>$contacts->vk
     ])
     <div class="web-content">
         <div>
             <div class="six"><p><span><img src="/img/icon-certificate.svg" alt="">Подарочный сертификат</span></p></div>
             <div class="certificate-block">
                 <div>
-                    <img src="/img/certificate.svg" alt="">
+                    <img src="{{$certificate}}" alt="">
                     <span class="Playfair_Bold_24">
                         Приглашаем в уютный
                         <span>«Павловский Парк»</span>
@@ -135,10 +138,10 @@
         ])
     </div>
     @include('block.footer', [
-        'phone' => '8 (800) 600-93-44',
-        'telegram' => 'https://t.me/Pavlovskij_Park',
-        'vk' => 'https://vk.com/club23119361',
-        'email' => 'pavlovpark@yandex.ru',
-        'address' => 'г. Уфа, ул. Российская, 98/2'
+        'phone' =>$contacts->phone,
+        'telegram' =>$contacts->telegram,
+        'vk' =>$contacts->vk,
+        'email' =>$contacts->email,
+        'address' =>$contacts->address_office
     ])
 @endsection

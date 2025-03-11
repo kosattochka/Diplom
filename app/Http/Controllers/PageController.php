@@ -40,6 +40,9 @@ class PageController extends Controller
             ->firstOrFail()
             ->photos;
         $album = json_decode($album);
-        return view('pages.index');
+        return view('pages.index', [
+            'contacts' => $contact,
+            'certificate' => $event->img
+        ]);
     }
 }
