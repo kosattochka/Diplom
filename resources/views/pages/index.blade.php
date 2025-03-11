@@ -32,9 +32,9 @@
 @section('main_content')
     @include('block.header', [
         'active' => 0,
-        'phone' =>$contacts->phone,
-        'telegram' =>$contacts->telegram,
-        'vk' =>$contacts->vk
+        'phone' =>$contacts['phone'],
+        'telegram' =>$contacts['telegram'],
+        'vk' =>$contacts['vk']
     ])
     <div class="web-content">
         <div>
@@ -102,18 +102,8 @@
             </div>
             <div class="new-block">
                 <h1>Новости</h1>
-                @include('element.new-card', [
-                    'img' => '/img/new-foto.svg',
-                    'date' => '27.12.24',
-                    'title' => 'Идеальный зимний уикенд',
-                    'text' => 'Зима — время для снежных пейзажей, активного отдыха и уютных вечеров у камина. Как совместить спорт, отдых и комфорт?'
-                ])
-                @include('element.new-card', [
-                    'img' => '/img/new-foto.svg',
-                    'date' => '27.12.24',
-                    'title' => 'Идеальный зимний уикенд',
-                    'text' => 'Зима — время для снежных пейзажей, активного отдыха и уютных вечеров у камина. Как совместить спорт, отдых и комфорт?'
-                ])
+                @include('element.new-card', $news[0])
+                @include('element.new-card', $news [1])
             </div>
         </aside>
     </div>
@@ -138,10 +128,10 @@
         ])
     </div>
     @include('block.footer', [
-        'phone' =>$contacts->phone,
-        'telegram' =>$contacts->telegram,
-        'vk' =>$contacts->vk,
-        'email' =>$contacts->email,
-        'address' =>$contacts->address_office
+        'phone' =>$contacts['phone'],
+        'telegram' =>$contacts['telegram'],
+        'vk' =>$contacts['vk'],
+        'email' =>$contacts['email'],
+        'address' =>$contacts['address_office']
     ])
 @endsection

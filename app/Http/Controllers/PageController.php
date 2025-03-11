@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Card\NewResource;
 use App\Models\Album;
 use App\Models\Contact;
 use App\Models\Event;
@@ -40,9 +41,10 @@ class PageController extends Controller
             ->firstOrFail()
             ->photos;
         $album = json_decode($album);
-        return view('pages.index', [
+        return view('pages.index', $this->convertObject([
             'contacts' => $contact,
-            'certificate' => $event->img
-        ]);
+            'certificate' => $event->img,
+            'news' => NewResource::collection($news)
+        ]));
     }
 }
