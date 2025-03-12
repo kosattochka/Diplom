@@ -5,7 +5,10 @@
 @section('title') Услуги @endsection
 @section('main_content')
     @include('block.header', [
-        'active' => 2
+        'active' => 2,
+        'phone' => '8 (800) 600-93-44',
+        'telegram' => 'https://t.me/Pavlovskij_Park',
+        'vk' => 'https://vk.com/club23119361',
     ])
 
     <div class="service-container">

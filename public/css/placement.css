@@ -13,13 +13,18 @@
 .card-placement {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
     gap: 15px;
+    padding-top: 50px;
+
+    .card {
+        height: auto;
+    }
 }
 
 @media (max-width: 768px) {
     .card-placement {
         flex-direction: column;
+        align-items: center;
     }
 }
