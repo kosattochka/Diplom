@@ -21,11 +21,11 @@ class RuleFactory extends Factory
         $title = $this->faker->sentence;
         $alias = $this->generateUniqueAlias(Str::slug($title));
         return [
-            'title'=> $title,
+            'title' => $title,
             'alias' => $alias,
-            'img' => $this->faker->imageUrl(496,318),
-            'short_description'=>$this->faker->sentence(12),
-            'page_description'=> $this->faker->text(),
+            'img' => $this->randomImg(),
+            'short_description' => $this->faker->sentence(12),
+            'page_description' => $this->faker->text(),
         ];
     }
 
@@ -39,5 +39,23 @@ class RuleFactory extends Factory
         }
 
         return $newAlias;
+    }
+
+    protected function randomImg(): string
+    {
+        $path = [
+            'image(1).png',
+            'image(2).png',
+            'image(3).png',
+            'image(4).png',
+            'image(5).png',
+            'image(6).png',
+            'image(7).png',
+            'image(8).png',
+            'image(9).png',
+            'image(10).png',
+        ];
+
+        return '/img/rules/' . $path[array_rand($path)];
     }
 }

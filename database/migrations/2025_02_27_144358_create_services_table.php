@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('alias')->unique();
+            $table->string('img');
             $table->text('description');
             $table->foreignId('parent_id')->nullable()->constrained('services')->cascadeOnDelete();
 

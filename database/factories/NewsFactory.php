@@ -23,7 +23,7 @@ class NewsFactory extends Factory
         return [
             'title' => $title,
             'alias' => $alias,
-            'img' => $this->faker->imageUrl(437, 291),
+            'img' => $this->randomImg(),
             'short_description' => $this->faker->text(),
             'date' => $this->faker->date
         ];
@@ -38,9 +38,18 @@ class NewsFactory extends Factory
             $attempt++;
             $newAlias = '' . $alias . $attempt;
         }
-        if(News::where('alias', $newAlias)->exists())
+        if (News::where('alias', $newAlias)->exists())
             dd($newAlias, $attempt);
 
         return $newAlias;
+    }
+
+    protected function randomImg(): string
+    {
+        $path = [
+            'image2.png',
+        ];
+
+        return '/img/news/' . $path[array_rand($path)];
     }
 }

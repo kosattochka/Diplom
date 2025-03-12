@@ -24,7 +24,7 @@ class AlbumFactory extends Factory
             'title' => $title,
             'alias' => $alias,
             'description' => $this->faker->text,
-            'photos' => json_encode(array_fill(0, 8, $this->faker->imageUrl(437, 291)))
+            'photos' => json_encode(array_fill(0, 8, $this->randomImg()))
         ];
     }
 
@@ -39,5 +39,23 @@ class AlbumFactory extends Factory
         }
 
         return $newAlias;
+    }
+
+    protected function randomImg(): string
+    {
+        $path = [
+            'Group80(1).png',
+            'Group80(2).png',
+            'Group80.png',
+            'image(1).png',
+            'image(2).png',
+            'image(3).png',
+            'image(4).png',
+            'image(5).png',
+            'image7.png',
+            'image.png',
+        ];
+
+        return '/img/albums/' . $path[array_rand($path)];
     }
 }

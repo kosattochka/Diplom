@@ -21,7 +21,7 @@ class EventFactory extends Factory
         $title = $this->faker->sentence;
         $alias = $this->generateUniqueAlias(Str::slug($title));
         return [
-            'img' => $this->faker->imageUrl(496, 318),
+            'img' => $this->randomImg(),
             'title' => $title,
             'alias' => $alias,
             'slogan' => $this->faker->sentence,
@@ -44,5 +44,16 @@ class EventFactory extends Factory
         }
 
         return $newAlias;
+    }
+
+    protected function randomImg(): string
+    {
+        $path = [
+            'Group82.png',
+            'Group85.png',
+            'Group87.png',
+        ];
+
+        return '/img/events/' . $path[array_rand($path)];
     }
 }
