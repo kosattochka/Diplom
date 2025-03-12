@@ -35,16 +35,17 @@ class PageController extends Controller
             ->orderBy('date')
             ->get()
             ->take(2);
+        $news = NewResource::collection($news);
 
         $album = Album::query()
             ->where('alias', request('gallery'))
             ->firstOrFail()
             ->photos;
         $album = json_decode($album);
-        return view('pages.index', $this->convertObject([
+        return view('pages.index', [
             'contacts' => $contact,
             'certificate' => $event->img,
-            'news' => NewResource::collection($news)
-        ]));
+            'news' => $this->convertObject($news)
+        ]);
     }
 }

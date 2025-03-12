@@ -12,7 +12,7 @@
 
 @php
     $card =view('element/card', [
-            'img' => '/img/standart.svg',
+            'img' => '/img/rooms/standart.png',
             'name' => 'Стандарт',
             'square' => '22',
             'capasity' => '2',
@@ -26,15 +26,15 @@
         $gallery_title[] = json_decode(json_encode(['alias'=>'zima'.$i,'text'=>'Зима']), false);
     }
 
-    $galleryPhoto=array_fill(0,10,'<img src="/img/luh.svg" class="galleryPhoto">');
+    $galleryPhoto=array_fill(0,10,'<img src="/img/albums/image.png" class="galleryPhoto">');
 @endphp
 
 @section('main_content')
     @include('block.header', [
         'active' => 0,
-        'phone' =>$contacts['phone'],
-        'telegram' =>$contacts['telegram'],
-        'vk' =>$contacts['vk']
+        'phone' =>$contacts->phone,
+        'telegram' =>$contacts->telegram,
+        'vk' =>$contacts->vk
     ])
     <div class="web-content">
         <div>
@@ -103,7 +103,7 @@
             <div class="new-block">
                 <h1>Новости</h1>
                 @include('element.new-card', $news[0])
-                @include('element.new-card', $news [1])
+                @include('element.new-card', $news[1])
             </div>
         </aside>
     </div>
@@ -128,10 +128,10 @@
         ])
     </div>
     @include('block.footer', [
-        'phone' =>$contacts['phone'],
-        'telegram' =>$contacts['telegram'],
-        'vk' =>$contacts['vk'],
-        'email' =>$contacts['email'],
-        'address' =>$contacts['address_office']
+        'phone' =>$contacts->phone,
+        'telegram' =>$contacts->telegram,
+        'vk' =>$contacts->vk,
+        'email' =>$contacts->email,
+        'address' =>$contacts->address_office
     ])
 @endsection
