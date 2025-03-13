@@ -32,18 +32,18 @@ class Controller extends BaseController
         return $data;
     }
 
-    protected function component(string $path, ResourceCollection|JsonResource $data): array|string
+    protected function component(string $path, JsonResource $data): array|string
     {
-        if ($data instanceof JsonResource) {
-            $data = json_decode(json_encode($data), true);
-            return view($path, $data)->render();
-        } else {
+        if ($data instanceof ResourceCollection) {
             $data = json_decode(json_encode($data), true);
             $response = [];
             foreach ($data as $item) {
                 $response[] = view($path, $item)->render();
             }
             return $response;
+        } else {
+            $data = json_decode(json_encode($data), true);
+            return view($path, $data)->render();
         }
     }
 }

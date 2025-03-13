@@ -8,6 +8,7 @@ class Slider {
         this.dots = null;
         this.count = 0;
         this.max = 0;
+        this.gap = parseFloat(getComputedStyle(this.row).gap);
 
         this.initSlider();
         this.colorFigure();
@@ -74,7 +75,7 @@ class Slider {
         if (this.count >= this.max) this.count = 0;
         this.row.style.transform =
             "translateX(-" +
-            ((this.slide.offsetWidth + 45) * this.count + 45) +
+            ((this.slide.offsetWidth + this.gap) * this.count + this.gap - 9) +
             "px)";
         this.colorFigure();
     }
@@ -84,7 +85,7 @@ class Slider {
         if (this.count < 0) this.count = this.max - 1;
         this.row.style.transform =
             "translateX(-" +
-            ((this.slide.offsetWidth + 45) * this.count + 45) +
+            ((this.slide.offsetWidth + this.gap) * this.count + this.gap - 9) +
             "px)";
         this.colorFigure();
     }
