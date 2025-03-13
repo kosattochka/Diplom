@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
-    protected function convertObject ($data) {
+    protected function convertObject($data): mixed
+    {
 
         if (is_array($data)) {
             return array_map(fn($item) => self::convertObject($item), $data);
@@ -29,11 +32,18 @@ class Controller extends BaseController
         return $data;
     }
 
-    protected function component (string $path, array $data) {
-        $response = [];
-        foreach($data as $item) {
-            $response[] = view($path, $item)->render();
+    protected function component(string $path, ResourceCollection|JsonResource $data): array|string
+    {
+        if ($data instanceof JsonResource) {
+            $data = json_decode(json_encode($data), true);
+            return view($path, $data)->render();
+        } else {
+            $data = json_decode(json_encode($data), true);
+            $response = [];
+            foreach ($data as $item) {
+                $response[] = view($path, $item)->render();
+            }
+            return $response;
         }
-        return $response;
     }
 }
