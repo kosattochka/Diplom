@@ -28,4 +28,12 @@ class Controller extends BaseController
         // Если данные не являются массивом или объектом, возвращаем их как есть
         return $data;
     }
+
+    protected function component (string $path, array $data) {
+        $response = [];
+        foreach($data as $item) {
+            $response[] = view($path, $item)->render();
+        }
+        return $response;
+    }
 }

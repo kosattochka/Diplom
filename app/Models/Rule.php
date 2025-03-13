@@ -13,7 +13,7 @@ class Rule extends Model
         'title',
         'alias',
         'img',
-        'short_description',
+        'description',
         'page_description',
         'vis',
         'sort'

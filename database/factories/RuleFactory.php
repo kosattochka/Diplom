@@ -24,7 +24,7 @@ class RuleFactory extends Factory
             'title' => $title,
             'alias' => $alias,
             'img' => $this->randomImg(),
-            'short_description' => $this->faker->sentence(12),
+            'description' => $this->faker->sentence(12),
             'page_description' => $this->faker->text(),
         ];
     }

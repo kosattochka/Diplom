@@ -11,21 +11,6 @@
 @section('title') Главная @endsection
 
 @php
-    $card =view('element/card', [
-            'img' => '/img/rooms/standart.png',
-            'name' => 'Стандарт',
-            'square' => '22',
-            'capasity' => '2',
-            'text' => 'Однокомнатный номер с возможностью размещения +1 человека (за доплату). Всего 59 номеров, расположенных на 1-3 этажах.',
-            'link' => ''
-        ])->render();
-    $card = array_fill(0, 3, $card);
-
-    $galleryTitle = [];
-    for($i=0; $i<8; $i++){
-        $gallery_title[] = json_decode(json_encode(['alias'=>'zima'.$i,'text'=>'Зима']), false);
-    }
-
     $galleryPhoto=array_fill(0,10,'<img src="/img/albums/image.png" class="galleryPhoto">');
 @endphp
 
@@ -63,9 +48,9 @@
             <div class="six"><p><span><img src="/img/placement.svg" alt="">Проживание</span></p></div>
             @include('block.slider', [
                 'desktopCount' => 1,
-                'elements' => $card
+                'elements' => $rooms
             ])
-            <div class="six"><p><span><img src="/img/gallery.svg" alt="">Галерея</span></p></div>
+            <div class="six" id="gallery"><p><span><img src="/img/gallery.svg" alt="">Галерея</span></p></div>
         </div>
 
         <aside>
@@ -110,13 +95,13 @@
     <div id="bottom-content">
         <div class="gallery-button" id="gallery-button">
             <div>
-                @foreach ($gallery_title as $item)
+                @foreach ($album as $alias=>$title)
                     <a
-                        href="{{request()->url() . '?gallery=' . $item->alias .  '#gallery-button'}}"
-                        @if (request()->input('gallery') == $item->alias)
+                        href="{{request()->url() . '?gallery=' . $alias .  '#gallery-button'}}"
+                        @if (request()->input('gallery') == $alias)
                             style="background-color: #FDB10B;"
                         @endif
-                    >{{$item->text}}</a>
+                    >{{$title}}</a>
                 @endforeach
             </div>
         </div>

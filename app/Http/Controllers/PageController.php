@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Card\CardResource;
 use App\Http\Resources\Card\NewResource;
 use App\Models\Album;
 use App\Models\Contact;
@@ -30,6 +31,8 @@ class PageController extends Controller
 
         $room = Room::query()
             ->get();
+        $room = CardResource::collection($room);
+        $room = $this->convertObject($room);
 
         $news = News::query()
             ->orderBy('date')
@@ -38,14 +41,21 @@ class PageController extends Controller
         $news = NewResource::collection($news);
 
         $album = Album::query()
+            ->where('vis', true)
+            ->get()
+            ->pluck('title', 'alias');
+
+        $photo = Album::query()
             ->where('alias', request('gallery'))
             ->firstOrFail()
             ->photos;
-        $album = json_decode($album);
+        $photo = json_decode($photo);
         return view('pages.index', [
             'contacts' => $contact,
             'certificate' => $event->img,
-            'news' => $this->convertObject($news)
+            'news' => $this->convertObject($news),
+            'rooms' => $this->component('element.card',$room),
+            'album' => $album
         ]);
     }
 }

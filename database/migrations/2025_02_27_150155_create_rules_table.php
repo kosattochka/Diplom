@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('alias')->unique();
             $table->string('img');
-            $table->text('short_description');
+            $table->text('description');
             $table->text('page_description');
 
             $table->boolean('vis')->default(true);
