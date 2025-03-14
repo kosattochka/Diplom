@@ -5,8 +5,8 @@
     <div class="head">
         <a href="/placement" class="{{ (isset($active) and $active == 1) ? 'active' : '' }}">Размещение</a>
         <a href="/service" class="{{ (isset($active) and $active == 2) ? 'active' : '' }}">Услуги</a>
-        <a href="" class="{{ (isset($active) and $active == 3) ? 'active' : '' }}">Правила</a>
-        <a href="" class="{{ (isset($active) and $active == 4) ? 'active' : '' }}">Акции</a>
+        <a href="/rule" class="{{ (isset($active) and $active == 3) ? 'active' : '' }}">Правила</a>
+        <a href="/event" class="{{ (isset($active) and $active == 4) ? 'active' : '' }}">Акции</a>
         <a href="" class="{{ (isset($active) and $active == 5) ? 'active' : '' }}">Блог</a>
         <a href="" class="{{ (isset($active) and $active == 6) ? 'active' : '' }}">Галерея</a>
         <a href="" class="{{ (isset($active) and $active == 7) ? 'active' : '' }}">Отзывы</a>
@@ -16,8 +16,8 @@
          <div class="MobileNav">
         <a href="/placement" class="{{ (isset($active) and $active == 1) ? 'active' : '' }}">Размещение</a>
         <a href="/service" class="{{ (isset($active) and $active == 2) ? 'active' : '' }}">Услуги</a>
-        <a href="" class="{{ (isset($active) and $active == 3) ? 'active' : '' }}">Правила</a>
-        <a href="" class="{{ (isset($active) and $active == 4) ? 'active' : '' }}">Акции</a>
+        <a href="/rule" class="{{ (isset($active) and $active == 3) ? 'active' : '' }}">Правила</a>
+        <a href="/event" class="{{ (isset($active) and $active == 4) ? 'active' : '' }}">Акции</a>
         <a href="" class="{{ (isset($active) and $active == 5) ? 'active' : '' }}">Блог</a>
         <a href="" class="{{ (isset($active) and $active == 6) ? 'active' : '' }}">Галерея</a>
         <a href="" class="{{ (isset($active) and $active == 7) ? 'active' : '' }}">Отзывы</a>
@@ -119,7 +119,73 @@
                     </p>
                 </div>
             </div>
-                @break
+            @break
+            @case(3)
+                <div class="baner-content-placement">
+                    <span>Правила</span>
+                    <div class="rectangle-white-container line-yellow">
+                        <span class="text-center">Общие правила поведения</span>
+                        <br>
+                        <span>Мы стремимся создать комфортную и безопасную атмосферу для всех гостей нашего центра отдыха. Пожалуйста, соблюдайте следующие правила:</span>
+                        <br>
+                        <br>
+                        <span class="text-yellow">
+                        1. Будьте вежливы и уважительны
+                        <span>по отношению к другим гостям и персоналу. Мы ценим доброжелательную атмосферу и просим вас избегать конфликтных ситуаций.</span>
+                        </span>
+                        <br>
+                        <br>
+                        <span class="text-yellow">
+                        2. Соблюдайте тишину с 22:00 до 08:00.
+                        <span>Это время предназначено для отдыха, и мы просим вас не шуметь, чтобы не мешать другим гостям.</span>
+                        </span>
+                        <br>
+                        <br>
+                        <span class="text-yellow">
+                        3. Курение разрешено
+                        <span>только</span>
+                        в специально отведенных
+                        <span>для этого</span>
+                        местах
+                        <span>Пожалуйста, не курите в помещениях, на детских площадках и в других зонах, где это запрещено. Это помогает нам поддерживать чистоту и заботиться о здоровье всех посетителей.</span>
+                        </span>
+                        <br>
+                        <br>
+                        <span>Соблюдение этих правил поможет сделать ваш отдых и отдых других гостей приятным и безопасным. Благодарим за понимание и сотрудничество!</span>
+                  </div>
+                </div>
+            @break
+            @case(4)
+                <div class="baner-content-placement">
+                    <span>Акции</span>
+                    <div class="rectangle-white-container line-yellow">
+                        <span>Почему выбирают подарочные сертификаты и акции «Павловского парка»?</span>
+                        <br>
+                        <br>
+                        <li>
+                        <span class="text-yellow">Универсальность:</span>
+                        сертификат подойдет на любой праздник – день рождения, Новый год, юбилей или просто как знак внимания.
+                        </li>
+                        <li>
+                        <span class="text-yellow">Свобода выбора:</span>
+                        получатель сам решит, когда воспользоваться сертификатом – срок действия до 12 месяцев!
+                        </li>
+                        <li>
+                        <span class="text-yellow">Эмоции вместо вещей:</span>
+                        подарите не просто подарок, а незабываемые впечатления и отдых в окружении природы.
+                        </li>
+                        <li>
+                        <span class="text-yellow">Выгодно:</span>
+                        скидка 10% на покупку сертификатов – дарите больше за меньшие деньги!
+                        </li>
+                        <br>
+                        <span class="text-yellow text-center">НЕ УПУСТИТЕ ВОЗМОЖНОСТЬ!</span>
+                        <br>
+                        <span class="text-yellow">Звоните:</span><a href=""> 8 (800) 600-93-44</a><br>
+                        <span class="text-yellow">Пишите:</span><a href=""> pavlovpark@yandex.ru</a>
+                  </div>
+                </div>
+            @break
             @default
 
         @endswitch

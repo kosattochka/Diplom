@@ -23,3 +23,11 @@ Route::get('/placement', function () {
 Route::get('/service', function () {
     return view('pages/service');
 });
+
+Route::get('/rule', function () {
+    return view('pages/rule');
+});
+
+Route::get('/event', function () {
+    return view('pages/event');
+});

@@ -158,13 +158,11 @@ header {
 .baner-content-placement {
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 60px;
     padding-left: 180px;
-    padding-top: 180px;
-
+    padding-top: 140px;
 
     span {
-        display: block;
         text-align: center;
         width: 100%;
         font-family: Gabriela;
@@ -175,9 +173,9 @@ header {
     .rectangle-white-container {
         width: 90%;
         background-color: white;
-        border-radius: 34px;
+        border-radius: 64px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень */
-        padding: 20px 20px; /* Внутренние отступы (10px сверху/снизу, 20px слева/справа) */
+        padding: 40px 40px; /* Внутренние отступы (10px сверху/снизу, 20px слева/справа) */
         font-family: PlayfairDisplay_Bold;
         font-size: 24px;
 
@@ -194,7 +192,41 @@ header {
             }
         }
 
+        span {
+            font-family: PlayfairDisplay_Bold;
+            color: #0D504D;
+            text-align: start;
+            font-size: 24px;
+        }
+
+        .text-yellow {
+            color: #FDB10B;
+        }
+
+        .text-center {
+            display: block;
+            text-align: center;
+        }
+
+        li {
+            color: #0D504D;
+        }
+
+        a {
+            color:#0D504D;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            background-color: #7FC7FF;
+            opacity: 0.8;
+        }
     }
+
+    .line-yellow {
+        border-top: 70px solid #FDB10B;
+    }
+
 
 }
 
@@ -340,6 +372,7 @@ header {
         .rectangle-white-container {
             width: 100%;
             font-size: 20px;
+
         }
     }
 }
