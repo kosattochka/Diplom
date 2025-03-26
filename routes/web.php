@@ -22,9 +22,7 @@ Route::get('/placement', function () {
 
 Route::get('/service', [PageController::class, 'service']);
 
-Route::get('/rule', function () {
-    return view('pages/rule');
-});
+Route::get('/rule', [PageController::class, 'rule']);
 
 Route::get('/event', [PageController::class, 'event']);
 

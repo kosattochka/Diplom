@@ -10,6 +10,7 @@ use App\Models\Event;
 use App\Models\News;
 use App\Models\Review;
 use App\Models\Room;
+use App\Models\Rule;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -90,6 +91,24 @@ class PageController extends Controller
         return view('pages.service', [
             'contacts' => $contact,
             'service' => $this->convertObject($service)
+        ]);
+    }
+
+    public function rule()
+    {
+        $contact = Contact::query()
+            ->where('vis', true)
+            ->first();
+
+        $rule = Rule::query()
+            ->where('vis', true)
+            ->orderBy('sort')
+            ->get();
+        $rule = CardResource::collection($rule);
+
+        return view('pages.rule', [
+            'contacts' => $contact,
+            'rule' => $this->convertObject($rule)
         ]);
     }
 
