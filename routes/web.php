@@ -20,14 +20,22 @@ Route::get('/placement', function () {
     return view('pages/placement');
 });
 
-Route::get('/service', function () {
-    return view('pages/service');
-});
+Route::get('/service', [PageController::class, 'service']);
 
 Route::get('/rule', function () {
     return view('pages/rule');
 });
 
-Route::get('/event', function () {
-    return view('pages/event');
+Route::get('/event', [PageController::class, 'event']);
+
+Route::get('/new', [PageController::class, 'new']);
+
+Route::get('/gallery', function () {
+    return view('pages/gallery');
 });
+
+Route::get('/review', [PageController::class, 'review']);
+
+Route::get('/contact', [PageController::class, 'contact']);
+
+Route::get('/politics', [PageController::class, 'politics']);

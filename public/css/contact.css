@@ -1,0 +1,76 @@
+.rectangle-white-container {
+    width: 90%;
+    background-color: white;
+    border-radius: 64px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень */
+    padding: 40px 40px; /* Внутренние отступы (10px сверху/снизу, 20px слева/справа) */
+    font-family: PlayfairDisplay_Regular;
+    font-size: 20px;
+    margin: 0 auto;
+
+    p {
+        color:#0D504D;
+
+        a {
+            color: #0D504D;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #00847E;
+        }
+    }
+
+    span {
+        font-family: PlayfairDisplay_Bold;
+        color: #0D504D;
+        text-align: start;
+        font-size: 24px;
+
+        a {
+            text-wrap: nowrap;
+        }
+    }
+
+    .text-yellow {
+        color: #FDB10B;
+    }
+}
+
+.line-yellow-bottom {
+    border-bottom: 70px solid #FDB10B;
+}
+
+.map-transport {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    p {
+        width: 1260px;
+        font-family: PlayfairDisplay_Bold;
+        color: #0D504D;
+        font-size: 20px;
+        display: flex;
+    }
+
+}
+
+.width-container {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin: auto 100px;
+    border-radius: 48px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}

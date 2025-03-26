@@ -1,0 +1,99 @@
+.baner-content-placement.new-padding {
+
+    padding-left: 110px;
+
+    .new-baner {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        padding: 0 30px;
+
+        span {
+            display: flex;
+            text-align: start;
+            font-family: PlayfairDisplay_Regular;
+            color: #0d504d;
+            font-size: 24px;
+        }
+
+    }
+}
+
+.new-wrapper {
+    width: 100%;
+    padding: 90px 30px 30px 30px;
+
+}
+
+@media (min-width: 768px) {
+    .new-wrapper .new-card {
+        flex-direction: row;
+        gap: 50px;
+
+        figure {
+            width: 25%;
+        }
+
+        > div:nth-child(2) {
+            justify-content: center;
+
+        }
+
+        span {
+            max-width: 55%; /* убрать, если будет не красиво*/
+            padding: 0 0 20px 0;
+        }
+
+        h1 {
+            padding: 20px 0 0 0;
+        }
+
+    }
+}
+
+.gallery-button {
+    div {
+        text-align: center;
+        a {
+            background-color: #0d504d;
+            color: white;
+            font-family: PlayfairDisplay_Regular;
+            border-radius: 40px;
+            cursor: pointer;
+            padding: 8px 15px;
+
+        }
+
+        a:hover {
+            background-color: #FDB10B;
+        }
+    }
+}
+
+
+
+@media (max-width: 768px) {
+
+    header {
+        padding-bottom: 30px !important;
+    }
+
+    .baner-content-placement.new-padding {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .new-baner {
+        display: none !important;
+    }
+
+    .new-wrapper {
+        padding: 0 30px 30px 30px;
+    }
+
+
+
+}
+
+
+

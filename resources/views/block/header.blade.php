@@ -7,10 +7,10 @@
         <a href="/service" class="{{ (isset($active) and $active == 2) ? 'active' : '' }}">Услуги</a>
         <a href="/rule" class="{{ (isset($active) and $active == 3) ? 'active' : '' }}">Правила</a>
         <a href="/event" class="{{ (isset($active) and $active == 4) ? 'active' : '' }}">Акции</a>
-        <a href="" class="{{ (isset($active) and $active == 5) ? 'active' : '' }}">Блог</a>
-        <a href="" class="{{ (isset($active) and $active == 6) ? 'active' : '' }}">Галерея</a>
-        <a href="" class="{{ (isset($active) and $active == 7) ? 'active' : '' }}">Отзывы</a>
-        <a href="" class="{{ (isset($active) and $active == 8) ? 'active' : '' }}">Контакты</a>
+        <a href="/new" class="{{ (isset($active) and $active == 5) ? 'active' : '' }}">Блог</a>
+        <a href="/gallery" class="{{ (isset($active) and $active == 6) ? 'active' : '' }}">Галерея</a>
+        <a href="/review" class="{{ (isset($active) and $active == 7) ? 'active' : '' }}">Отзывы</a>
+        <a href="/contact" class="{{ (isset($active) and $active == 8) ? 'active' : '' }}">Контакты</a>
     </div>
     <div class="mobile-rectangle-black">
          <div class="MobileNav">
@@ -18,13 +18,13 @@
         <a href="/service" class="{{ (isset($active) and $active == 2) ? 'active' : '' }}">Услуги</a>
         <a href="/rule" class="{{ (isset($active) and $active == 3) ? 'active' : '' }}">Правила</a>
         <a href="/event" class="{{ (isset($active) and $active == 4) ? 'active' : '' }}">Акции</a>
-        <a href="" class="{{ (isset($active) and $active == 5) ? 'active' : '' }}">Блог</a>
-        <a href="" class="{{ (isset($active) and $active == 6) ? 'active' : '' }}">Галерея</a>
-        <a href="" class="{{ (isset($active) and $active == 7) ? 'active' : '' }}">Отзывы</a>
-        <a href="" class="{{ (isset($active) and $active == 8) ? 'active' : '' }}">Контакты</a>
+        <a href="/new" class="{{ (isset($active) and $active == 5) ? 'active' : '' }}">Блог</a>
+        <a href="/gallery" class="{{ (isset($active) and $active == 6) ? 'active' : '' }}">Галерея</a>
+        <a href="/review" class="{{ (isset($active) and $active == 7) ? 'active' : '' }}">Отзывы</a>
+        <a href="/contact" class="{{ (isset($active) and $active == 8) ? 'active' : '' }}">Контакты</a>
             <div class="burger-footer">
                 <div class="share-content">
-                    <a href=""><img src="/img/registration-icon.svg" alt=""><button>Регистрация</button></a>
+                    <a href=""><img src="/img/registration-icon.svg" alt=""><button id="openModalBtn">Регистрация</button></a>
                     <a href=""><img src="/img/login-icon.svg" alt=""><button>Вход</button></a>
                 </div>
                 <img src="/img/logo.svg" alt="">
@@ -104,7 +104,7 @@
                         • Все номера оснащены ванной, телевизором, чайником, полотенцами, мыльными принадлежностями, отоплением и Wi-Fi. <br>
                         • Курение в номерах запрещено. <br>
                         <br>
-                        Рекомендуем ознакомиться с <a href="">Правилами</a> центра отдыха «Павловский Парк».
+                        Рекомендуем ознакомиться с <a href="/rule">Правилами</a> центра отдыха «Павловский Парк».
                     </p>
                 </div>
             </div>
@@ -158,7 +158,7 @@
             @case(4)
                 <div class="baner-content-placement">
                     <span>Акции</span>
-                    <div class="rectangle-white-container line-yellow">
+                    <div class="rectangle-white-container line-yellow-top">
                         <span>Почему выбирают подарочные сертификаты и акции «Павловского парка»?</span>
                         <br>
                         <br>
@@ -181,10 +181,108 @@
                         <br>
                         <span class="text-yellow text-center">НЕ УПУСТИТЕ ВОЗМОЖНОСТЬ!</span>
                         <br>
-                        <span class="text-yellow">Звоните:</span><a href=""> 8 (800) 600-93-44</a><br>
-                        <span class="text-yellow">Пишите:</span><a href=""> pavlovpark@yandex.ru</a>
+                        <span class="text-yellow">Звоните:</span><a href="">{{$phone}}</a><br>
+                        <span class="text-yellow">Пишите:</span><a href="">{{$email}}</a>
                   </div>
                 </div>
+            @break
+            @case(5)
+            <div class="baner-content-placement new-padding">
+                <span>Новости</span>
+                <div class="new-baner">
+                    <span>"Павловский парк: где каждая новость — это повод собрать чемоданы и убежать от городской суеты в объятия природы!"</span>
+                    <img src="/img/news/new-baner.png" alt="">
+                </div>
+            </div>
+            @break
+            @case(6)
+            <div class="baner-content-placement">
+                <span>Галерея</span>
+                <div class="rectangle-white-container line-yellow-bottom column-gap">
+                    <div>
+                        <img src="/img/albums/icon-gallery-1.svg" alt="">
+                        <span>Уважаемые гости Павловского парка!<br>Здесь проводят корпоративы, свадьбы, встречают Новый Год, дни рождения и просто отлично проводят время.</span>
+                    </div>
+                    <div>
+                        <img src="/img/albums/icon-gallery-2.svg" alt="">
+                        <span>Для бронирования домиков обязательно свяжитесь с менеджером по телефону: <a href="">{{$phone}}</a>.</span>
+                    </div>
+              </div>
+            </div>
+            @break
+            @case(7)
+            <div class="baner-content-placement">
+                <span>Отзывы</span>
+                <div class="rectangle-white-container line-yellow-bottom column-gap">
+                        <span>Павловский Парк предлагает ознакомиться с фотографиями, сделанными отдыхающими.<br>Ваше мнение важно для нас! Поделитесь впечатлениями о парке, услугах, развлечениях и кухне. Ваши отзывы помогут нам стать лучше. Оставьте их на Яндекс.Картах или 2ГИС. Спасибо!</span>
+                        <div>
+                            <a href="https://yandex.ru/maps/org/pavlovskiy_park/1203779586/reviews/?ll=56.525875%2C55.459164&utm_campaign=v1&utm_medium=rating&utm_source=badge&z=13" class="review-block">
+                                <img src="/img/Yandex.svg" alt="">
+                                <div>
+                                   <h1>{{round($review['Яндекс'], 1)}}</h1>
+                                    @include('element.stars', [
+                                        'rating'=> $review['Яндекс']
+                                    ])
+                                </div>
+                                <span>Оценка в Яндекс</span>
+                            </a>
+                            <a href="https://2gis.ru/ufa/firm/2393065583227349?utm_source=widget_firm" class="review-block">
+                                <img src="/img/2gis.svg" alt="">
+                                <div>
+                                   <h1>{{round($review['2gis'], 1)}}</h1>
+                                    @include('element.stars', [
+                                        'rating'=> $review['2gis']
+                                    ])
+                                </div>
+                                <span>Оценка в 2gis</span>
+                            </a>
+                        </div>
+                        <span>Мы благодарим вас за ваше внимание и ждем ваших отзывов! С уважением, администрация Павловского парка.</span>
+              </div>
+            </div>
+            @break
+            @case(8)
+                <div class="baner-content-placement">
+                    <span>Контакты</span>
+                    <div class="rectangle-white-container line-yellow-bottom">
+                        <span class="text-center text-yellow Gabriela-text">Офис продаж<span class="Gabriela-text"> в г.Уфа</span></span>
+                        <br>
+                        <span>450098, г. Уфа, ул. Российская, дом 98, корпус 2 (ост.Горсовет)</span><br>
+                        <span class="text-yellow">
+                        Телефон:
+                        <a>{{$phone}}</a>
+                        </span><br>
+                        <span class="text-yellow">
+                        e-mail:
+                        <a>pavlovpark@yandex.ru</a>
+                        </span><br>
+                        <span class="text-yellow">
+                        Режим работы:
+                        <span>пн.- пт. с 09:00- 18:00, без перерыва. сб.- вс. выходной</span>
+                        </span>
+                        <br>
+                        <br>
+                        <span class="text-center text-yellow Gabriela-text">Адрес<span class="Gabriela-text"> места нахождения</span></span>
+                        <br>
+                        <span>Республика Башкортостан, Нуримановский район, 7 км от села Павловка.</span>
+                        <br>
+                        <span class="text-yellow">
+                        Дежурный администратор
+                        <span>на базе отдыха «Павловский Парк»:</span>
+                        <a class="text-yellow">+7 (987) 621-27-25</a>
+                        </span>
+                  </div>
+                </div>
+            @break
+            @case(9)
+            <div class="baner-content-placement">
+                <span>Политика<br> конфиденциальности сайта<br> pavlovpark.ru</span>
+                <div class="rectangle-white-container line-yellow-bottom">
+                    <p>Настоящая Политика конфиденциальности персональной информации (далее — Политика) действует в отношении всей информации, которую Сайт pavlovpark.ru (далее — Сайт) может получить о пользователе во время использования им сайта. Согласие пользователя на предоставление персональной информации, данное им в соответствии с настоящей Политикой в рамках отношений с одним из лиц, входящих в число собственников сайта и распространяется на все лица.
+                        Использование Сайта означает безоговорочное согласие пользователя с настоящей Политикой и указанными в ней условиями обработки его персональной информации; в случае несогласия с этими условиями пользователь должен воздержаться от использования Сайта.
+                    </p>
+                </div>
+            </div>
             @break
             @default
 

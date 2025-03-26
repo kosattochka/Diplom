@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Hamcrest\Arrays\IsArray;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -32,9 +33,9 @@ class Controller extends BaseController
         return $data;
     }
 
-    protected function component(string $path, JsonResource $data): array|string
+    protected function component(string $path, JsonResource|array $data): array|string
     {
-        if ($data instanceof ResourceCollection) {
+        if ($data instanceof ResourceCollection or is_array($data)) {
             $data = json_decode(json_encode($data), true);
             $response = [];
             foreach ($data as $item) {

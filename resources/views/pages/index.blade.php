@@ -10,10 +10,6 @@
 
 @section('title') Главная @endsection
 
-@php
-    $galleryPhoto=array_fill(0,10,'<img src="/img/albums/image.png" class="galleryPhoto">');
-@endphp
-
 @section('main_content')
     @include('block.header', [
         'active' => 0,
@@ -67,9 +63,9 @@
                 <a href="https://yandex.ru/maps/org/pavlovskiy_park/1203779586/reviews/?ll=56.525875%2C55.459164&utm_campaign=v1&utm_medium=rating&utm_source=badge&z=13" class="review-block">
                     <img src="/img/Yandex.svg" alt="">
                     <div>
-                       <h1>4,9</h1>
+                       <h1>{{round($review['Яндекс'], 1)}}</h1>
                         @include('element.stars', [
-                            'rating'=> 4.9
+                            'rating'=> $review['Яндекс']
                         ])
                     </div>
                     <span>Оценка в Яндекс</span>
@@ -77,9 +73,9 @@
                 <a href="https://2gis.ru/ufa/firm/2393065583227349?utm_source=widget_firm" class="review-block">
                     <img src="/img/2gis.svg" alt="">
                     <div>
-                       <h1>3,2</h1>
+                       <h1>{{round($review['2gis'], 1)}}</h1>
                         @include('element.stars', [
-                            'rating'=> 3.2
+                            'rating'=> $review['2gis']
                         ])
                     </div>
                     <span>Оценка в 2gis</span>
@@ -93,23 +89,16 @@
         </aside>
     </div>
     <div id="bottom-content">
-        <div class="gallery-button" id="gallery-button">
-            <div>
-                @foreach ($album as $alias=>$title)
-                    <a
-                        href="{{request()->url() . '?gallery=' . $alias .  '#gallery-button'}}"
-                        @if (request()->input('gallery') == $alias)
-                            style="background-color: #FDB10B;"
-                        @endif
-                    >{{$title}}</a>
-                @endforeach
-            </div>
-        </div>
+        @include('element.paginate', [
+            'id'=>"gallery-button",
+            'field'=>"gallery",
+            'list'=>$album
+        ])
         @include('block.slider', [
             'id'=>2,
             'desktopCount' => 2,
             'mobileCount' => 1,
-            'elements' => $galleryPhoto
+            'elements' => $photo
         ])
     </div>
     @include('block.footer', [
