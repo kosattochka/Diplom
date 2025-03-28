@@ -1,7 +1,7 @@
 <header>
     <script defer src="/js/burger.js"></script>
+    <script defer src="/js/modal.js"></script>
     <img src="/img/background_index.svg" alt="" class="header-logo desktop">
-    {{-- <img src="/img/background-mobile.svg" alt="" class="header-logo mobile"> --}}
     <div class="head">
         <a href="/placement" class="{{ (isset($active) and $active == 1) ? 'active' : '' }}">Размещение</a>
         <a href="/service" class="{{ (isset($active) and $active == 2) ? 'active' : '' }}">Услуги</a>
@@ -24,12 +24,81 @@
         <a href="/contact" class="{{ (isset($active) and $active == 8) ? 'active' : '' }}">Контакты</a>
             <div class="burger-footer">
                 <div class="share-content">
-                    <a href=""><img src="/img/registration-icon.svg" alt=""><button id="openModalBtn">Регистрация</button></a>
-                    <a href=""><img src="/img/login-icon.svg" alt=""><button>Вход</button></a>
+                    <img src="/img/registration-icon.svg" alt=""><button class="modal-open" data-modal="modal1">Регистрация</button>
+                    <img src="/img/login-icon.svg" alt=""><button>Вход</button>
                 </div>
                 <img src="/img/logo.svg" alt="">
             </div>
     </div>
+    </div>
+
+    <!-- Модальное окно для регистрации -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="subtitle">
+                <div>
+                    <img src="/img/logo.svg" alt="">
+                </div>
+            </div>
+            <h2>РЕГИСТРАЦИЯ</h2>
+            <form class="registration-form">
+            <div class="form-group">
+                <label>ФИО</label>
+                <input type="text" placeholder="Введите ваше полное имя" required>
+            </div>
+            <div class="form-group">
+                <label>Номер телефона</label>
+                <input type="tel" placeholder="+7 (___) ___-__-__" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="example@mail.com" required>
+            </div>
+            <div class="form-group">
+                <label>Придумайте пароль</label>
+                <input type="password" placeholder="Не менее 8 символов" required>
+            </div>
+            <div class="form-group">
+                <label>Повторите пароль</label>
+                <input type="password" placeholder="Повторите ваш пароль" required>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="existing">
+                <label for="existing">Нажимая на кнопку, вы соглашаетесь на <a href="/politics">политику конфиденциальной информации</a></label>
+            </div>
+            <button type="submit" class="submit-btn">Зарегистрироваться</button>
+            <a href="/modal2">Если уже есть аккаунт, войти</a>
+          </form>
+        </div>
+      </div>
+
+    <!-- Модальное окно для входа -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="subtitle">
+                <div>
+                    <img src="/img/logo.svg" alt="">
+                </div>
+            </div>
+            <h2>ВХОД</h2>
+            <form class="registration-form">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="example@mail.com" required>
+            </div>
+            <div class="form-group">
+                <label>Пароль</label>
+                <input type="password" placeholder="Напишите ваш пароль" required>
+            </div>
+            <button type="submit" class="submit-btn">Войти</button>
+            <div class="share-modal">
+                <a href="/modal2" class="share-color">Забыли пароль?</a>
+                <a href="/modal2">Зарегестрироваться</a>
+            </div>
+          </form>
+        </div>
     </div>
 
     <div class="baner">
@@ -51,8 +120,8 @@
                 Офис продаж (звонок бесплатный): <br>{{$phone}}
             </a>
             <div class="share-content">
-                <a href=""><img src="/img/registration-icon.svg" alt=""><button>Регистрация</button></a>
-                <a href=""><img src="/img/login-icon.svg" alt=""><button>Вход</button></a>
+                <a href=""><img src="/img/registration-icon.svg" alt=""><button class="modal-open" data-modal="modal1">Регистрация</button></a>
+                <a href=""><img src="/img/login-icon.svg" alt=""><button class="modal-open" data-modal="modal2">Вход</button></a>
             </div>
         </div>
         @switch($active)
@@ -284,8 +353,17 @@
                 </div>
             </div>
             @break
+            @case(10)
+            <div id="bottom-content">
+                @include('block.slider', [
+                    'id'=>1,
+                    'desktopCount' => 1,
+                    'mobileCount' => 1,
+                    'elements' => $photo
+                ])
+            </div>
+            @break
             @default
-
         @endswitch
     </div>
 </header>

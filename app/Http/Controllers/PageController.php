@@ -56,7 +56,7 @@ class PageController extends Controller
         $photo = Album::query()
             ->where('alias', request('gallery'))
             ->firstOrFail()
-            ->photos;
+            ->imgs;
         $photo = json_decode($photo);
 
         $photo = array_map(function($item) {
@@ -109,6 +109,24 @@ class PageController extends Controller
         return view('pages.rule', [
             'contacts' => $contact,
             'rule' => $this->convertObject($rule)
+        ]);
+    }
+
+    public function gallery()
+    {
+        $contact = Contact::query()
+            ->where('vis', true)
+            ->first();
+
+        $photos = Album::query()
+            ->where('vis', true)
+            ->orderBy('sort')
+            ->get();
+        $photos = CardResource::collection($photos);
+
+        return view('pages.gallery', [
+            'contacts' => $contact,
+            'photos' => $this->convertObject($photos)
         ]);
     }
 
@@ -170,6 +188,20 @@ class PageController extends Controller
             ->first();
 
         return view('pages.politics', [
+            'contacts' => $contacts,
+        ]);
+    }
+
+    public function placement()
+    {
+        $room = Room::query()
+            ->get();
+        $room = CardResource::collection($room);
+
+        $contacts = Contact::where('vis', true)->first();
+
+        return view('pages.placement', [
+            'rooms' => $this->component('element.card', $room),
             'contacts' => $contacts,
         ]);
     }

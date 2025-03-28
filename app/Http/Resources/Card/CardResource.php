@@ -20,7 +20,7 @@ class CardResource extends JsonResource
 
         $link=request()->getPathInfo()=='/'?
             '/rooms/'.$this->alias:
-            request()->getPathInfo().'/'.$this->alias;
+            request()->getPathInfo().$this->alias;
 
         $data = [
             'img' =>$img,
@@ -37,4 +37,5 @@ class CardResource extends JsonResource
 
         return $data;
     }
+
 }

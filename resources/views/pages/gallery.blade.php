@@ -8,12 +8,28 @@
 @section('title') Галерея Павловского парка @endsection
 
 @section('main_content')
-    @include('block.header', [
-        'active' => 6,
-        'phone' => '8 (800) 600-93-44',
-        'telegram' => 'https://t.me/Pavlovskij_Park',
-        'vk' => 'https://vk.com/club23119361',
+@include('block.header', [
+    'active' => 6,
+    'phone' =>$contacts->phone,
+    'telegram' =>$contacts->telegram,
+    'vk' =>$contacts->vk
+])
+<br><br><br>
+    <div class="service-container">
+        @foreach ($photos as $item)
+            @include( 'element.card', [
+                'img' => $item['img'],
+                'name' => $item['name'],
+                'text' => $item['text'],
+                'link' => $item['link']
+            ])
+        @endforeach
+    </div>
+    @include('block.footer', [
+            'phone' =>$contacts->phone,
+            'telegram' =>$contacts->telegram,
+            'vk' =>$contacts->vk,
+            'email' =>$contacts->email,
+            'address' =>$contacts->address_office
     ])
-
-
 @endsection

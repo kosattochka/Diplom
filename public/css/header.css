@@ -49,6 +49,7 @@ header {
     align-items: start;
     gap: 10px;
     padding: 12px 0;
+
 }
 
 .head-column a {
@@ -259,6 +260,162 @@ header {
 
 }
 
+/* Стиль для затемненного фона */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+
+        .modal-content {
+            background-color: #00847E;
+            margin: 10px auto 0;
+            padding: 0 30px 30px 30px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 10px;
+            position: relative;
+
+            .modal-close {
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                font-size: 28px;
+                cursor: pointer;
+                color: #D9D9D9;
+            }
+
+            .modal-close:hover {
+                color: #0D504D;
+            }
+
+            h2 {
+                color: #FDB10B;
+                font-family: Gabriela;
+                text-align: center;
+                font-weight: 100;
+                font-size: 22px;
+            }
+
+            >.subtitle {
+                display: flex;
+                justify-content: center;
+                padding-bottom: 10px;
+
+            div {
+                width: 50%;
+                height: 130px;
+                background-color: #D9D9D9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            img {
+                width: 80%;
+            }
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .form-group label {
+                font-family: PlayfairDisplay_Bold;
+                display: block;
+                margin-bottom: 2px;
+                color: white;
+                font-size: 16px;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                border: 3px solid #0D504D;
+                border-radius: 15px;
+                font-size: 16px;
+                font-family: PlayfairDisplay_Regular;
+                color: #0D504D
+            }
+
+            .checkbox-group {
+                margin: 15px 0;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .checkbox-group label {
+                font-size: 10px;
+                color: #D9D9D9;
+                font-family: Gabriela;
+
+                a {
+                    color: #FDB10B;
+                    text-decoration: underline;
+                }
+
+                a:hover {
+                    color: white;
+                }
+            }
+
+            .submit-btn {
+                width: 100%;
+                padding: 8px;
+                background-color: #0D504D;
+                color: white;
+                border: none;
+                border-radius: 15px;
+                font-size: 16px;
+                cursor: pointer;
+                font-family: PlayfairDisplay_Bold;
+                margin-bottom: 10px;
+            }
+
+            .submit-btn:hover {
+            background-color: #FDB10B   ;
+            color: white;
+            }
+
+            a {
+                font-family: PlayfairDisplay_Bold;
+                color: #FDB10B;
+                text-decoration: underline;
+                font-size: 12px;
+                display: flex;
+                justify-content: center;
+            }
+
+            a:hover {
+                color: white;
+            }
+
+            .share-modal {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                .share-color {
+                    color: #C4FBBC;
+                }
+            }
+        }
+}
+
+
+
+  hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+  }
+
 @media (max-width: 768px) {
 
     header {
@@ -404,45 +561,6 @@ header {
 
         }
     }
-}
-
-/* Модальное окно */
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-    border-radius: 10px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
 }
 
 @media (max-width: 550px) {

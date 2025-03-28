@@ -15,7 +15,7 @@ class Album extends Model
         'description',
         'vis',
         'sort',
-        'photos'
+        'imgs'
     ];
 
     public $timestamps = false;

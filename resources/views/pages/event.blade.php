@@ -25,7 +25,7 @@
             <a href="">Подробнее</a>
         </div>
     </div>
-
+    <hr>
 
     @include('block.footer', [
         'phone' =>$contacts->phone,

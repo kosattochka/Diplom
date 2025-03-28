@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index']);
 
-Route::get('/placement', function () {
-    return view('pages/placement');
-});
+Route::get('/placement', [PageController::class, 'placement']);
 
 Route::get('/service', [PageController::class, 'service']);
 
@@ -28,12 +26,12 @@ Route::get('/event', [PageController::class, 'event']);
 
 Route::get('/new', [PageController::class, 'new']);
 
-Route::get('/gallery', function () {
-    return view('pages/gallery');
-});
+Route::get('/gallery', [PageController::class, 'gallery']);
 
 Route::get('/review', [PageController::class, 'review']);
 
 Route::get('/contact', [PageController::class, 'contact']);
 
 Route::get('/politics', [PageController::class, 'politics']);
+
+

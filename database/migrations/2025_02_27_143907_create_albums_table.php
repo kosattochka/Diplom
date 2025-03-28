@@ -20,7 +20,7 @@ return new class extends Migration
             $table->boolean('vis')->default(true);
             $table->integer('sort')->default(0);
 
-            $table->longText('photos');
+            $table->longText('imgs');
         });
     }
 
