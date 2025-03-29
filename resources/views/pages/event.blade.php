@@ -27,7 +27,8 @@
     @include('element.paginate', [
         'id'=>"page",
         'field'=>"page",
-        'list'=>$events['links']
+        'list'=>$events['links'],
+        'lastPage'=>$events['meta']['last_page']
     ])
 
     @include('block.footer', [
