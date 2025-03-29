@@ -14,28 +14,27 @@ class CardResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $img = isset($this->imgs)?
-            json_decode($this->imgs, true)[0]:
+        $img = isset($this->imgs) ?
+            json_decode($this->imgs, true)[0] :
             $this->img;
 
-        $link=request()->getPathInfo()=='/'?
-            '/rooms/'.$this->alias:
-            request()->getPathInfo().$this->alias;
+        $link = request()->getPathInfo() == '/' ?
+            '/rooms/' . $this->alias :
+            request()->getPathInfo() . '/' . $this->alias;
 
         $data = [
-            'img' =>$img,
+            'img' => $img,
             'name' => $this->title,
             'text' => $this->description,
             'link' => $link,
 
         ];
 
-        if (isset ($this->square, $this->capacity)) {
-            $data ['square'] = $this->square;
-            $data ['capacity'] = $this->capacity;
+        if (isset($this->square, $this->capacity)) {
+            $data['square'] = $this->square;
+            $data['capacity'] = $this->capacity;
         }
 
         return $data;
     }
-
 }

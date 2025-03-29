@@ -2,7 +2,9 @@
 @section('links')
 <link rel="stylesheet" href="/css/service.css">
 @endsection
+
 @section('title') Услуги @endsection
+
 @section('main_content')
     @include('block.header', [
         'active' => 2,
@@ -21,6 +23,7 @@
             ])
         @endforeach
     </div>
+
     @include('block.footer', [
         'phone' =>$contacts->phone,
         'telegram' =>$contacts->telegram,
