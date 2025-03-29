@@ -316,14 +316,14 @@
                     <div class="rectangle-white-container line-yellow-bottom">
                         <span class="text-center text-yellow Gabriela-text">Офис продаж<span class="Gabriela-text"> в г.Уфа</span></span>
                         <br>
-                        <span>450098, г. Уфа, ул. Российская, дом 98, корпус 2 (ост.Горсовет)</span><br>
+                        <span>{{$mail_index}}, {{$address_office}}</span><br>
                         <span class="text-yellow">
                         Телефон:
                         <a>{{$phone}}</a>
                         </span><br>
                         <span class="text-yellow">
                         e-mail:
-                        <a>pavlovpark@yandex.ru</a>
+                        <a>{{$email}}</a>
                         </span><br>
                         <span class="text-yellow">
                         Режим работы:
@@ -333,12 +333,12 @@
                         <br>
                         <span class="text-center text-yellow Gabriela-text">Адрес<span class="Gabriela-text"> места нахождения</span></span>
                         <br>
-                        <span>Республика Башкортостан, Нуримановский район, 7 км от села Павловка.</span>
+                        <span>{{$address_place}}</span>
                         <br>
                         <span class="text-yellow">
                         Дежурный администратор
                         <span>на базе отдыха «Павловский Парк»:</span>
-                        <a class="text-yellow">+7 (987) 621-27-25</a>
+                        <a class="text-yellow">{{$operator}}</a>
                         </span>
                   </div>
                 </div>
@@ -358,7 +358,6 @@
                 @include('block.slider', [
                     'id'=>1,
                     'desktopCount' => 1,
-                    'mobileCount' => 1,
                     'elements' => $photo
                 ])
             </div>

@@ -18,7 +18,8 @@ class Contact extends Model
         'address_place',
         'mail_index',
         'operator',
-        'map_scripts',
+        'map',
+        'map_route',
         'vis'
     ];
 }

@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('mail_index');
             $table->string('operator');
 
-            $table->text('map_scripts');
+            $table->text('map');
+            $table->text('map_route');
 
             $table->boolean('vis')->default(false);
         });

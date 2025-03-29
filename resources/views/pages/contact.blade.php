@@ -10,12 +10,17 @@
         'active' => 8,
         'phone' =>$contacts->phone,
         'telegram' =>$contacts->telegram,
-        'vk' =>$contacts->vk
+        'vk' =>$contacts->vk,
+        'address_office'=>$contacts->address_office,
+        'address_place'=>$contacts->address_place,
+        'mail_index'=>$contacts->mail_index,
+        'email'=>$contacts->email,
+        'operator'=>$contacts->operator
     ])
 
     <section>
         <div class="six"><p><span><img src="/img/contact/car-icon.svg" alt="">Местоположение офиса продаж</span></p></div>
-        <div style="position:relative;overflow:hidden;display:flex;justify-content:center;"><a href="https://yandex.ru/maps/172/ufa/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Уфа</a><a href="https://yandex.ru/maps/172/ufa/?from=mapframe&ll=56.028532%2C54.770634&mode=usermaps&source=mapframe&um=constructor%3ALJ7wHQK_l4qaRS3VG-PyEeT-QhVv8N7o&utm_medium=mapframe&utm_source=maps&z=16" style="color:#eee;font-size:12px;position:absolute;top:14px;border-radius:48px;border:3px solid #0d504d;">Яндекс Карты — транспорт, навигация, поиск мест</a><iframe src="https://yandex.ru/map-widget/v1/?from=mapframe&ll=56.028532%2C54.770634&mode=usermaps&source=mapframe&um=constructor%3ALJ7wHQK_l4qaRS3VG-PyEeT-QhVv8N7o&utm_source=mapframe&z=16" width="1330" height="600" frameborder="1" allowfullscreen="true" style="position:relative;border-radius:48px;border:5px solid #0d504d;"></iframe></div>
+        {!!$contacts->map!!}
         <div class="six"><p><span><img src="/img/contact/car-icon.svg" alt="">Схема проезда</span></p></div>
         <div class="rectangle-white-container line-yellow-bottom">
             <p>Как до нас добраться на общественном транспорте: ежедневно ездят коммерческие автобусы от стадиона «Нефтяник» до с. Павловки!<br>
@@ -35,11 +40,7 @@
         </div>
         <div class="six"><p><span><img src="/img/contact/car-icon.svg" alt="">Как добраться на личном автотранспорте?</span></p></div>
         <div class="map-transport">
-            <div style="position:relative;overflow:hidden;display:flex;justify-content:center;">
-                <a href="https://yandex.ru/maps?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Яндекс Карты</a>
-                <a href="https://yandex.ru/maps/?from=mapframe&ll=56.450550%2C55.113268&mode=usermaps&source=mapframe&um=constructor%3A406970c28ecca9b127b75748359efb861956a3d8dbdce0cb0af8eded1cfe5eca&utm_medium=mapframe&utm_source=maps&z=9" style="color:#eee;font-size:12px;position:absolute;top:14px;">Яндекс Карты — транспорт, навигация, поиск мест</a>
-                <iframe src="https://yandex.ru/map-widget/v1/?from=mapframe&ll=56.450550%2C55.113268&mode=usermaps&source=mapframe&um=constructor%3A406970c28ecca9b127b75748359efb861956a3d8dbdce0cb0af8eded1cfe5eca&utm_source=mapframe&z=9" width="1330" height="600" frameborder="1" allowfullscreen="true" style="position:relative;border-radius:48px;border:5px solid #0d504d;"></iframe>
-            </div>
+            {!!$contacts->map_route!!}
             <p>
                 1. С трассы М-5 Челябинск-Уфа-поворот на поселок Иглино, не доезжая г.Уфы 20 км. Далее ехать в сторону поселка Красная горка, поселка Красный ключ до Павловской ГЭС, не переезжая плотину- направо в гору до поселка Павловка. В самом поселке ехать по главной дороге до Дома Культуры — увидите наши баннеры со стрелками на повороты. Далее за поселком направо вниз с горы, через 6 километров начинается Зона отдыха Бирючево Поле. КЦО «Павловский Парк» расположен в конце Зоны отдыха на Павловском водохранилище.
                 <br><br>
