@@ -13,15 +13,15 @@
         <a href="/contact" class="{{ (isset($active) and $active == 8) ? 'active' : '' }}">Контакты</a>
     </div>
     <div class="mobile-rectangle-black">
-         <div class="MobileNav">
-        <a href="/placement" class="{{ (isset($active) and $active == 1) ? 'active' : '' }}">Размещение</a>
-        <a href="/service" class="{{ (isset($active) and $active == 2) ? 'active' : '' }}">Услуги</a>
-        <a href="/rule" class="{{ (isset($active) and $active == 3) ? 'active' : '' }}">Правила</a>
-        <a href="/event" class="{{ (isset($active) and $active == 4) ? 'active' : '' }}">Акции</a>
-        <a href="/new" class="{{ (isset($active) and $active == 5) ? 'active' : '' }}">Блог</a>
-        <a href="/gallery" class="{{ (isset($active) and $active == 6) ? 'active' : '' }}">Галерея</a>
-        <a href="/review" class="{{ (isset($active) and $active == 7) ? 'active' : '' }}">Отзывы</a>
-        <a href="/contact" class="{{ (isset($active) and $active == 8) ? 'active' : '' }}">Контакты</a>
+        <div class="MobileNav">
+            <a href="/placement" class="{{ (isset($active) and $active == 1) ? 'active' : '' }}">Размещение</a>
+            <a href="/service" class="{{ (isset($active) and $active == 2) ? 'active' : '' }}">Услуги</a>
+            <a href="/rule" class="{{ (isset($active) and $active == 3) ? 'active' : '' }}">Правила</a>
+            <a href="/event" class="{{ (isset($active) and $active == 4) ? 'active' : '' }}">Акции</a>
+            <a href="/new" class="{{ (isset($active) and $active == 5) ? 'active' : '' }}">Блог</a>
+            <a href="/gallery" class="{{ (isset($active) and $active == 6) ? 'active' : '' }}">Галерея</a>
+            <a href="/review" class="{{ (isset($active) and $active == 7) ? 'active' : '' }}">Отзывы</a>
+            <a href="/contact" class="{{ (isset($active) and $active == 8) ? 'active' : '' }}">Контакты</a>
             <div class="burger-footer">
                 <div class="share-content">
                     <img src="/img/registration-icon.svg" alt=""><button class="modal-open" data-modal="modal1">Регистрация</button>
@@ -29,7 +29,7 @@
                 </div>
                 <img src="/img/logo.svg" alt="">
             </div>
-    </div>
+        </div>
     </div>
 
     <!-- Модальное окно для регистрации -->
@@ -71,7 +71,7 @@
             <a href="/modal2">Если уже есть аккаунт, войти</a>
           </form>
         </div>
-      </div>
+    </div>
 
     <!-- Модальное окно для входа -->
     <div id="modal2" class="modal">
