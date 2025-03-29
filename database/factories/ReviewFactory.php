@@ -21,8 +21,8 @@ class ReviewFactory extends Factory
             'services' => $services[array_rand($services)],
             'name' => $this->faker->name,
             'text' => $this->faker->text,
-            'date' => $this->faker->date,
-            'stars' => $this->faker->numberBetween(1,5),
+            'date' => $this->faker->dateTimeBetween('-5 years'),
+            'stars' => $this->faker->numberBetween(1, 5),
         ];
     }
 }

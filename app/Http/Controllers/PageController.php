@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\Card\CardResource;
 use App\Http\Resources\Card\NewResource;
+use App\Http\Resources\Card\ReviewResource;
 use App\Http\Resources\PaginatedResource;
 use App\Models\Album;
 use App\Models\Contact;
@@ -13,6 +14,7 @@ use App\Models\Review;
 use App\Models\Room;
 use App\Models\Rule;
 use App\Models\Service;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -132,19 +134,47 @@ class PageController extends Controller
 
     public function review()
     {
+        if (!request()->has('year')) {
+            $year = Review::query()
+                ->where('vis', true)
+                ->orderByDesc('date')
+                ->first();
+            $year = Carbon::parse($year->date)->year;
+
+            return redirect('/review?year=' . $year);
+        }
+
         $contact = Contact::query()
             ->where('vis', true)
             ->first();
 
-        $review = Review::query()
+        $rating = Review::query()
             ->select('services', DB::raw('AVG(stars) as average_stars'))
             ->groupBy('services')
             ->pluck('average_stars', 'services');
 
+        $reviews = Review::query()
+            ->where('vis', true)
+            ->whereYear('date', request()->input('year'))
+            ->orderByDesc('date')
+            ->get();
+
+        $reviews = ReviewResource::collection($reviews);
+        $reviews = $this->convertObject($reviews);
+
+        $years = Review::query()
+            ->where('vis', true)
+            ->selectRaw('YEAR(date) as year')
+            ->distinct()
+            ->orderBy('year', 'desc')
+            ->pluck('year', 'year')
+            ->toArray();
+
         return view('pages.review', [
             'contacts' => $contact,
-            'review' => $review,
-
+            'rating' => $rating,
+            'reviews' => $reviews,
+            'years' => $years
         ]);
     }
 

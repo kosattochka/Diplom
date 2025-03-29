@@ -288,9 +288,9 @@
                             <a href="https://yandex.ru/maps/org/pavlovskiy_park/1203779586/reviews/?ll=56.525875%2C55.459164&utm_campaign=v1&utm_medium=rating&utm_source=badge&z=13" class="review-block">
                                 <img src="/img/Yandex.svg" alt="">
                                 <div>
-                                   <h1>{{round($review['Яндекс'], 1)}}</h1>
+                                   <h1>{{round($rating['Яндекс'], 1)}}</h1>
                                     @include('element.stars', [
-                                        'rating'=> $review['Яндекс']
+                                        'rating'=> $rating['Яндекс']
                                     ])
                                 </div>
                                 <span>Оценка в Яндекс</span>
@@ -298,9 +298,9 @@
                             <a href="https://2gis.ru/ufa/firm/2393065583227349?utm_source=widget_firm" class="review-block">
                                 <img src="/img/2gis.svg" alt="">
                                 <div>
-                                   <h1>{{round($review['2gis'], 1)}}</h1>
+                                   <h1>{{round($rating['2gis'], 1)}}</h1>
                                     @include('element.stars', [
-                                        'rating'=> $review['2gis']
+                                        'rating'=> $rating['2gis']
                                     ])
                                 </div>
                                 <span>Оценка в 2gis</span>
