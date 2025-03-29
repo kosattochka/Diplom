@@ -17,12 +17,7 @@
     <br><br><br>
     <div class="service-container">
         @foreach ($photos as $item)
-            @include( 'element.card', [
-                'img' => $item['img'],
-                'name' => $item['name'],
-                'text' => $item['text'],
-                'link' => $item['link']
-            ])
+            @include( 'element.card', $item)
         @endforeach
     </div>
     @include('block.footer', [

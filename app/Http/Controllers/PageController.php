@@ -183,12 +183,22 @@ class PageController extends Controller
 
     public function new()
     {
+        if (!request()->has('page'))
+            return redirect('/new?page=1');
+
         $contacts = Contact::query()
             ->where('vis', true)
             ->first();
 
+        $news = News::query()
+            ->orderByDesc('date')
+            ->paginate(5);
+        $news = NewResource::collection($news);
+        $news = PaginatedResource::toFullArray($news);
+
         return view('pages.new', [
             'contacts' => $contacts,
+            'news' => $news
         ]);
     }
 

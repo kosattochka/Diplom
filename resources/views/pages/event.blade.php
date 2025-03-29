@@ -15,12 +15,7 @@
     ])
 
     @foreach ($events['data'] as $card)
-        @include('element.event_card', [
-            'img'=>$card->img,
-            'name'=>$card->name,
-            'text' => $card->text,
-            'link'=>$card->link
-        ])
+        @include('element.event_card', $card)
         <hr>
     @endforeach
 

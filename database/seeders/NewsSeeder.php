@@ -14,12 +14,12 @@ class NewsSeeder extends Seeder
      */
     public function run(): void
     {
-        for($i=0;$i<10;$i++){
+        for ($i = 0; $i < 75; $i++) {
             $events = News::factory()->create();
 
             Paragraph::factory(3)->create([
                 'parent_id' => $events->id,
-                'table'=>'news'
+                'table' => 'news'
             ]);
         }
     }

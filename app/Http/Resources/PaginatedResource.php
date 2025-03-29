@@ -18,7 +18,7 @@ class PaginatedResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'data' => json_decode(json_encode($this->resource), false),
+            'data' => json_decode(json_encode($this->resource), true),
             'links' => $this->getLinks(),
             'meta' => $this->getMeta()
         ];
