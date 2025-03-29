@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\Card\CardResource;
 use App\Http\Resources\Card\NewResource;
+use App\Http\Resources\PaginatedResource;
 use App\Models\Album;
 use App\Models\Contact;
 use App\Models\Event;
@@ -59,7 +60,7 @@ class PageController extends Controller
             ->imgs;
         $photo = json_decode($photo);
 
-        $photo = array_map(function($item) {
+        $photo = array_map(function ($item) {
             return ['img' => $item];
         }, $photo);
 
@@ -73,7 +74,6 @@ class PageController extends Controller
             'photo' => $this->component('element.gallery', $photo),
             'event' => $event
         ]);
-
     }
 
     public function service()
@@ -150,12 +150,23 @@ class PageController extends Controller
 
     public function event()
     {
+        if (!request()->has('page'))
+            return redirect('/event?page=1');
+
         $contacts = Contact::query()
             ->where('vis', true)
             ->first();
 
+        $events = Event::query()
+            ->where('vis', true)
+            ->paginate(3);
+
+        $events = CardResource::collection($events);
+        $events = PaginatedResource::toFullArray($events);
+
         return view('pages.event', [
             'contacts' => $contacts,
+            'events' => $events
         ]);
     }
 
@@ -205,5 +216,4 @@ class PageController extends Controller
             'contacts' => $contacts,
         ]);
     }
-
 }

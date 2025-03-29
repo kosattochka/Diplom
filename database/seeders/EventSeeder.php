@@ -14,12 +14,12 @@ class EventSeeder extends Seeder
      */
     public function run(): void
     {
-        for($i=0;$i<10;$i++){
+        for ($i = 0; $i < 45; $i++) {
             $events = Event::factory()->create();
 
             Paragraph::factory(1)->create([
                 'parent_id' => $events->id,
-                'table'=>'events'
+                'table' => 'events'
             ]);
         }
     }

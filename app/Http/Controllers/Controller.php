@@ -14,7 +14,6 @@ class Controller extends BaseController
     use AuthorizesRequests, ValidatesRequests;
     protected function convertObject($data): mixed
     {
-
         if (is_array($data)) {
             return array_map(fn($item) => self::convertObject($item), $data);
         }

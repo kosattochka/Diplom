@@ -14,18 +14,21 @@
         'email' =>$contacts->email,
     ])
 
-    <div class="event-card">
-        <div>
-            <img src="/img/events/Group82.png" alt="">
-        </div>
-        <div>
-            <p>Подарочный сертификат</p>
-            <figure></figure>
-            <span>Теперь у Вас есть возможность круглый год дарить близким, коллегам и друзьям активный и комфортный отдых в нашем центре отдыха.</span>
-            <a href="">Подробнее</a>
-        </div>
-    </div>
-    <hr>
+    @foreach ($events['data'] as $card)
+        @include('element.event_card', [
+            'img'=>$card->img,
+            'name'=>$card->name,
+            'text' => $card->text,
+            'link'=>$card->link
+        ])
+        <hr>
+    @endforeach
+
+    @include('element.paginate', [
+        'id'=>"page",
+        'field'=>"page",
+        'list'=>$events['links']
+    ])
 
     @include('block.footer', [
         'phone' =>$contacts->phone,
