@@ -17,7 +17,7 @@
     <br><br><br>
     <div class="service-container">
         @foreach ($photos as $item)
-            @include( 'element.card', $item)
+            @include( 'element.card.card', $item)
         @endforeach
     </div>
     @include('block.footer', [

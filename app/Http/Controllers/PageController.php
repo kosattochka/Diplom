@@ -70,7 +70,7 @@ class PageController extends Controller
             'contacts' => $contact,
             'certificate' => $event->img,
             'news' => $this->convertObject($news),
-            'rooms' => $this->component('element.card', $room),
+            'rooms' => $this->component('element.card.card', $room),
             'album' => $album,
             'review' => $review,
             'photo' => $this->component('element.gallery', $photo),
@@ -252,7 +252,7 @@ class PageController extends Controller
         $contacts = Contact::where('vis', true)->first();
 
         return view('pages.placement', [
-            'rooms' => $this->component('element.card', $room),
+            'rooms' => $this->component('element.card.card', $room),
             'contacts' => $contacts,
         ]);
     }

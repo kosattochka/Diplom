@@ -15,12 +15,7 @@
 
     <div class="service-container">
         @foreach ($service as $item)
-            @include( 'element.card', [
-                'img' => $item['img'],
-                'name' => $item['name'],
-                'text' => $item['text'],
-                'link' => $item['link']
-            ])
+            @include( 'element.card.card', $item)
         @endforeach
     </div>
 

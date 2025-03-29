@@ -17,7 +17,7 @@
 
     <div class="new-wrapper">
         @foreach ($news['data'] as $item)
-            @include('element.new-card', $item)
+            @include('element.card.new', $item)
             <hr>
         @endforeach
     </div>

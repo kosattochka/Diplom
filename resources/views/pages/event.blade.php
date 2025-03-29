@@ -15,7 +15,7 @@
     ])
 
     @foreach ($events['data'] as $card)
-        @include('element.event_card', $card)
+        @include('element.card.event', $card)
         <hr>
     @endforeach
 

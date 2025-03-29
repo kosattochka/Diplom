@@ -83,8 +83,8 @@
             </div>
             <div class="new-block">
                 <h1>Новости</h1>
-                @include('element.new-card', $news[0])
-                @include('element.new-card', $news[1])
+                @include('element.card.new', $news[0])
+                @include('element.card.new', $news[1])
             </div>
         </aside>
     </div>
