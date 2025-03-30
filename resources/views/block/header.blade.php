@@ -73,7 +73,9 @@
                         <label for="existing">Нажимая на кнопку, вы соглашаетесь на <a href="/politics">политику конфиденциальной информации</a></label>
                     </div>
                     <button type="submit" class="submit-btn">Зарегистрироваться</button>
-                    <button type="button" class="modal-open" data-modal="modal2">Если уже есть аккаунт, войти</button>
+                    <div class="button-center">
+                        <button type="button" class="modal-open" data-modal="modal2">Если уже есть аккаунт, войти</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -99,9 +101,30 @@
                     </div>
                     <button type="submit" class="submit-btn">Войти</button>
                     <div class="share-modal">
-                        <button>Забыли пароль?</button>
-                        <button class="modal-open" data-modal="modal1">Зарегестрироваться</button>
+                        <button type="button" class="modal-open" data-modal="modal3">Забыли пароль?</button>
+                        <button type="button" class="modal-open" data-modal="modal1">Зарегестрироваться</button>
                     </div>
+                </form>
+            </div>
+        </div>
+
+        {{-- Модальное окно для восстановления пароля --}}
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div class="subtitle">
+                    <div>
+                        <img src="/img/logo.svg" alt="">
+                    </div>
+                </div>
+                <h2>ВОССТАНОВЛЕНИЕ ПАРОЛЯ</h2>
+                <form class="registration-form" id="forgot">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="example@mail.com" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Отправить</button>
+                    <span>Нажимая на кнопку, вам придёт электронное письмо с ссылкой для восстановления пароля</span>
                 </form>
             </div>
         </div>
