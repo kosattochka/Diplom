@@ -20,7 +20,7 @@ class NewResource extends JsonResource
             'date' => Carbon::parse($this->date)->format('d.m.y'),
             'title' => $this->title,
             'text' => $this->short_description,
-            'link' => '/news/'.$this->alias
+            'link' => '/new/' . $this->alias
         ];
     }
 }
