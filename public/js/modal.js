@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Открытие модальных окон
     document.querySelectorAll(".modal-open").forEach((button) => {
         button.addEventListener("click", function (e) {
+            let modals = document.querySelectorAll(".modal");
+            modals.forEach((modal) => {
+                modal.style.display = "none";
+            });
             e.preventDefault(); // Предотвращаем стандартное поведение (если кнопка в форме)
             e.stopPropagation(); // Останавливаем всплытие события
             const modalId = this.getAttribute("data-modal");

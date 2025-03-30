@@ -73,7 +73,7 @@
                         <label for="existing">Нажимая на кнопку, вы соглашаетесь на <a href="/politics">политику конфиденциальной информации</a></label>
                     </div>
                     <button type="submit" class="submit-btn">Зарегистрироваться</button>
-                    <a href="/modal2">Если уже есть аккаунт, войти</a>
+                    <button type="button" class="modal-open" data-modal="modal2">Если уже есть аккаунт, войти</button>
                 </form>
             </div>
         </div>
@@ -99,8 +99,8 @@
                     </div>
                     <button type="submit" class="submit-btn">Войти</button>
                     <div class="share-modal">
-                        <a href="/modal2" class="share-color">Забыли пароль?</a>
-                        <a href="/modal2">Зарегестрироваться</a>
+                        <button>Забыли пароль?</button>
+                        <button class="modal-open" data-modal="modal1">Зарегестрироваться</button>
                     </div>
                 </form>
             </div>
