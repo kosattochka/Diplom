@@ -1,6 +1,12 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PlacementController;
+use App\Http\Controllers\RuleController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,22 +22,26 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index']);
 
-Route::get('/placement', [PageController::class, 'placement']);
+Route::get('/placement', [PlacementController::class, 'many']);
+Route::get('/placement/{alias}', [PlacementController::class, 'index']);
 
-Route::get('/service', [PageController::class, 'service']);
+Route::get('/service', [ServiceController::class, 'many']);
+Route::get('/service/{alias}', [ServiceController::class, 'index']);
 
-Route::get('/rule', [PageController::class, 'rule']);
+Route::get('/rule', [RuleController::class, 'many']);
+Route::get('/rule/{alias}', [RuleController::class, 'index']);
 
-Route::get('/event', [PageController::class, 'event']);
+Route::get('/event', [EventController::class, 'many']);
+Route::get('/event/{alias}', [EventController::class, 'index']);
 
-Route::get('/new', [PageController::class, 'new']);
+Route::get('/new', [NewsController::class, 'many']);
+Route::get('/new/{alias}', [NewsController::class, 'index']);
 
-Route::get('/gallery', [PageController::class, 'gallery']);
+Route::get('/gallery', [AlbumController::class, 'many']);
+Route::get('/gallery/{alias}', [AlbumController::class, 'index']);
 
 Route::get('/review', [PageController::class, 'review']);
 
 Route::get('/contact', [PageController::class, 'contact']);
 
 Route::get('/politics', [PageController::class, 'politics']);
-
-
