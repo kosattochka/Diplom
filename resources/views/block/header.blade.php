@@ -1,6 +1,4 @@
 <header>
-    <script defer src="/js/burger.js"></script>
-    <script defer src="/js/modal.js"></script>
     <img src="/img/background_index.svg" alt="" class="header-logo desktop">
     <div class="head">
         <a href="/placement" class="{{ (isset($active) and $active == 1) ? 'active' : '' }}">Размещение</a>
@@ -24,82 +22,90 @@
             <a href="/contact" class="{{ (isset($active) and $active == 8) ? 'active' : '' }}">Контакты</a>
             <div class="burger-footer">
                 <div class="share-content">
-                    <img src="/img/registration-icon.svg" alt=""><button class="modal-open" data-modal="modal1">Регистрация</button>
-                    <img src="/img/login-icon.svg" alt=""><button>Вход</button>
+                    @if (Auth::check())
+                        <a href="/account">{{Auth::user()->name}}</a>
+                    @else
+                        <img src="/img/registration-icon.svg" alt="">
+                        <button class="modal-open" data-modal="modal1">Регистрация</button>
+                        <img src="/img/login-icon.svg" alt="">
+                        <button class="modal-open" data-modal="modal2">Вход</button>
+                    @endif
                 </div>
                 <img src="/img/logo.svg" alt="">
             </div>
         </div>
     </div>
 
-    <!-- Модальное окно для регистрации -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <div class="subtitle">
-                <div>
-                    <img src="/img/logo.svg" alt="">
+    @if (!Auth::check())
+        <!-- Модальное окно для регистрации -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div class="subtitle">
+                    <div>
+                        <img src="/img/logo.svg" alt="">
+                    </div>
                 </div>
+                <h2>РЕГИСТРАЦИЯ</h2>
+                <form class="registration-form" id="register">
+                    <div class="form-group">
+                        <label>ФИО</label>
+                        <input type="text" name="name" placeholder="Введите ваше полное имя" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Номер телефона</label>
+                        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="example@mail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Придумайте пароль</label>
+                        <input type="password" name="password" placeholder="Не менее 8 символов" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Повторите пароль</label>
+                        <input type="password" name="password_confirmation" placeholder="Повторите ваш пароль" required>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="existing" name="rule">
+                        <label for="existing">Нажимая на кнопку, вы соглашаетесь на <a href="/politics">политику конфиденциальной информации</a></label>
+                    </div>
+                    <button type="submit" class="submit-btn">Зарегистрироваться</button>
+                    <a href="/modal2">Если уже есть аккаунт, войти</a>
+                </form>
             </div>
-            <h2>РЕГИСТРАЦИЯ</h2>
-            <form class="registration-form">
-            <div class="form-group">
-                <label>ФИО</label>
-                <input type="text" placeholder="Введите ваше полное имя" required>
-            </div>
-            <div class="form-group">
-                <label>Номер телефона</label>
-                <input type="tel" placeholder="+7 (___) ___-__-__" required>
-            </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" placeholder="example@mail.com" required>
-            </div>
-            <div class="form-group">
-                <label>Придумайте пароль</label>
-                <input type="password" placeholder="Не менее 8 символов" required>
-            </div>
-            <div class="form-group">
-                <label>Повторите пароль</label>
-                <input type="password" placeholder="Повторите ваш пароль" required>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="existing">
-                <label for="existing">Нажимая на кнопку, вы соглашаетесь на <a href="/politics">политику конфиденциальной информации</a></label>
-            </div>
-            <button type="submit" class="submit-btn">Зарегистрироваться</button>
-            <a href="/modal2">Если уже есть аккаунт, войти</a>
-          </form>
         </div>
-    </div>
 
-    <!-- Модальное окно для входа -->
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <div class="subtitle">
-                <div>
-                    <img src="/img/logo.svg" alt="">
+        <!-- Модальное окно для входа -->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div class="subtitle">
+                    <div>
+                        <img src="/img/logo.svg" alt="">
+                    </div>
                 </div>
+                <h2>ВХОД</h2>
+                <form class="registration-form" id="login">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="example@mail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" name="password" placeholder="Напишите ваш пароль" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Войти</button>
+                    <div class="share-modal">
+                        <a href="/modal2" class="share-color">Забыли пароль?</a>
+                        <a href="/modal2">Зарегестрироваться</a>
+                    </div>
+                </form>
             </div>
-            <h2>ВХОД</h2>
-            <form class="registration-form">
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" placeholder="example@mail.com" required>
-            </div>
-            <div class="form-group">
-                <label>Пароль</label>
-                <input type="password" placeholder="Напишите ваш пароль" required>
-            </div>
-            <button type="submit" class="submit-btn">Войти</button>
-            <div class="share-modal">
-                <a href="/modal2" class="share-color">Забыли пароль?</a>
-                <a href="/modal2">Зарегестрироваться</a>
-            </div>
-          </form>
         </div>
-    </div>
+    @endif
 
     <div class="baner">
         <div class="head-column">
@@ -120,8 +126,12 @@
                 Офис продаж (звонок бесплатный): <br>{{$phone}}
             </a>
             <div class="share-content">
-                <a href=""><img src="/img/registration-icon.svg" alt=""><button class="modal-open" data-modal="modal1">Регистрация</button></a>
-                <a href=""><img src="/img/login-icon.svg" alt=""><button class="modal-open" data-modal="modal2">Вход</button></a>
+                @if (Auth::check())
+                    <a href="/account">{{Auth::user()->name}}</a>
+                @else
+                    <a href=""><img src="/img/registration-icon.svg" alt=""><button class="modal-open" data-modal="modal1">Регистрация</button></a>
+                    <a href=""><img src="/img/login-icon.svg" alt=""><button class="modal-open" data-modal="modal2">Вход</button></a>
+                @endif
             </div>
         </div>
         @switch($active)
@@ -283,30 +293,30 @@
             <div class="baner-content-placement">
                 <span>Отзывы</span>
                 <div class="rectangle-white-container line-yellow-bottom column-gap">
-                        <span>Павловский Парк предлагает ознакомиться с фотографиями, сделанными отдыхающими.<br>Ваше мнение важно для нас! Поделитесь впечатлениями о парке, услугах, развлечениях и кухне. Ваши отзывы помогут нам стать лучше. Оставьте их на Яндекс.Картах или 2ГИС. Спасибо!</span>
-                        <div>
-                            <a href="https://yandex.ru/maps/org/pavlovskiy_park/1203779586/reviews/?ll=56.525875%2C55.459164&utm_campaign=v1&utm_medium=rating&utm_source=badge&z=13" class="review-block">
-                                <img src="/img/Yandex.svg" alt="">
-                                <div>
-                                   <h1>{{round($rating['Яндекс'], 1)}}</h1>
-                                    @include('element.stars', [
-                                        'rating'=> $rating['Яндекс']
-                                    ])
-                                </div>
-                                <span>Оценка в Яндекс</span>
-                            </a>
-                            <a href="https://2gis.ru/ufa/firm/2393065583227349?utm_source=widget_firm" class="review-block">
-                                <img src="/img/2gis.svg" alt="">
-                                <div>
-                                   <h1>{{round($rating['2gis'], 1)}}</h1>
-                                    @include('element.stars', [
-                                        'rating'=> $rating['2gis']
-                                    ])
-                                </div>
-                                <span>Оценка в 2gis</span>
-                            </a>
-                        </div>
-                        <span>Мы благодарим вас за ваше внимание и ждем ваших отзывов! С уважением, администрация Павловского парка.</span>
+                    <span>Павловский Парк предлагает ознакомиться с фотографиями, сделанными отдыхающими.<br>Ваше мнение важно для нас! Поделитесь впечатлениями о парке, услугах, развлечениях и кухне. Ваши отзывы помогут нам стать лучше. Оставьте их на Яндекс.Картах или 2ГИС. Спасибо!</span>
+                    <div>
+                        <a href="https://yandex.ru/maps/org/pavlovskiy_park/1203779586/reviews/?ll=56.525875%2C55.459164&utm_campaign=v1&utm_medium=rating&utm_source=badge&z=13" class="review-block">
+                            <img src="/img/Yandex.svg" alt="">
+                            <div>
+                                <h1>{{round($rating['Яндекс'], 1)}}</h1>
+                                @include('element.stars', [
+                                    'rating'=> $rating['Яндекс']
+                                ])
+                            </div>
+                            <span>Оценка в Яндекс</span>
+                        </a>
+                        <a href="https://2gis.ru/ufa/firm/2393065583227349?utm_source=widget_firm" class="review-block">
+                            <img src="/img/2gis.svg" alt="">
+                            <div>
+                                <h1>{{round($rating['2gis'], 1)}}</h1>
+                                @include('element.stars', [
+                                    'rating'=> $rating['2gis']
+                                ])
+                            </div>
+                            <span>Оценка в 2gis</span>
+                        </a>
+                    </div>
+                    <span>Мы благодарим вас за ваше внимание и ждем ваших отзывов! С уважением, администрация Павловского парка.</span>
               </div>
             </div>
             @break

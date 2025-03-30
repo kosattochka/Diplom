@@ -13,9 +13,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone')->unique();
-            $table->timestamp('birthday')->unique();
+            $table->timestamp('birthday')->nullable();
             $table->string('password');
-            $table->boolean('is_man');
+            $table->boolean('is_man')->default(true);
             $table->boolean('is_admin')->default(false);
             $table->timestamps();
         });

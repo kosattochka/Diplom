@@ -7,6 +7,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PlacementController;
 use App\Http\Controllers\RuleController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,3 +46,6 @@ Route::get('/review', [PageController::class, 'review']);
 Route::get('/contact', [PageController::class, 'contact']);
 
 Route::get('/politics', [PageController::class, 'politics']);
+
+Route::get('/account', [UserController::class, 'page']);
+Route::get('/logout', [UserController::class, 'logout']);
