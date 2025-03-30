@@ -9,21 +9,21 @@
     margin: 0 auto;
 
     p {
-        color:#0D504D;
+        color: #0d504d;
 
         a {
-            color: #0D504D;
+            color: #0d504d;
             text-decoration: underline;
         }
 
         a:hover {
-            color: #00847E;
+            color: #00847e;
         }
     }
 
     span {
         font-family: PlayfairDisplay_Bold;
-        color: #0D504D;
+        color: #0d504d;
         text-align: start;
         font-size: 24px;
 
@@ -33,16 +33,15 @@
     }
 
     .text-yellow {
-        color: #FDB10B;
+        color: #fdb10b;
     }
 }
 
 .line-yellow-bottom {
-    border-bottom: 70px solid #FDB10B;
+    border-bottom: 70px solid #fdb10b;
 }
 
 .map-transport {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,11 +51,10 @@
     p {
         width: 1260px;
         font-family: PlayfairDisplay_Bold;
-        color: #0D504D;
+        color: #0d504d;
         font-size: 20px;
         display: flex;
     }
-
 }
 
 .width-container {

@@ -1,5 +1,4 @@
 .baner-content-placement.new-padding {
-
     padding-left: 110px;
 
     .new-baner {
@@ -15,14 +14,12 @@
             color: #0d504d;
             font-size: 24px;
         }
-
     }
 }
 
 .new-wrapper {
     width: 100%;
     padding: 90px 30px 30px 30px;
-
 }
 
 @media (min-width: 768px) {
@@ -36,7 +33,6 @@
 
         > div:nth-child(2) {
             justify-content: center;
-
         }
 
         span {
@@ -48,6 +44,9 @@
             padding: 20px 0 0 0;
         }
 
+        img {
+            width: 25vw;
+        }
     }
 }
 
@@ -61,19 +60,15 @@
             border-radius: 40px;
             cursor: pointer;
             padding: 8px 15px;
-
         }
 
         a:hover {
-            background-color: #FDB10B;
+            background-color: #fdb10b;
         }
     }
 }
 
-
-
 @media (max-width: 768px) {
-
     header {
         padding-bottom: 30px !important;
     }
@@ -90,10 +85,4 @@
     .new-wrapper {
         padding: 0 30px 30px 30px;
     }
-
-
-
 }
-
-
-

@@ -1,10 +1,10 @@
 .reservation {
     width: 100%;
     height: 100px;
-    background-color: #0D504D;
+    background-color: #0d504d;
 
     span {
-        color: #FFAE00;
+        color: #ffae00;
         font-family: Gabriela;
         font-size: 24px;
     }

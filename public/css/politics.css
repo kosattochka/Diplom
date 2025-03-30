@@ -6,7 +6,7 @@
     padding: 40px 40px; /* Внутренние отступы (10px сверху/снизу, 20px слева/справа) */
     font-family: PlayfairDisplay_Bold;
     font-size: 24px;
-    color: #0D504D;
+    color: #0d504d;
     margin: 0 auto;
 
     .privacy-policy ol {
@@ -28,6 +28,4 @@
         list-style-type: square;
         padding-left: 80px;
     }
-
 }
-

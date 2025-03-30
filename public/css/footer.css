@@ -14,10 +14,10 @@ footer {
         display: flex;
         flex-direction: row;
         gap: 30px;
-        align-items:start;
+        align-items: start;
 
         a:hover {
-            color: #0C8B82;
+            color: #0c8b82;
         }
     }
 
@@ -29,13 +29,12 @@ footer {
     }
 
     p {
-
         a {
-            color: #0C8B82;
+            color: #0c8b82;
             text-decoration: underline;
         }
         a:hover {
-            background-color: #7FC7FF;
+            background-color: #7fc7ff;
             opacity: 0.8;
         }
     }
@@ -52,8 +51,6 @@ footer {
             align-items: center;
             justify-content: start;
             gap: 10px;
-
-
         }
     }
 
@@ -82,12 +79,12 @@ footer {
                 width: 40px;
             }
 
-        a {
-            font-size: 12px;
-        }
+            a {
+                font-size: 12px;
+            }
         }
 
-        >div:nth-child(1) {
+        > div:nth-child(1) {
             max-width: 50vw;
 
             .pank {
