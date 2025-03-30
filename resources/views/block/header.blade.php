@@ -23,12 +23,15 @@
             <div class="burger-footer">
                 <div class="share-content">
                     @if (Auth::check())
-                        <a href="/account">{{Auth::user()->name}}</a>
+                    <a href="/account"><img src="/img/account-icon.svg" alt="">{{Auth::user()->name}}</a>
                     @else
-                        <img src="/img/registration-icon.svg" alt="">
-                        <button class="modal-open" data-modal="modal1">Регистрация</button>
-                        <img src="/img/login-icon.svg" alt="">
-                        <button class="modal-open" data-modal="modal2">Вход</button>
+                        <a href="">
+                            <img src="/img/registration-icon.svg" alt="">
+                            <button class="modal-open" data-modal="modal1">Регистрация</button></a>
+                        <a href="">
+                            <img src="/img/login-icon.svg" alt="">
+                            <button class="modal-open" data-modal="modal2">Вход</button>
+                        </a>
                     @endif
                 </div>
                 <img src="/img/logo.svg" alt="">
@@ -150,7 +153,7 @@
             </a>
             <div class="share-content">
                 @if (Auth::check())
-                    <a href="/account">{{Auth::user()->name}}</a>
+                    <a href="/account"><img src="/img/account-icon.svg" alt="">{{Auth::user()->name}}</a>
                 @else
                     <a href=""><img src="/img/registration-icon.svg" alt=""><button class="modal-open" data-modal="modal1">Регистрация</button></a>
                     <a href=""><img src="/img/login-icon.svg" alt=""><button class="modal-open" data-modal="modal2">Вход</button></a>

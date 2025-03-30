@@ -426,6 +426,21 @@ hr {
     margin: 20px 0;
 }
 
+.share-content {
+    a {
+        color: #0d504d;
+    }
+
+    a:hover {
+        color: #fdb10b;
+    }
+
+    div:nth-child() {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
 @media (max-width: 768px) {
     header {
         padding-bottom: 40px;
@@ -525,6 +540,8 @@ hr {
         flex-direction: row;
         gap: 10px;
         width: 200px;
+        font-family: PlayfairDisplay_Bold;
+        font-size: 16px;
     }
 
     .head-column .logo-wrapper {
