@@ -19,6 +19,7 @@
     ])
 
     @if(session('email'))
+        <script defer type="module" src="/js/form/resetPassword.js"></script>
         <div id="modal4" class="modal" style="display: block;">
             <div class="modal-content">
                 <span class="modal-close">&times;</span>

@@ -1,7 +1,7 @@
 import { errorModal } from "../modal.js";
 
 document
-    .getElementById("forgot")
+    .getElementById("reset_password")
     .addEventListener("submit", function (event) {
         event.preventDefault(); // Предотвращаем стандартное поведение формы
 
@@ -10,7 +10,7 @@ document
         const data = Object.fromEntries(formData.entries());
 
         // Отправляем запрос на сервер
-        fetch("/api/auth/forgot", {
+        fetch("/api/auth/changePassword", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -23,12 +23,12 @@ document
             .then(async (result) => {
                 if (result.status) {
                     // Успешная отправка
-                    errorModal('Вам на почту отправлено письмо с ссылкой на востановление пароля', false);
-                    document.getElementById("modal3").style.display = 'none';
+                    document.getElementById("modal4").style.display = "none";
+                    document.getElementById("modal1").style.display = "flex";
                 } else {
                     // Обрабатываем ошибки валидации
                     console.log(result);
                     errorModal(result.message);
                 }
             });
-});
+    });
