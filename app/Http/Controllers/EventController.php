@@ -12,7 +12,8 @@ class EventController extends Controller
     public function many()
     {
         if (!request()->has('page'))
-            return redirect('/event?page=1');
+            return redirect('/event?page=1')
+                ->with(session()->all());
 
         $contacts = Contact::query()
             ->where('vis', true)

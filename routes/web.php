@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class, 'index']);
+Route::get('/password/reset', [UserController::class, 'viewResetPassword']);
 
 Route::get('/placement', [PlacementController::class, 'many']);
 Route::get('/placement/{alias}', [PlacementController::class, 'index']);

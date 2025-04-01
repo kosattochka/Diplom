@@ -24,7 +24,8 @@ class PageController extends Controller
     {
         if (!request()->has('gallery')) {
             $album = Album::first();
-            return redirect('/?gallery=' . $album->alias);
+            return redirect('/?gallery=' . $album->alias)
+                ->with(session()->all());
         }
 
         $contact = Contact::query()
@@ -87,7 +88,8 @@ class PageController extends Controller
                 ->first();
             $year = Carbon::parse($year->date)->year;
 
-            return redirect('/review?year=' . $year);
+            return redirect('/review?year=' . $year)
+                ->with(session()->all());
         }
 
         $contact = Contact::query()

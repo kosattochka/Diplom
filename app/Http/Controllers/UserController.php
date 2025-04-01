@@ -89,11 +89,9 @@ class UserController extends Controller
         $email = $request->query('email');
 
         if (!Password::tokenExists(User::where('email', $email)->first(), $token))
-            return 'Недействительный токен';
+            return redirect('/')->with('error', 'Недействительный токен');
 
-        return [
-            'email' => $email
-        ];
+        return redirect('/')->with('email', $email);
     }
 
     public function changePassword(PasswordRequest $request): Response

@@ -17,6 +17,33 @@
         'telegram' =>$contacts->telegram,
         'vk' =>$contacts->vk
     ])
+
+    @if(session('email'))
+        <div id="modal4" class="modal" style="display: block;">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div class="subtitle">
+                    <div>
+                        <img src="/img/logo.svg" alt="">
+                    </div>
+                </div>
+                <h2>ПРИДУМАЙТЕ НОВЫЙ ПАРОЛЬ</h2>
+                <form class="registration-form" id="reset_password">
+                    <input type="hidden" name="email" value="{{session('email')}}">
+                    <div class="form-group">
+                        <label>Придумайте пароль</label>
+                        <input type="password" name="password" placeholder="Не менее 8 символов" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Повторите пароль</label>
+                        <input type="password" name="password_confirmation" placeholder="Повторите ваш пароль" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Отправить</button>
+                </form>
+            </div>
+        </div>
+    @endif
+
     <div class="web-content">
         <div>
             <div class="six"><p><span><img src="/img/icon-certificate.svg" alt="">Подарочный сертификат</span></p></div>
