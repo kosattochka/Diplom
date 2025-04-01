@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-function errorModal(msg) {
+function errorModal(msg, error=true) {
     let modal = document.querySelector("#errorModal");
     if (modal) {
         modal.remove();
@@ -63,7 +63,7 @@ function errorModal(msg) {
                             <img src="/img/logo.svg" alt=""/>
                         </div>
                     </div>
-                    <h2>ОШИБКА</h2>
+                    ${error?'<h2>ОШИБКА</h2>':''}
                     <h3>${msg}</h3>
                 </div>
             </div>

@@ -13,8 +13,27 @@
     <script defer type="module" src="/js/modal.js"></script>
     <script defer type="module" src="/js/form/login.js"></script>
     <script defer type="module" src="/js/form/register.js"></script>
+    <script defer type="module" src="/js/form/forgot.js"></script>
 </head>
-<body>
-    @yield('main_content')
-</body>
+    @if(session('error'))
+        <body class="modalka-open">
+        <div id="errorModal" class="modal error" style="display: block">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div class="subtitle">
+                    <div>
+                        <img src="/img/logo.svg" alt=""/>
+                    </div>
+                </div>
+                <h2>ОШИБКА</h2>
+                <h3>{{$error}}</h3>
+            </div>
+        </div>
+    @else
+        <body>
+    @endif
+
+    <body>
+        @yield('main_content')
+    </body>
 </html>
