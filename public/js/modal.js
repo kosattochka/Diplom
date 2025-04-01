@@ -1,39 +1,74 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Открытие модальных окон
-    document.querySelectorAll(".modal-open").forEach((button) => {
-        button.addEventListener("click", function (e) {
-            let modals = document.querySelectorAll(".modal");
-            modals.forEach((modal) => {
-                modal.style.display = "none";
-            });
-            e.preventDefault(); // Предотвращаем стандартное поведение (если кнопка в форме)
-            e.stopPropagation(); // Останавливаем всплытие события
-            const modalId = this.getAttribute("data-modal");
-            document.getElementById(modalId).style.display = "block";
+document.addEventListener("DOMContentLoaded", function() {
+    // Общая функция закрытия всех модальных окон
+    const closeAllModals = () => {
+        document.querySelectorAll(".modal").forEach(modal => {
+            modal.style.display = "none";
         });
+    };
+
+    // Делегированное открытие модальных окон
+    document.addEventListener("click", function(e) {
+        const modalOpenButton = e.target.closest(".modal-open");
+        if (modalOpenButton) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeAllModals();
+            const modalId = modalOpenButton.dataset.modal;
+            if (modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) modal.style.display = "block";
+            }
+        }
     });
 
-    // Закрытие модальных окон при клике на крестик
-    document.querySelectorAll(".modal-close").forEach((span) => {
-        span.addEventListener("click", function (e) {
-            e.stopPropagation(); // Останавливаем всплытие
-            this.closest(".modal").style.display = "none";
-        });
+    // Делегированное закрытие модальных окон
+    document.addEventListener("click", function(e) {
+        const modalCloseButton = e.target.closest(".modal-close");
+        if (modalCloseButton) {
+            e.stopPropagation();
+            const modal = modalCloseButton.closest(".modal");
+            if (modal) modal.style.display = "none";
+        }
     });
 
     // Закрытие при клике вне модального окна
-    window.addEventListener("click", function (e) {
+    document.addEventListener("click", function(e) {
         if (e.target.classList.contains("modal")) {
             e.target.style.display = "none";
         }
     });
 
     // Закрытие при нажатии Escape
-    window.addEventListener("keydown", function (e) {
+    document.addEventListener("keydown", function(e) {
         if (e.key === "Escape") {
-            document.querySelectorAll(".modal").forEach((modal) => {
-                modal.style.display = "none";
-            });
+            closeAllModals();
         }
     });
 });
+
+function errorModal(msg) {
+    let modal = document.querySelector("#errorModal");
+    if (modal) {
+        modal.remove();
+    }
+
+    document.body.insertAdjacentHTML(
+        "beforeend",
+        `
+            <div id="errorModal" class="modal error" style="display: block">
+                <div class="modal-content">
+                    <span class="modal-close">&times;</span>
+                    <div class="subtitle">
+                        <div>
+                            <img src="/img/logo.svg" alt=""/>
+                        </div>
+                    </div>
+                    <h2>ОШИБКА</h2>
+                    <h3>${msg}</h3>
+                </div>
+            </div>
+        `
+    );
+}
+
+export {errorModal}

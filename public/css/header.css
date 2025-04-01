@@ -289,12 +289,16 @@ header {
             color: #0d504d;
         }
 
-        h2 {
+        h2, h3 {
             color: #fdb10b;
             font-family: Gabriela;
             text-align: center;
             font-weight: 100;
             font-size: 22px;
+        }
+        h3 {
+            margin-top: 15px;
+            font-size: 18px;
         }
 
         > .subtitle {
@@ -393,6 +397,10 @@ header {
             }
         }
     }
+}
+.modal.error {
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 99;
 }
 
 .registration-form button[type='button'] {

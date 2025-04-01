@@ -1,3 +1,5 @@
+import { errorModal } from "../modal.js";
+
 document
     .getElementById("register")
     .addEventListener("submit", function (event) {
@@ -25,7 +27,7 @@ document
                 } else {
                     // Обрабатываем ошибки валидации
                     console.log(result);
-                    alert(result.message);
+                    errorModal(result.message);
                 }
             });
     });

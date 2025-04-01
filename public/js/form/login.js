@@ -1,3 +1,5 @@
+import { errorModal } from "../modal.js";
+
 document.getElementById("login").addEventListener("submit", function (event) {
     event.preventDefault(); // Предотвращаем стандартное поведение формы
 
@@ -23,7 +25,7 @@ document.getElementById("login").addEventListener("submit", function (event) {
             } else {
                 // Обрабатываем ошибки валидации
                 console.log(result);
-                alert(result.message);
+                errorModal(result.message);
             }
         });
 });
