@@ -17,8 +17,8 @@ class ParagraphFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence,
-            'text' => $this->faker->text(),
+            'title' => rand(0,1) < 0.2? null :$this->faker->sentence,
+            'text' => $this->faker->text(2000),
         ];
     }
 }
