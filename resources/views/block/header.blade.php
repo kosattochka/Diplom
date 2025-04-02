@@ -162,69 +162,69 @@
         </div>
         @switch($active)
             @case(0)
-            <div class="baner-content-index">
-                <div class="icon-container">
-                    <img src="/img/icon-ecolist.svg" alt="">
-                    <div>
-                        <span class="text-icon-big">Экологически <span class="text-icon-small">чистый воздух</span></span>
+                <div class="baner-content-index">
+                    <div class="icon-container">
+                        <img src="/img/icon-ecolist.svg" alt="">
+                        <div>
+                            <span class="text-icon-big">Экологически <span class="text-icon-small">чистый воздух</span></span>
+                        </div>
+                    </div>
+                    <div class="icon-container">
+                        <img src="/img/icon-entertaiment.svg" alt="">
+                        <div>
+                            <span class="text-icon-big">Все развлечения <span class="text-icon-small">в одном месте</span></span>
+                            <span class="text-icon-big">Обширные возможности  <span class="text-icon-small">отдыха</span></span>
+                        </div>
+                    </div>
+                    <div class="icon-container">
+                        <img src="/img/icon-excursions.svg" alt="">
+                        <div>
+                            <span class="text-icon-big">Экскурсии для <span class="text-icon-small">туристов</span></span>
+                            <span class="text-icon-big">Близкое расположение <span class="text-icon-small">к столице</span></span>
+                        </div>
+                    </div>
+                    <div class="icon-container">
+                        <img src="/img/icon-quality.svg" alt="">
+                        <div>
+                            <span class="text-icon-big">Высокое качество <span class="text-icon-small">обслуживания</span></span>
+                            <span class="text-icon-big">Комфортабельное <span class="text-icon-small">проживание</span></span>
+                        </div>
+                    </div>
+                    <div class="icon-container">
+                        <img src="/img/icon-price.svg" alt="">
+                        <div>
+                            <span class="text-icon-big">Привлекательные <span class="text-icon-small">цены</span></span>
+                        </div>
                     </div>
                 </div>
-                <div class="icon-container">
-                    <img src="/img/icon-entertaiment.svg" alt="">
-                    <div>
-                        <span class="text-icon-big">Все развлечения <span class="text-icon-small">в одном месте</span></span>
-                        <span class="text-icon-big">Обширные возможности  <span class="text-icon-small">отдыха</span></span>
-                    </div>
-                </div>
-                <div class="icon-container">
-                    <img src="/img/icon-excursions.svg" alt="">
-                    <div>
-                        <span class="text-icon-big">Экскурсии для <span class="text-icon-small">туристов</span></span>
-                        <span class="text-icon-big">Близкое расположение <span class="text-icon-small">к столице</span></span>
-                    </div>
-                </div>
-                <div class="icon-container">
-                    <img src="/img/icon-quality.svg" alt="">
-                    <div>
-                        <span class="text-icon-big">Высокое качество <span class="text-icon-small">обслуживания</span></span>
-                        <span class="text-icon-big">Комфортабельное <span class="text-icon-small">проживание</span></span>
-                    </div>
-                </div>
-                <div class="icon-container">
-                    <img src="/img/icon-price.svg" alt="">
-                    <div>
-                        <span class="text-icon-big">Привлекательные <span class="text-icon-small">цены</span></span>
-                    </div>
-                </div>
-            </div>
                 @break
             @case(1)
-            <div class="baner-content-placement">
-                <span>Номера в гостинице</span>
-                <div class="rectangle-white-container">
-                    <p>Гостиничный комплекс включает: <br>
-                        • 3 двухэтажных коттеджа и 1 трехэтажный корпус.  <br>
-                        • В каждом коттедже — 8 номеров категории «Стандарт» (по 4 на этаже). <br>
-                        • В главном корпусе: 4 номера «Люкс», 2 номера «Люкс плюс» и 35 номеров «Стандарт» (по 4 на этаже). <br>
-                        • Все номера оснащены ванной, телевизором, чайником, полотенцами, мыльными принадлежностями, отоплением и Wi-Fi. <br>
-                        • Курение в номерах запрещено. <br>
-                        <br>
-                        Рекомендуем ознакомиться с <a href="/rule">Правилами</a> центра отдыха «Павловский Парк».
-                    </p>
+                <div class="baner-content-placement">
+                    <span>Номера в гостинице</span>
+                    <div class="rectangle-white-container">
+                        <p>Гостиничный комплекс включает: <br>
+                            • 3 двухэтажных коттеджа и 1 трехэтажный корпус.  <br>
+                            • В каждом коттедже — 8 номеров категории «Стандарт» (по 4 на этаже). <br>
+                            • В главном корпусе: 4 номера «Люкс», 2 номера «Люкс плюс» и 35 номеров «Стандарт» (по 4 на этаже). <br>
+                            • Все номера оснащены ванной, телевизором, чайником, полотенцами, мыльными принадлежностями, отоплением и Wi-Fi. <br>
+                            • Курение в номерах запрещено. <br>
+                            <br>
+                            Рекомендуем ознакомиться с <a href="/rule">Правилами</a> центра отдыха «Павловский Парк».
+                        </p>
+                    </div>
                 </div>
-            </div>
-            @break
+                @break
             @case(2)
-            <div class="baner-content-placement">
-                <span>Услуги</span>
-                <div class="rectangle-white-container">
-                    <p>Отдых на Павловке доступен круглый год. В наших домиках комфортно как летом, так и зимой. Всесезонные развлечения включают бассейн с подогревом, который работает уже с весны, а также бани и кафе с аппетитным меню. Летом гости могут насладиться водными развлечениями на водохранилище, поиграть на спортивных площадках или посетить аквапарк с увлекательными горками. Зимой доступны профессиональные трассы для горных лыж, спуски на тюбингах и прокат беговых лыж для прогулок по замёрзшему водохранилищу с живописными видами.
-                        Для делового туризма мы организуем конференции и семинары, обеспечивая всё необходимое: пространство, питание, экскурсии и развлечения. Любители истории могут отправиться на экскурсии к интересным местам, включая самый высоконапорный шлюз в нашей части света и скалистые берега водохранилища.
-                        Наши коттеджи идеально подходят для свадеб, праздников и дружеских встреч. Мы создаём условия, чтобы торжества оставляли приятные впечатления на всю жизнь. Павловка – это место, где каждый найдёт отдых по душе в любое время года.
-                    </p>
+                <div class="baner-content-placement">
+                    <span>Услуги</span>
+                    <div class="rectangle-white-container">
+                        <p>Отдых на Павловке доступен круглый год. В наших домиках комфортно как летом, так и зимой. Всесезонные развлечения включают бассейн с подогревом, который работает уже с весны, а также бани и кафе с аппетитным меню. Летом гости могут насладиться водными развлечениями на водохранилище, поиграть на спортивных площадках или посетить аквапарк с увлекательными горками. Зимой доступны профессиональные трассы для горных лыж, спуски на тюбингах и прокат беговых лыж для прогулок по замёрзшему водохранилищу с живописными видами.
+                            Для делового туризма мы организуем конференции и семинары, обеспечивая всё необходимое: пространство, питание, экскурсии и развлечения. Любители истории могут отправиться на экскурсии к интересным местам, включая самый высоконапорный шлюз в нашей части света и скалистые берега водохранилища.
+                            Наши коттеджи идеально подходят для свадеб, праздников и дружеских встреч. Мы создаём условия, чтобы торжества оставляли приятные впечатления на всю жизнь. Павловка – это место, где каждый найдёт отдых по душе в любое время года.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            @break
+                @break
             @case(3)
                 <div class="baner-content-placement">
                     <span>Правила</span>
@@ -259,7 +259,7 @@
                         <span>Соблюдение этих правил поможет сделать ваш отдых и отдых других гостей приятным и безопасным. Благодарим за понимание и сотрудничество!</span>
                   </div>
                 </div>
-            @break
+                @break
             @case(4)
                 <div class="baner-content-placement">
                     <span>Акции</span>
@@ -290,62 +290,62 @@
                         <span class="text-yellow">Пишите:</span><a href="">{{$email}}</a>
                   </div>
                 </div>
-            @break
+                @break
             @case(5)
-            <div class="baner-content-placement new-padding">
-                <span>Новости</span>
-                <div class="new-baner">
-                    <span>"Павловский парк: где каждая новость — это повод собрать чемоданы и убежать от городской суеты в объятия природы!"</span>
-                    <img src="/img/news/new-baner.png" alt="">
+                <div class="baner-content-placement new-padding">
+                    <span>Новости</span>
+                    <div class="new-baner">
+                        <span>"Павловский парк: где каждая новость — это повод собрать чемоданы и убежать от городской суеты в объятия природы!"</span>
+                        <img src="/img/news/new-baner.png" alt="">
+                    </div>
                 </div>
-            </div>
-            @break
+                @break
             @case(6)
-            <div class="baner-content-placement">
-                <span>Галерея</span>
-                <div class="rectangle-white-container line-yellow-bottom column-gap">
-                    <div>
-                        <img src="/img/albums/icon-gallery-1.svg" alt="">
-                        <span>Уважаемые гости Павловского парка!<br>Здесь проводят корпоративы, свадьбы, встречают Новый Год, дни рождения и просто отлично проводят время.</span>
-                    </div>
-                    <div>
-                        <img src="/img/albums/icon-gallery-2.svg" alt="">
-                        <span>Для бронирования домиков обязательно свяжитесь с менеджером по телефону: <a href="">{{$phone}}</a>.</span>
-                    </div>
-              </div>
-            </div>
-            @break
+                <div class="baner-content-placement">
+                    <span>Галерея</span>
+                    <div class="rectangle-white-container line-yellow-bottom column-gap">
+                        <div>
+                            <img src="/img/albums/icon-gallery-1.svg" alt="">
+                            <span>Уважаемые гости Павловского парка!<br>Здесь проводят корпоративы, свадьбы, встречают Новый Год, дни рождения и просто отлично проводят время.</span>
+                        </div>
+                        <div>
+                            <img src="/img/albums/icon-gallery-2.svg" alt="">
+                            <span>Для бронирования домиков обязательно свяжитесь с менеджером по телефону: <a href="">{{$phone}}</a>.</span>
+                        </div>
+                  </div>
+                </div>
+                @break
             @case(7)
-            <div class="baner-content-placement">
-                <span>Отзывы</span>
-                <div class="rectangle-white-container line-yellow-bottom column-gap">
-                    <span>Павловский Парк предлагает ознакомиться с фотографиями, сделанными отдыхающими.<br>Ваше мнение важно для нас! Поделитесь впечатлениями о парке, услугах, развлечениях и кухне. Ваши отзывы помогут нам стать лучше. Оставьте их на Яндекс.Картах или 2ГИС. Спасибо!</span>
-                    <div>
-                        <a href="https://yandex.ru/maps/org/pavlovskiy_park/1203779586/reviews/?ll=56.525875%2C55.459164&utm_campaign=v1&utm_medium=rating&utm_source=badge&z=13" class="review-block">
-                            <img src="/img/Yandex.svg" alt="">
-                            <div>
-                                <h1>{{round($rating['Яндекс'], 1)}}</h1>
-                                @include('element.stars', [
-                                    'rating'=> $rating['Яндекс']
-                                ])
-                            </div>
-                            <span>Оценка в Яндекс</span>
-                        </a>
-                        <a href="https://2gis.ru/ufa/firm/2393065583227349?utm_source=widget_firm" class="review-block">
-                            <img src="/img/2gis.svg" alt="">
-                            <div>
-                                <h1>{{round($rating['2gis'], 1)}}</h1>
-                                @include('element.stars', [
-                                    'rating'=> $rating['2gis']
-                                ])
-                            </div>
-                            <span>Оценка в 2gis</span>
-                        </a>
-                    </div>
-                    <span>Мы благодарим вас за ваше внимание и ждем ваших отзывов! С уважением, администрация Павловского парка.</span>
-              </div>
-            </div>
-            @break
+                <div class="baner-content-placement">
+                    <span>Отзывы</span>
+                    <div class="rectangle-white-container line-yellow-bottom column-gap">
+                        <span>Павловский Парк предлагает ознакомиться с фотографиями, сделанными отдыхающими.<br>Ваше мнение важно для нас! Поделитесь впечатлениями о парке, услугах, развлечениях и кухне. Ваши отзывы помогут нам стать лучше. Оставьте их на Яндекс.Картах или 2ГИС. Спасибо!</span>
+                        <div>
+                            <a href="https://yandex.ru/maps/org/pavlovskiy_park/1203779586/reviews/?ll=56.525875%2C55.459164&utm_campaign=v1&utm_medium=rating&utm_source=badge&z=13" class="review-block">
+                                <img src="/img/Yandex.svg" alt="">
+                                <div>
+                                    <h1>{{round($rating['Яндекс'], 1)}}</h1>
+                                    @include('element.stars', [
+                                        'rating'=> $rating['Яндекс']
+                                    ])
+                                </div>
+                                <span>Оценка в Яндекс</span>
+                            </a>
+                            <a href="https://2gis.ru/ufa/firm/2393065583227349?utm_source=widget_firm" class="review-block">
+                                <img src="/img/2gis.svg" alt="">
+                                <div>
+                                    <h1>{{round($rating['2gis'], 1)}}</h1>
+                                    @include('element.stars', [
+                                        'rating'=> $rating['2gis']
+                                    ])
+                                </div>
+                                <span>Оценка в 2gis</span>
+                            </a>
+                        </div>
+                        <span>Мы благодарим вас за ваше внимание и ждем ваших отзывов! С уважением, администрация Павловского парка.</span>
+                  </div>
+                </div>
+                @break
             @case(8)
                 <div class="baner-content-placement">
                     <span>Контакты</span>
@@ -378,26 +378,34 @@
                         </span>
                   </div>
                 </div>
-            @break
+                @break
             @case(9)
-            <div class="baner-content-placement">
-                <span>Политика<br> конфиденциальности сайта<br> pavlovpark.ru</span>
-                <div class="rectangle-white-container line-yellow-bottom">
-                    <p>Настоящая Политика конфиденциальности персональной информации (далее — Политика) действует в отношении всей информации, которую Сайт pavlovpark.ru (далее — Сайт) может получить о пользователе во время использования им сайта. Согласие пользователя на предоставление персональной информации, данное им в соответствии с настоящей Политикой в рамках отношений с одним из лиц, входящих в число собственников сайта и распространяется на все лица.
-                        Использование Сайта означает безоговорочное согласие пользователя с настоящей Политикой и указанными в ней условиями обработки его персональной информации; в случае несогласия с этими условиями пользователь должен воздержаться от использования Сайта.
-                    </p>
+                <div class="baner-content-placement">
+                    <span>Политика<br> конфиденциальности сайта<br> pavlovpark.ru</span>
+                    <div class="rectangle-white-container line-yellow-bottom">
+                        <p>Настоящая Политика конфиденциальности персональной информации (далее — Политика) действует в отношении всей информации, которую Сайт pavlovpark.ru (далее — Сайт) может получить о пользователе во время использования им сайта. Согласие пользователя на предоставление персональной информации, данное им в соответствии с настоящей Политикой в рамках отношений с одним из лиц, входящих в число собственников сайта и распространяется на все лица.
+                            Использование Сайта означает безоговорочное согласие пользователя с настоящей Политикой и указанными в ней условиями обработки его персональной информации; в случае несогласия с этими условиями пользователь должен воздержаться от использования Сайта.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            @break
+                @break
             @case(10)
-            <div id="bottom-content">
-                @include('block.slider', [
-                    'id'=>1,
-                    'desktopCount' => 1,
-                    'elements' => $photo
-                ])
-            </div>
-            @break
+                <div id="bottom-content">
+                    @include('block.slider', [
+                        'id'=>1,
+                        'desktopCount' => 1,
+                        'elements' => $photo
+                    ])
+                </div>
+                @break
+            @case(11)
+                <div class="baner-content-placement">
+                    <span>{{$title}}</span>
+                    @include('element.gallery', [
+                        'img' => $img
+                    ])
+                </div>
+                @break
             @default
         @endswitch
     </div>

@@ -22,6 +22,76 @@
     padding: 90px 30px 30px 30px;
 }
 
+.gallery-button {
+    div {
+        text-align: center;
+        a {
+            background-color: #0d504d;
+            color: white;
+            font-family: PlayfairDisplay_Regular;
+            border-radius: 40px;
+            cursor: pointer;
+            padding: 8px 15px;
+        }
+
+        a:hover {
+            background-color: #fdb10b;
+        }
+    }
+}
+
+.news-paragraphs {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    margin-top: 40px;
+
+    >.rectangle-white-container:not(:first-child) {
+        border-bottom: 70px solid #fdb10b;
+    }
+}
+
+.rectangle-white-container {
+    width: 90%;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень */
+    padding: 30px 40px; /* Внутренние отступы (10px сверху/снизу, 20px слева/справа) */
+    font-family: PlayfairDisplay;
+    font-size: 16px;
+    color: #0d504d;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.new-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+
+    a{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+
+        background-color: #0d504d;
+        color: white;
+        font-family: PlayfairDisplay_Bold;
+        border-radius: 25px;
+        cursor: pointer;
+        padding: 8px 15px;
+        max-width: 40%;
+    }
+    a:hover {
+        background-color: #0c8b82;
+    }
+}
+
 @media (min-width: 768px) {
     .new-wrapper .new-card {
         flex-direction: row;
@@ -46,24 +116,6 @@
 
         img {
             width: 25vw;
-        }
-    }
-}
-
-.gallery-button {
-    div {
-        text-align: center;
-        a {
-            background-color: #0d504d;
-            color: white;
-            font-family: PlayfairDisplay_Regular;
-            border-radius: 40px;
-            cursor: pointer;
-            padding: 8px 15px;
-        }
-
-        a:hover {
-            background-color: #fdb10b;
         }
     }
 }
