@@ -8,6 +8,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\PasswordRequest;
 use App\Http\Requests\Auth\RegRequest;
 use App\Mail\PasswordResetMail;
+use App\Models\Contact;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -24,8 +25,13 @@ class UserController extends Controller
         if (!Auth::check())
             return redirect('/');
 
+        $contacts = Contact::query()
+            ->where('vis', true)
+            ->first();
+
         return view('pages.account', [
-            'user' => Auth::user()
+            'user' => Auth::user(),
+            'contacts' => $contacts,
         ]);
     }
 

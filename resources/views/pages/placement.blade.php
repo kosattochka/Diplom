@@ -14,6 +14,17 @@
 
     <div class="reservation">
         <span>Поиск свободных номеров</span>
+        <form class="book-form" id="register">
+            <div>
+                <div class="form-group">
+                    <input type="date" name="date" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" name="date" placeholder="" required>
+                </div>
+            </div>
+                <button type="submit" class="submit-btn">Найти</button>
+        </form>
     </div>
     <div class="card-placement">
         @foreach ($rooms as $item)

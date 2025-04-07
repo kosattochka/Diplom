@@ -22,6 +22,23 @@
     }
 }
 
+.reservation {
+    display: flex;
+    flex-direction: row;
+
+    .book-form {
+        display: flex;
+        flex-direction: row;
+
+        div {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
+
+
+
 @media (max-width: 768px) {
     .card-placement {
         flex-direction: column;

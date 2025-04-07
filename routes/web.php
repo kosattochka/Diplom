@@ -50,3 +50,5 @@ Route::get('/politics', [PageController::class, 'politics']);
 
 Route::get('/account', [UserController::class, 'page']);
 Route::get('/logout', [UserController::class, 'logout']);
+
+

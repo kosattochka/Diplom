@@ -190,6 +190,10 @@ header {
             }
         }
 
+        .account-text {
+            font-size: 22px;
+        }
+
         span:not(.review-block span) {
             font-family: PlayfairDisplay_Bold;
             color: #0d504d;
@@ -449,6 +453,77 @@ hr {
     }
 }
 
+.account-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .account-baner {
+        border-radius: 34px;
+    }
+
+    .registration-form {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+
+        >div {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+
+        }
+
+        #name {
+            width: 100%;
+        }
+
+        #email {
+            width: 85%;
+        }
+
+        #sex {
+            width: 15%;
+        }
+
+        #phone {
+            width: 70%;
+        }
+
+        #date {
+            width: 30%;
+        }
+
+        .form-group input, select {
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        }
+
+        select {
+            width: 40%;
+            padding: 10px;
+            border: 3px solid #0d504d;
+            border-radius: 15px;
+            font-size: 16px;
+            font-family: PlayfairDisplay_Regular;
+            color: #0d504d;
+            cursor: pointer;
+            }
+
+            select:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+            }
+
+        .form-button {
+            height: 50px;
+        }
+        }
+    }
+
 @media (max-width: 768px) {
     header {
         padding-bottom: 40px;
@@ -591,6 +666,27 @@ hr {
             font-size: 20px;
         }
     }
+
+.account-content {
+    gap: 15px;
+
+    .registration-form {
+        width: 100%;
+        padding: 10px 0;
+
+        div {
+            gap: 15px !important;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+
+            input, select {
+                font-size: 16px;
+            }
+        }
+    }
+}
 }
 
 @media (max-width: 550px) {

@@ -16,7 +16,7 @@
     <script defer type="module" src="/js/form/forgot.js"></script>
 </head>
     @if(session('error'))
-        <body class="modalka-open">
+        <body class="modal-open">
         <div id="errorModal" class="modal error" style="display: block">
             <div class="modal-content">
                 <span class="modal-close">&times;</span>
@@ -26,14 +26,13 @@
                     </div>
                 </div>
                 <h2>ОШИБКА</h2>
-                <h3>{{$error}}</h3>
+                <h3>{{session('error')}}</h3>
             </div>
         </div>
     @else
         <body>
     @endif
 
-    <body>
         @yield('main_content')
     </body>
 </html>

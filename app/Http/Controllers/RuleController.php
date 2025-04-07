@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Card\CardResource;
+use App\Http\Resources\Detail\RuleDetailResource;
 use App\Models\Contact;
 use App\Models\Rule;
 
@@ -28,6 +29,18 @@ class RuleController extends Controller
 
     public function index(string $alias)
     {
-        return $alias;
+
+        $contacts = Contact::query()
+        ->where('vis', true)
+        ->first();
+
+        $rule = Rule::query()
+        ->where('vis', true)
+        ->first();
+
+        return view('pages.detail-rule', [
+            'contacts' => $contacts,
+            'rule' => new RuleDetailResource($rule),
+        ]);
     }
 }

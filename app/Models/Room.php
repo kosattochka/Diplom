@@ -24,9 +24,7 @@ class Room extends Model
         return $this -> hasMany(Room::class);
     }
 
-    public function paragraphs () {
-        return $this -> morphMany(Paragraph::class, 'table', 'parent_id');
+    public function paragraphs() {
+        return $this->morphMany(Paragraph::class, 'parent', 'table', 'parent_id');
     }
-
-
 }

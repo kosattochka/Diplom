@@ -1,0 +1,97 @@
+.book-card {
+    padding-top: 30px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .text-yellow {
+        color: #fdb10b;
+    }
+
+    span {
+        font-family: PlayfairDisplay_Bold;
+        color: #0d504d;
+        font-size: 20px;
+        text-align: start;
+    }
+
+    h1 {
+        color: #0d504d;
+        font-family: Gabriela;
+        text-transform: uppercase;
+        font-weight: normal;
+        margin: 0;
+        font-size: 22px;
+        text-align: start;
+    }
+
+    figure {
+        width: 100%;
+        height: 35px;
+        background-color: #fdb10b;
+        margin: 0 10px 0 0;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    > div:nth-child(2) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .book-card {
+        flex-direction: row;
+        gap: 50px;
+
+        figure {
+            width: 25%;
+        }
+
+
+        span {
+            max-width: 55%; /* убрать, если будет не красиво*/
+            padding: 0 0 10px 0;
+        }
+
+        h1 {
+            padding: 20px 0 20px 0;
+        }
+
+        img {
+            width: 25vw;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+
+    .book-card {
+        padding: 30px 30px;
+    }
+
+    span {
+        padding: 0 0 10px 0;
+    }
+
+    h1 {
+        padding: 20px 0 20px 0;
+    }
+}
+
+

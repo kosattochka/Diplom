@@ -41,6 +41,7 @@ class NewsController extends Controller
 
         $new = News::query()
             ->where('alias', $alias)
+            // запрос связанных парагрофов
             ->with('paragraphs', function ($query) {
                 return $query->where('vis', true)
                     ->orderByDesc('sort');
