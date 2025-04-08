@@ -5,7 +5,7 @@ namespace App\Http\Resources\Detail;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class RuleDetailResource extends JsonResource
+class ServiceDetailResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,10 +14,6 @@ class RuleDetailResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
-            'service' => $this->service,
-            'price' => $this->price,
-        ];
-
+        return parent::toArray($request);
     }
 }

@@ -524,6 +524,37 @@ hr {
         }
     }
 
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        font-family: PlayfairDisplay_ExtraBold;
+        color: #0d504d;
+        font-size: 22px;
+    }
+
+    div:nth-child(1) {
+        margin-left: -240px;
+    }
+
+    div:nth-child(2) {
+        margin-left: -360px;
+    }
+
+    div:nth-child(3) {
+        margin-left: -480px;
+    }
+}
+
+.top-none {
+    gap: 30px;
+}
+
 @media (max-width: 768px) {
     header {
         padding-bottom: 40px;

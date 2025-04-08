@@ -45,6 +45,7 @@ class PlacementController extends Controller
         return view('pages.detail-room', [
             'contacts' => $contacts,
             'room' => $room,
+            'phone' => $contacts->phone,
             'allRoom' => CardResource::collection($allRoom)
         ]);
     }

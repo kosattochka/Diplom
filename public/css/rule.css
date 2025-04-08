@@ -1,0 +1,11 @@
+.rule-paragraphs {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 40px;
+
+    >.rectangle-white-container:not(:first-child) {
+        background-color: white;
+    }
+}
