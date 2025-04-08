@@ -2,7 +2,7 @@
 @section('links')
     <link rel="stylesheet" href="/css/room.css">
     <link rel="stylesheet" href="/css/main.css">
-    <script defer src="slider.js"></script>
+    <script defer src="/js/slider.js"></script>
 @endsection
 
 @section('title'){{$room->title}}@endsection
