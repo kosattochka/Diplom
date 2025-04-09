@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         Review::factory(50)->create();
         $this->call(RuleSeeder::class);
         $this->call(ServiceSeeder::class);
+        $this->call(ReservationSeeder::class);
     }
 }

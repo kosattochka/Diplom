@@ -7,8 +7,10 @@ use App\Http\Requests\Auth\EmailRequest;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\PasswordRequest;
 use App\Http\Requests\Auth\RegRequest;
+use App\Http\Resources\Card\ReservationResource;
 use App\Mail\PasswordResetMail;
 use App\Models\Contact;
+use App\Models\Reservation;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -29,9 +31,18 @@ class UserController extends Controller
             ->where('vis', true)
             ->first();
 
+        $reservations = Reservation::query()
+            ->where('user_id', Auth::id())
+            ->orderBy('end_date', 'desc')
+            ->get();
+
+        $reservations = ReservationResource::collection($reservations);
+        $reservations = json_decode(json_encode($reservations), false);
+
         return view('pages.account', [
             'user' => Auth::user(),
             'contacts' => $contacts,
+            'reservations' => $reservations,
         ]);
     }
 
