@@ -168,6 +168,10 @@ header {
         color: #fdb10b;
     }
 
+    img {
+        width: 700px;
+    }
+
     .rectangle-white-container {
         width: 90%;
         background-color: white;

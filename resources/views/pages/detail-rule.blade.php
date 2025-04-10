@@ -27,6 +27,7 @@
         </div>
     @endforeach
 </section>
+<div class="six" id="gallery"><p><span><img src="/img/rules/icon-rule.svg" alt="">Другие правила</span></p></div>
 
 @include('block.footer', [
     'phone' =>$contacts->phone,

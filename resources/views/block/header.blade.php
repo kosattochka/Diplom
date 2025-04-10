@@ -477,6 +477,12 @@
                     </div>
                 </div>
                 @break
+                @case(15)
+                <div class="baner-content-placement">
+                    <span>Акции/Подарочный сертификат</span>
+                    <img src="{{$certificate}}" alt="">
+                </div>
+                @break
             @default
         @endswitch
     </div>
