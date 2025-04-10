@@ -23,8 +23,7 @@ class RoomDetailResource extends JsonResource
                 $data = ['text'=>$item->text];
                 if($item->title) $data['title'] = $item->title;
                 return $data;
-            }),
-            ''
+            })
         ];
     }
 }

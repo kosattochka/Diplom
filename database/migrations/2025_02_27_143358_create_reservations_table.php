@@ -18,7 +18,8 @@ return new class extends Migration
 
             $table->string('name');
             $table->string('phone');
-            $table->integer('guests')->nullable();
+            $table->integer('guests')->default(1);
+            $table->integer('child')->default(0);
 
             $table->timestamp('start_date');
             $table->timestamp('end_date');

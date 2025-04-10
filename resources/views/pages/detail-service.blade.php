@@ -14,12 +14,11 @@
         'title' => $service->title,
     ])
 
-@include('block.footer', [
-    'phone' =>$contacts->phone,
-    'telegram' =>$contacts->telegram,
-    'vk' =>$contacts->vk,
-    'email' =>$contacts->email,
-    'address' =>$contacts->address_office
-])
-
+    @include('block.footer', [
+        'phone' =>$contacts->phone,
+        'telegram' =>$contacts->telegram,
+        'vk' =>$contacts->vk,
+        'email' =>$contacts->email,
+        'address' =>$contacts->address_office
+    ])
 @endsection
