@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 @extends('block.pattern')
 @section('links')
 <link rel="stylesheet" href="/css/account.css">
@@ -48,25 +47,3 @@
     ])
 
 @endsection
-
-
-=======
-{{$user->name}}
-<a href="/logout">выйти</a>
-@extends('block.pattern')
-
-@section('links')
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/new.css">
-    @endsection
-
-@section('title') Новости Павловского парка @endsection
-
-@section('main_content')
-    @include('block.header', [
-        'active' => 5,
-        'phone' =>$contacts->phone,
-        'telegram' =>$contacts->telegram,
-        'vk' =>$contacts->vk,
-    ])
->>>>>>> Stashed changes

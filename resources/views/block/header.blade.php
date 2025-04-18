@@ -397,55 +397,54 @@
                         'elements' => $imgs
                     ])
                 </div>
-            @break
+                @break
             @case(11)
-            <div class="baner-content-placement">
-                <span>{{$title}}</span>
-                @include('element.gallery', [
-                    'img' => $img
-                ])
-            @break
-            @case(12)
-            <div class="account-content">
                 <div class="baner-content-placement">
-                    <span>Персональные данные</span>
-                    <div class="rectangle-white-container account-baner">
-                        <p class="account-text">Эти данные необходимы, чтобы автоматически заполнять соответствующие поля и ускорять процесс бронирования.</p>
+                    <span>{{$title}}</span>
+                    @include('element.gallery', [
+                        'img' => $img
+                    ])
+                @break
+            @case(12)
+                <div class="account-content">
+                    <div class="baner-content-placement">
+                        <span>Персональные данные</span>
+                        <div class="rectangle-white-container account-baner">
+                            <p class="account-text">Эти данные необходимы, чтобы автоматически заполнять соответствующие поля и ускорять процесс бронирования.</p>
+                        </div>
+                        <form class="registration-form" id="register">
+                            <div class="form-group" id="name">
+                                <input type="text" name="name" placeholder="Введите ваше полное имя" required value='{{$user->name}}'>
+                            </div>
+                            <div>
+                                <div class="form-group" id="email">
+                                    <input type="email" name="email" placeholder="example@mail.com" required value='{{$user->email}}'>
+                                </div>
+                                <select class="form-group" id="sex">
+                                    <option value="" disabled {{$user->is_man == null ? 'selected' : ''}}>Пол</option>
+                                    <option value="1" title="Женский пол" {{$user->is_man == 0 ? 'selected' : ''}}>Жен</option>
+                                    <option value="2" title="Мужской пол" {{$user->is_man == 1 ? 'selected' : ''}}>Муж</option>
+                                </select>
+                            </div>
+                            <div>
+                                <div class="form-group" id="phone">
+                                    <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required value='{{$user->phone}}'>
+                                </div>
+                                <div class="form-group" id="date">
+                                    @php
+                                        $user->birthday = Carbon\Carbon::parse($user->birthday)->format('Y-m-d');
+                                    @endphp
+                                    <input type="date" name="date" placeholder="Дата рождения" required value='{{$user->birthday}}'>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="submit-btn form-button">Сохранить изменения</button>
+                                <button type="submit" class="submit-btn form-button">Изменить пароль</button>
+                            </div>
+                        </form>
                     </div>
-                    <form class="registration-form" id="register">
-                        <div class="form-group" id="name">
-                            <input type="text" name="name" placeholder="Введите ваше полное имя" required value='{{$user->name}}'>
-                        </div>
-                        <div>
-                            <div class="form-group" id="email">
-                                <input type="email" name="email" placeholder="example@mail.com" required value='{{$user->email}}'>
-                            </div>
-                            <select class="form-group" id="sex">
-                                <option value="" disabled {{$user->is_man == null ? 'selected' : ''}}>Пол</option>
-                                <option value="1" title="Женский пол" {{$user->is_man == 0 ? 'selected' : ''}}>Жен</option>
-                                <option value="2" title="Мужской пол" {{$user->is_man == 1 ? 'selected' : ''}}>Муж</option>
-                            </select>
-                        </div>
-                        <div>
-                            <div class="form-group" id="phone">
-                                <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required value='{{$user->phone}}'>
-                            </div>
-                            <div class="form-group" id="date">
-                                @php
-                                    $user->birthday = Carbon\Carbon::parse($user->birthday)->format('Y-m-d');
-                                @endphp
-                                <input type="date" name="date" placeholder="Дата рождения" required value='{{$user->birthday}}'>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="submit" class="submit-btn form-button">Сохранить изменения</button>
-                            <button type="submit" class="submit-btn form-button">Изменить пароль</button>
-                        </div>
-                    </form>
                 </div>
-            </div>
-            @break
-<<<<<<< Updated upstream
+                @break
             @case(13)
                 <div class="baner-content-placement top-none">
                     <span>Услуги/Зимние</span>
@@ -469,7 +468,7 @@
                     </div>
                     </div>
                 @break
-                @case(14)
+            @case(14)
                 <div class="baner-content-placement">
                     <span>Правила/Режим</span>
                     <div class="rectangle-white-container">
@@ -478,32 +477,18 @@
                     </div>
                 </div>
                 @break
-                @case(15)
+            @case(15)
                 <div class="baner-content-placement">
                     <span>Акции/Подарочный сертификат</span>
                     <img src="{{$certificate}}" alt="">
                 </div>
                 @break
-                @case(16)
+            @case(16)
                 <div class="baner-content-placement">
                     <span>Галерея/Фотоальбом {{$title}}</span>
                     <img src="{{$img}}" alt="">
                 </div>
                 @break
-=======
-            @case(10)
-            <div id="bottom-content">
-                @include('block.slider', [
-                    'id'=>1,
-                    'desktopCount' => 1,
-                    'elements' => $photo
-                ])
-            </div>
-            @break
-            @case(11)
-
-            @break
->>>>>>> Stashed changes
             @default
         @endswitch
     </div>
