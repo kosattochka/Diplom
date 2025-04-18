@@ -2,6 +2,7 @@
 @section('links')
     <link rel="stylesheet" href="/css/rule.css">
     <link rel="stylesheet" href="/css/main.css">
+    <script defer src="/js/slider.js"></script>
 @endsection
 
 @section('title'){{$rule->title}}@endsection
@@ -28,6 +29,15 @@
         @endforeach
     </section>
     <div class="six" id="gallery"><p><span><img src="/img/rules/icon-rule.svg" alt="">Другие правила</span></p></div>
+    @php
+    $slider = array_fill(0, 4, view('element.card.card', ['name'=>'123тест', 'text'=>'fjfkf', 'img'=>'/img/albums/winter-album2.png', 'link'=> '/'])->render())
+    @endphp
+
+    @include('block.slider', [
+        'desktopCount' => 2,
+        'mobileCount' => 1,
+        'elements' => $slider
+    ])
 
     @include('block.footer', [
         'phone' =>$contacts->phone,
