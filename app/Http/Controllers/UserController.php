@@ -133,4 +133,5 @@ class UserController extends Controller
         $user->update($data);
         return response(['status' => true]);
     }
+
 }

@@ -147,5 +147,16 @@ class PageController extends Controller
             'contacts' => $contacts,
         ]);
     }
+
+    public function account()
+    {
+        $contacts = Contact::query()
+            ->where('vis', true)
+            ->first();
+
+        return view('pages.account', [
+            'contacts' => $contacts,
+        ]);
+    }
 }
 

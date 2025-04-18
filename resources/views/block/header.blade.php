@@ -445,6 +445,7 @@
                 </div>
             </div>
             @break
+<<<<<<< Updated upstream
             @case(13)
                 <div class="baner-content-placement top-none">
                     <span>Услуги/Зимние</span>
@@ -489,6 +490,20 @@
                     <img src="{{$img}}" alt="">
                 </div>
                 @break
+=======
+            @case(10)
+            <div id="bottom-content">
+                @include('block.slider', [
+                    'id'=>1,
+                    'desktopCount' => 1,
+                    'elements' => $photo
+                ])
+            </div>
+            @break
+            @case(11)
+
+            @break
+>>>>>>> Stashed changes
             @default
         @endswitch
     </div>
