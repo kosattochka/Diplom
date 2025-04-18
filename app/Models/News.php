@@ -19,7 +19,8 @@ class News extends Model
 
     public $timestamps = false;
 
-    public function paragraphs() {
+    public function paragraphs()
+    {
         return $this->morphMany(Paragraph::class, 'parent', 'table', 'parent_id');
     }
 }

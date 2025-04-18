@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Detail;
 
+use App\Models\Paragraph;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,13 +18,12 @@ class EventDetailResource extends JsonResource
         return [
             'certificate' => $this->img,
             'contacts' => $this->contacts,
-            'title'=> $this->title,
-            'paragraphs'=>$this->paragraphs->map(function($item){
-                $data = ['text'=>$item->text];
-                if($item->title) $data['title'] = $item->title;
+            'title' => $this->title,
+            'paragraphs' => $this->paragraphs->map(function ($item) {
+                $data = ['text' => $item->text];
+                if ($item->title) $data['title'] = $item->title;
                 return $data;
             }),
-
 
         ];
     }

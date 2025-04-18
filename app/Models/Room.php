@@ -20,11 +20,13 @@ class Room extends Model
         'description'
     ];
 
-    public function rooms () {
-        return $this -> hasMany(Room::class);
+    public function rooms()
+    {
+        return $this->hasMany(Room::class);
     }
 
-    public function paragraphs() {
+    public function paragraphs()
+    {
         return $this->morphMany(Paragraph::class, 'parent', 'table', 'parent_id');
     }
 }

@@ -12,28 +12,28 @@
         'phone' => $contacts->phone,
         'telegram' => $contacts->telegram,
         'vk' => $contacts->vk,
-        'img' => $events->img,
+        'certificate' => $events->certificate,
     ])
 
-<section class="news-paragraphs">
-    @foreach($events->paragraphs as $item)
-        @if(isset($item['title']))
-            <div class="six"><p><span>
-                <img src="/img/icon-event.svg" alt="">
-                {{$item['title']}}
-            </span></p></div>
-        @endif
-        <div class="rectangle-white-container">
-            {{$item['text']}}
-        </div>
-    @endforeach
-</section>
+    <section class="news-paragraphs">
+        @foreach($events->paragraphs as $item)
+            @if(isset($item['title']))
+                <div class="six"><p><span>
+                    <img src="/img/icon-event.svg" alt="">
+                    {{$item['title']}}
+                </span></p></div>
+            @endif
+            <div class="rectangle-white-container">
+                {{$item['text']}}
+            </div>
+        @endforeach
+    </section>
 
-@include('block.footer', [
-    'phone' =>$contacts->phone,
-    'telegram' =>$contacts->telegram,
-    'vk' =>$contacts->vk,
-    'email' =>$contacts->email,
-    'address' =>$contacts->address_office
-])
+    @include('block.footer', [
+        'phone' =>$contacts->phone,
+        'telegram' =>$contacts->telegram,
+        'vk' =>$contacts->vk,
+        'email' =>$contacts->email,
+        'address' =>$contacts->address_office
+    ])
 @endsection

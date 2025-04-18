@@ -33,7 +33,7 @@ class EventController extends Controller
         ]);
     }
 
-// В EventController.php
+    // В EventController.php
 
     public function index(string $alias)
     {
@@ -50,11 +50,11 @@ class EventController extends Controller
             })
             ->first();
 
-        if ($events === null) {
+        if ($events === null)
             return redirect('/')->with('error', 'Событие не найдено');
-        }
 
-        $certificate = $events->img; // Предполагаем, что img — это поле модели Event
+        $events = $this->convertObject(new EventDetailResource($events));
+        $events = (object) $events;
 
         $all = Event::query()
             ->whereNot('alias', $alias)
@@ -62,9 +62,8 @@ class EventController extends Controller
 
         return view('pages.detail-event', [
             'contacts' => $contacts,
-            'events' => new EventDetailResource($events),
+            'events' => $events,
             'all' => CardResource::collection($all),
-            'certificate' => $certificate,
         ]);
     }
 }

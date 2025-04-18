@@ -25,10 +25,12 @@ class Service extends Model
 
     public $timestamps = false;
 
-    public function child () {
-        return $this -> hasMany(Service::class);
+    public function child()
+    {
+        return $this->hasMany(Service::class);
     }
-    public function parent () {
-        return $this -> belongsTo(Service::class);
+    public function parent()
+    {
+        return $this->belongsTo(Service::class);
     }
 }
