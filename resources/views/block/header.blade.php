@@ -451,22 +451,22 @@
                     <div class="rectangle-white-container">
                         <p>Лыжи укрепляют здоровье, профессиональные трассы оттачивают мастерство скоростных спусков, но лыжный комплекс лишь «вершина айсберга», на котором стоит наша горнолыжная база отдыха. Площадки для катания на коньках и увлекательные тюбинговые трассы не дадут заскучать, а лыжные тропы для классического хода проведут любителей прогулок на свежем воздухе по живописным местам зимнего водохранилища. Так что зима в Павловке – время развлечений!
                         </p>
+                        <div class="icon-container">
+                            <div>
+                                <img src="/img/services/icon-service.svg" alt="">
+                                <p>Катки с безопасными бортами и ровным льдом ждут вас! Доступны прокат и заточка коньков.</p>
+                            </div>
+                            <div>
+                                <img src="/img/services/icon-service2.svg" alt="">
+                                <p>Горячее питание для ценителей здоровой пищи и любителей любой кухни.</p>
+                            </div>
+                            <div>
+                                <img src="/img/services/icon-service3.svg" alt="">
+                                <p>В праздничные дни для детей: катание на тюбингах, конкурсы и соревнования.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="icon-container">
-                        <div>
-                            <img src="/img/services/icon-service.svg" alt="">
-                            <p>Катки с безопасными бортами и ровным льдом ждут вас! Доступны прокат и заточка коньков.</p>
-                        </div>
-                        <div>
-                            <img src="/img/services/icon-service2.svg" alt="">
-                            <p>Горячее питание для ценителей здоровой пищи и любителей любой кухни.</p>
-                        </div>
-                        <div>
-                            <img src="/img/services/icon-service3.svg" alt="">
-                            <p>В праздничные дни для детей: катание на тюбингах, конкурсы и соревнования.</p>
-                        </div>
                     </div>
-                </div>
                 @break
                 @case(14)
                 <div class="baner-content-placement">
@@ -481,6 +481,12 @@
                 <div class="baner-content-placement">
                     <span>Акции/Подарочный сертификат</span>
                     <img src="{{$certificate}}" alt="">
+                </div>
+                @break
+                @case(16)
+                <div class="baner-content-placement">
+                    <span>Галерея/Фотоальбом {{$title}}</span>
+                    <img src="{{$img}}" alt="">
                 </div>
                 @break
             @default

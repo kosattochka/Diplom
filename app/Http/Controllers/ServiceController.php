@@ -29,17 +29,12 @@ class ServiceController extends Controller
 
     public function index(string $alias)
     {
-        $contacts = Contact::query()
-        ->where('vis', true)
-        ->first();
-
-        $service = Service::query()
-        ->where('vis', true)
-        ->first();
+        $contacts = Contact::where('vis', true)->first();
+        $service = Service::where('alias', $alias)->where('vis', true)->firstOrFail();
 
         return view('pages.detail-service', [
             'contacts' => $contacts,
-            'service' => new ServiceDetailResource($service),
+            'service' => $service, // Передаем модель напрямую
         ]);
     }
 }

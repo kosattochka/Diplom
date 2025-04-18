@@ -27,6 +27,10 @@ return new class extends Migration
             // $table->foreign('parent_id', 'fk_paragraphs_events')->references('id')->on('events')->cascadeOnDelete();
             // $table->foreign('parent_id', 'fk_paragraphs_news')->references('id')->on('news')->cascadeOnDelete();
         });
+
+        Schema::table('paragraphs', function (Blueprint $table) {
+            $table->unsignedBigInteger('table_id')->nullable()->after('id');
+        });
     }
 
     /**
@@ -35,5 +39,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('paragraphs');
+
+        Schema::table('paragraphs', function (Blueprint $table) {
+            $table->dropColumn('table_id');
+        });
     }
 };

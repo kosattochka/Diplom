@@ -15,14 +15,16 @@ class EventDetailResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'certificate' => $this->events,
-            'contact' => $this->contact,
-            'title'=>$this->title,
+            'certificate' => $this->img,
+            'contacts' => $this->contacts,
+            'title'=> $this->title,
             'paragraphs'=>$this->paragraphs->map(function($item){
                 $data = ['text'=>$item->text];
                 if($item->title) $data['title'] = $item->title;
                 return $data;
             }),
+
+
         ];
     }
 }

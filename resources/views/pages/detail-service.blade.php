@@ -14,6 +14,14 @@
         'title' => $service->title,
     ])
 
+    @include('element.card.card', [
+        'img' => $service->img,
+        'name' => $service->name,
+        'text' => $service->text,
+        'capacity' => $service->capacity,
+        'link' => $service->link
+])
+
     @include('block.footer', [
         'phone' =>$contacts->phone,
         'telegram' =>$contacts->telegram,

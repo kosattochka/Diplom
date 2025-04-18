@@ -41,16 +41,30 @@ class EventController extends Controller
             ->where('vis', true)
             ->first();
 
-        // Получаем одно событие по его alias
         $events = Event::query()
             ->where('vis', true)
-            ->where('alias', $alias) // предполагаем, что есть поле alias
-            ->firstOrFail(); // выбросит 404, если событие не найдено
+            ->where('alias', $alias)
+            ->with('paragraphs', function ($query) {
+                return $query->where('vis', true)
+                    ->orderByDesc('sort');
+            })
+            ->first();
+
+        if ($events === null) {
+            return redirect('/')->with('error', 'Событие не найдено');
+        }
+
+        $certificate = $events->img; // Предполагаем, что img — это поле модели Event
+
+        $all = Event::query()
+            ->whereNot('alias', $alias)
+            ->get();
 
         return view('pages.detail-event', [
             'contacts' => $contacts,
-            'events' => new EventDetailResource($events), // используем единственное число 'event'
-            'certificate' => $events->img,
+            'events' => new EventDetailResource($events),
+            'all' => CardResource::collection($all),
+            'certificate' => $certificate,
         ]);
     }
 }

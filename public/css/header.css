@@ -180,11 +180,26 @@ header {
         background-color: white;
         border-radius: 64px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        /* Тень */
         padding: 40px 40px;
-        /* Внутренние отступы (10px сверху/снизу, 20px слева/справа) */
         font-family: PlayfairDisplay_Bold;
         font-size: 24px;
+
+        .icon-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-top: 20px;
+
+            div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+                font-family: PlayfairDisplay_ExtraBold;
+                color: #0d504d;
+                font-size: 22px;
+            }
+        }
 
         p {
             color: #0d504d;
@@ -467,7 +482,7 @@ hr {
 
 .account-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
     gap: 20px;
 
     .account-baner {
@@ -534,34 +549,6 @@ hr {
         .form-button {
             height: 50px;
         }
-    }
-}
-
-.icon-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    div {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 20px;
-        font-family: PlayfairDisplay_ExtraBold;
-        color: #0d504d;
-        font-size: 22px;
-    }
-
-    div:nth-child(1) {
-        margin-left: -240px;
-    }
-
-    div:nth-child(2) {
-        margin-left: -360px;
-    }
-
-    div:nth-child(3) {
-        margin-left: -480px;
     }
 }
 

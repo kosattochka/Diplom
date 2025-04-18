@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Card\CardResource;
+use App\Http\Resources\Detail\AlbumDetailResource;
 use App\Models\Album;
 use App\Models\Contact;
 
@@ -28,6 +29,22 @@ class AlbumController extends Controller
 
     public function index(string $alias)
     {
-        return $alias;
+        $contacts = Contact::query()
+            ->where('vis', true)
+            ->first();
+
+        $photos = Album::query()
+            ->where('vis', true)
+            ->where('alias', $alias)
+            ->first();
+
+        if ($photos === null) {
+            return redirect('/')->with('error', 'Альбом не найден');
+        }
+
+        return view('pages.detail-gallery', [
+            'contacts' => $contacts,
+            'photos' => new AlbumDetailResource($photos),
+        ]);
     }
 }
