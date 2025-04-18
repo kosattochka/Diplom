@@ -17,7 +17,7 @@ class EventSeeder extends Seeder
         for ($i = 0; $i < 45; $i++) {
             $events = Event::factory()->create();
 
-            Paragraph::factory(1)->create([
+            Paragraph::factory(3)->create([
                 'parent_id' => $events->id,
                 'table' => 'events'
             ]);
