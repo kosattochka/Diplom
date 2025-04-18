@@ -30,16 +30,6 @@
         @endforeach
     </section>
 
-    @php
-    $slider = array_fill(0, 4, view('element.card.card', ['name'=>'123тест', 'text'=>'fjfkf', 'img'=>'/img/albums/winter-album2.png', 'link'=> '/'])->render())
-    @endphp
-
-    @include('block.slider', [
-        'desktopCount' => 2,
-        'mobileCount' => 1,
-        'elements' => $slider
-    ])
-
     @include('block.footer', [
         'phone' =>$contacts->phone,
         'telegram' =>$contacts->telegram,
