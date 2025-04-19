@@ -14,17 +14,26 @@
 
     <div class="reservation">
         <span>Поиск свободных номеров</span>
-        <form class="book-form" id="register">
-            <div>
+        <div class="book-form" id="register">
+            <div class="row-input">
                 <div class="form-group">
-                    <input type="date" name="date" placeholder="" required>
+                    <label for="date-input1">Дата заезда</label>
+                    <input type="date" id="date-input1" class="date-input">
                 </div>
                 <div class="form-group">
-                    <input type="date" name="date" placeholder="" required>
+                    <label for="date-input1">Дата выезда</label>
+                    <input type="date" id="date-input1" class="date-input">
+                </div>
+                <div class="form-group">
+                    <label for="adults-input1">Гости</label>
+                    <input type="number" id="adults-input1" class="adults-input" min="1" max="10">
+                </div>
+                <div class="form-group">
+                    <label for="submit" class="submit-label">&&</label>
+                    <button type="submit" class="submit-btn" id="submit">Найти</button>
                 </div>
             </div>
-                <button type="submit" class="submit-btn">Найти</button>
-        </form>
+        </div>
     </div>
     <div class="card-placement">
         @foreach ($rooms as $item)

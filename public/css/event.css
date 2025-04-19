@@ -8,6 +8,7 @@
     justify-content: center;
 
     p {
+        width: 100%;
         font-family: Gabriela;
         font-size: 26px;
     }
@@ -24,12 +25,38 @@
         width: 90%;
     }
 
+    div:nth-child(1) {
+        img {
+            width: 100%;
+        }
+    }
+
     div:nth-child(2) {
         width: 671px;
         display: flex;
         flex-direction: column;
         gap: 5px;
         justify-content: center;
+
+        div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+
+            .text-yellow {
+                color: #fdb10b;
+            }
+
+            .text-green {
+                color: #00847e;
+            }
+
+            img {
+                width: 30px;
+            }
+
+        }
     }
 
     a {
@@ -65,7 +92,25 @@
         }
 
         figure {
+            width: 20%;
             height: 30px;
         }
+
+        div:nth-child(2){
+            width: 100%;
+
+            div{
+                justify-content: start;
+            }
+
+            figure {
+                width: 100%;
+            }
+
+            .text-yellow {
+                max-width: 35%;
+            }
+        }
+
     }
 }

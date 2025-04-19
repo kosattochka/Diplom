@@ -37,6 +37,10 @@ class EventController extends Controller
 
     public function index(string $alias)
     {
+        if (!request()->has('page'))
+            return redirect(request()->url().'?page=1')
+                ->with(session()->all());
+
         $contacts = Contact::query()
             ->where('vis', true)
             ->first();
@@ -58,12 +62,16 @@ class EventController extends Controller
 
         $all = Event::query()
             ->whereNot('alias', $alias)
-            ->get();
+            ->where('vis', true)
+            ->paginate(3);
+        $all = CardResource::collection($all);
+        $all = PaginatedResource::toFullArray($all);
+
 
         return view('pages.detail-event', [
             'contacts' => $contacts,
             'events' => $events,
-            'all' => CardResource::collection($all),
+            'all' => $all
         ]);
     }
 }
