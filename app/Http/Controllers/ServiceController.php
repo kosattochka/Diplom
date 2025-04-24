@@ -39,6 +39,9 @@ class ServiceController extends Controller
             ->where('vis', true)
             ->first();
 
+        if ($service == null)
+            return redirect('/')->with('error', 'Услуга не найдена');
+
         $all = Service::query()
             ->where('vis', true)
             ->whereNull('parent_id')

@@ -25,6 +25,10 @@ class Service extends Model
 
     public $timestamps = false;
 
+    protected $casts = [
+        'table_price' => 'array'
+    ];
+
     public function child()
     {
         return $this->hasMany(Service::class, 'parent_id');

@@ -28,7 +28,7 @@ class ServiceFactory extends Factory
             'parent_id' => null,
             'page_description' => $this->faker->sentence(12),
             'page_heading' => $this->faker->sentence(),
-            'table_price' => '',
+            'table_price' => $this->randomTable(),
             'page_text' => $this->faker->text(),
         ];
     }
@@ -65,5 +65,22 @@ class ServiceFactory extends Factory
         ];
 
         return '/img/services/' . $path[array_rand($path)];
+    }
+
+    protected function randomTable(): array
+    {
+        $count = $this->faker->numberBetween(1, 6);
+        $response = [];
+        for ($i = 0; $i < $count; $i++) {
+            $response[] = [
+                'title' => $this->faker->word(),
+                'value' => [
+                    $this->faker->numberBetween(100, 5000),
+                    $this->faker->numberBetween(100, 5000),
+                    $this->faker->numberBetween(100, 5000),
+                ]
+            ];
+        }
+        return $response;
     }
 }
