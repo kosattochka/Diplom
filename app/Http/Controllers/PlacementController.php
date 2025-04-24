@@ -49,6 +49,9 @@ class PlacementController extends Controller
             })
             ->first();
 
+        if ($room == null)
+            return redirect('/')->with('error', 'Такого номера не найдено');
+
         $room = new RoomDetailResource($room);
         $room = (object) $this->convertObject($room);
 

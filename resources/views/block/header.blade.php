@@ -10,7 +10,7 @@
         <a href="/review" class="{{ (isset($active) and $active == 7) ? 'active' : '' }}">Отзывы</a>
         <a href="/contact" class="{{ (isset($active) and $active == 8) ? 'active' : '' }}">Контакты</a>
     </div>
-    <div class="mobile-rectangle-black">
+    <div class="mobile-rectangle-black modal" id="burger">
         <div class="MobileNav">
             <a href="/placement" class="{{ (isset($active) and $active == 1) ? 'active' : '' }}">Размещение</a>
             <a href="/service" class="{{ (isset($active) and $active == 2) ? 'active' : '' }}">Услуги</a>
@@ -136,7 +136,7 @@
     <div class="baner">
         <div class="head-column">
             <div class="logo-wrapper">
-                <img src="/img/burger.svg" alt="" class="burger-img" onclick="Nav()">
+                <img src="/img/burger.svg" alt="" class="burger-img modal-open" data-modal="burger">
                 <a href="/"><img src="/img/logo.svg" alt="" class="logo"></a>
             </div>
             <a href="{{$vk}}">

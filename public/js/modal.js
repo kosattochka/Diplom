@@ -1,13 +1,15 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Общая функция закрытия всех модальных окон
     const closeAllModals = () => {
-        document.querySelectorAll(".modal").forEach(modal => {
+        document.querySelectorAll(".modal").forEach((modal) => {
             modal.style.display = "none";
         });
+
+        document.body.classList.remove("modal-open");
     };
 
     // Делегированное открытие модальных окон
-    document.addEventListener("click", function(e) {
+    document.addEventListener("click", function (e) {
         const modalOpenButton = e.target.closest(".modal-open");
         if (modalOpenButton) {
             e.preventDefault();
@@ -22,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Делегированное закрытие модальных окон
-    document.addEventListener("click", function(e) {
+    document.addEventListener("click", function (e) {
         const modalCloseButton = e.target.closest(".modal-close");
         if (modalCloseButton) {
             e.stopPropagation();
@@ -32,21 +34,21 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Закрытие при клике вне модального окна
-    document.addEventListener("click", function(e) {
+    document.addEventListener("click", function (e) {
         if (e.target.classList.contains("modal")) {
             e.target.style.display = "none";
         }
     });
 
     // Закрытие при нажатии Escape
-    document.addEventListener("keydown", function(e) {
+    document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") {
             closeAllModals();
         }
     });
 });
 
-function errorModal(msg, error=true) {
+function errorModal(msg, error = true) {
     let modal = document.querySelector("#errorModal");
     if (modal) {
         modal.remove();
@@ -63,7 +65,7 @@ function errorModal(msg, error=true) {
                             <img src="/img/logo.svg" alt=""/>
                         </div>
                     </div>
-                    ${error?'<h2>ОШИБКА</h2>':''}
+                    ${error ? "<h2>ОШИБКА</h2>" : ""}
                     <h3>${msg}</h3>
                 </div>
             </div>
@@ -71,4 +73,4 @@ function errorModal(msg, error=true) {
     );
 }
 
-export {errorModal}
+export { errorModal };
