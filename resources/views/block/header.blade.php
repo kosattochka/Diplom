@@ -405,8 +405,10 @@
             @case(11)
                 <div class="baner-content-placement">
                     <span>Размещение/{{$title}}</span>
-                    @include('element.gallery', [
-                        'img' => $img
+                    @include('block.slider', [
+                        'id'=>1,
+                        'desktopCount' => 1,
+                        'elements' => $img
                     ])
                 @break
             @case(12)

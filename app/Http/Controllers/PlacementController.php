@@ -48,18 +48,20 @@ class PlacementController extends Controller
                     ->orderByDesc('sort');
             })
             ->first();
+
         $room = new RoomDetailResource($room);
         $room = (object) $this->convertObject($room);
 
         $allRoom = Room::query()
             ->whereNot('alias', $alias)
             ->get();
+        $allRoom = CardResource::collection($allRoom);
 
         return view('pages.detail-room', [
             'contacts' => $contacts,
             'room' => $room,
             'phone' => $contacts->phone,
-            'allRoom' => CardResource::collection($allRoom)
+            'allRoom' => $this->component('element.card.card', $allRoom)
         ]);
     }
 }

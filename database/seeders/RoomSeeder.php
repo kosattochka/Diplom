@@ -17,7 +17,7 @@ class RoomSeeder extends Seeder
             [
                 'title' => 'Стандарт',
                 'alias' => 'standart',
-                'imgs' => json_encode(['/img/rooms/standart.png']),
+                'imgs' => json_encode(['/img/rooms/standart.png', '/img/rooms/standart.png', '/img/rooms/standart.png', '/img/rooms/standart.png', '/img/rooms/standart.png']),
                 'description' => 'Однокомнатный номер с возможностью размещения +1 человека (за доплату). Всего 59 номеров, расположенных на 1-3 этажах.',
                 'square' => 22,
                 'capacity' => '2',
@@ -27,7 +27,7 @@ class RoomSeeder extends Seeder
             [
                 'title' => 'Люкс',
                 'alias' => 'luks',
-                'imgs' => json_encode(['/img/rooms/lux.png']),
+                'imgs' => json_encode(['/img/rooms/lux.png', '/img/rooms/lux.png', '/img/rooms/lux.png', '/img/rooms/lux.png', '/img/rooms/lux.png']),
                 'description' => 'Номер включает 2 спальни, гостиную, ванную с подогревом полов и кладовую. Всего 4 номера.',
                 'square' => 60,
                 'capacity' => '4-6',
@@ -37,7 +37,7 @@ class RoomSeeder extends Seeder
             [
                 'title' => 'Люкс плюс',
                 'alias' => 'luks-plus',
-                'imgs' => json_encode(['/img/rooms/best-lux.png']),
+                'imgs' => json_encode(['/img/rooms/best-lux.png', '/img/rooms/best-lux.png', '/img/rooms/best-lux.png', '/img/rooms/best-lux.png', '/img/rooms/best-lux.png']),
                 'description' => 'Трехкомнатный номер: гостиная, 2 спальни, ванная с подогревом полов и туалетная комната. Всего 2 номера на 3 этаже.',
                 'square' => 60,
                 'capacity' => '4-6',
