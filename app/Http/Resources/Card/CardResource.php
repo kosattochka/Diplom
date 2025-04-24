@@ -18,9 +18,16 @@ class CardResource extends JsonResource
             json_decode($this->imgs, true)[0] :
             $this->img;
 
-        $link = request()->getPathInfo() == '/' ?
-            '/placement/' . $this->alias :
-            request()->getPathInfo() . '/' . $this->alias;
+        if (!isset($request->alias)) {
+            $link = $request->getPathInfo() == '/' ?
+                '/placement/' . $this->alias :
+                $request->getPathInfo() . '/' . $this->alias;
+        } else {
+            $url = preg_replace('#/[^/]+$#', '', $request->getPathInfo());
+            $link = $url == '/' ?
+                '/placement/' . $this->alias :
+                $url . '/' . $this->alias;
+        }
 
         $data = [
             'img' => $img,

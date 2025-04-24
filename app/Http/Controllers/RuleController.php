@@ -31,16 +31,24 @@ class RuleController extends Controller
     {
 
         $contacts = Contact::query()
-        ->where('vis', true)
-        ->first();
+            ->where('vis', true)
+            ->first();
 
         $rule = Rule::query()
-        ->where('vis', true)
-        ->first();
+            ->where('alias', $alias)
+            ->where('vis', true)
+            ->first();
+
+        $all = Rule::query()
+            ->where('vis', true)
+            ->whereNot('alias', $alias)
+            ->get();
+        $all = CardResource::collection($all);
 
         return view('pages.detail-rule', [
             'contacts' => $contacts,
             'rule' => new RuleDetailResource($rule),
+            'all' => $this->component('element.card.card', $all),
         ]);
     }
 }
