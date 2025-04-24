@@ -27,10 +27,10 @@ class Service extends Model
 
     public function child()
     {
-        return $this->hasMany(Service::class);
+        return $this->hasMany(Service::class, 'parent_id');
     }
     public function parent()
     {
-        return $this->belongsTo(Service::class);
+        return $this->belongsTo(Service::class, 'parent_id');
     }
 }
