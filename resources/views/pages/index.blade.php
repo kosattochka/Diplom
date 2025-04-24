@@ -18,6 +18,8 @@
         'vk' =>$contacts->vk
     ])
 
+    @include('block.reservation')
+
     @if(session('email'))
         <script defer type="module" src="/js/form/resetPassword.js"></script>
         <div id="modal4" class="modal" style="display: block;">

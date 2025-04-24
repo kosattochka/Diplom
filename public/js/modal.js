@@ -16,9 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
             e.stopPropagation();
             closeAllModals();
             const modalId = modalOpenButton.dataset.modal;
+            const roomAlias = modalOpenButton.dataset.room ?? "";
             if (modalId) {
                 const modal = document.getElementById(modalId);
-                if (modal) modal.style.display = "block";
+                if (modal) {
+                    modal.style.display = "block";
+                    if (roomAlias)
+                        modal.querySelector("#room_alias").value = roomAlias;
+                }
             }
         }
     });

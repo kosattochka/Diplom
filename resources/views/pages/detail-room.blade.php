@@ -16,6 +16,8 @@
         'img'=>$room->imgs
     ])
 
+    @include('block.reservation')
+
     <div class="info-room-container">
         <div>
             <span class="text-yellow">Дополнительное место: <span>{{$room->price_extra_space}} руб.</span></span>
@@ -27,7 +29,7 @@
                 <img src="/img/rooms/icon-price.svg" alt="">
                 <span class="text-yellow">Стоимость <span>от {{$room->price}} руб.</span></span>
             </div>
-            <button>Заявка на бронь</button>
+            <button class="modal-open" data-modal="reservation" data-room="{{$room->alias}}">Заявка на бронь</button>
         </div>
     </div>
 

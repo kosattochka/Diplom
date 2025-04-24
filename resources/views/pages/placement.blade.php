@@ -12,7 +12,9 @@
         'vk' =>$contacts->vk,
     ])
 
-    <form action="" method="GET" class="reservation" id="reservation">
+    @include('block.reservation')
+
+    <form action="" method="GET" class="reservation" id="filter-room">
         <span>Поиск свободных номеров</span>
         <div class="book-form" id="register">
             <div class="row-input">
@@ -40,7 +42,7 @@
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 window.scrollTo({
-                    top: document.getElementById('reservation').offsetTop,
+                    top: document.getElementById('filter-room').offsetTop,
                     behavior: 'smooth',
                 })
             })
