@@ -12,7 +12,20 @@ class PlacementController extends Controller
 {
     public function many()
     {
-        $room = Room::query()->get();
+        if (request()->has('start_date', 'end_date', 'guests')) {
+            $startDate = request()->start_date;
+            $endDate = request()->end_date;
+            $room = Room::where('capacity', '>=', request()->guests)
+                ->whereDoesntHave('reservation', function ($query) use ($startDate, $endDate) {
+                    $query->where(function ($q) use ($startDate, $endDate) {
+                        $q->where('start_date', '<', $endDate)
+                            ->where('end_date', '>', $startDate);
+                    });
+                })
+                ->get();
+        } else {
+            $room = Room::query()->get();
+        }
         $room = CardResource::collection($room);
 
         $contacts = Contact::where('vis', true)->first();

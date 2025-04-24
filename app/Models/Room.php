@@ -29,4 +29,9 @@ class Room extends Model
     {
         return $this->morphMany(Paragraph::class, 'parent', 'table', 'parent_id');
     }
+
+    public function reservation()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 }
