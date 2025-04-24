@@ -7,8 +7,8 @@
             </div>
         </div>
         <h2>БРОНИРОВАНИЕ</h2>
-        <form class="registration-form" id="register">
-            <input name="room_alias" type="hidden" id="room_alias" required>
+        <form class="registration-form" id="register" action="/api/reserve" method="POST">
+            <input name="alias" type="hidden" id="room_alias" required>
             <div class="form-group">
                 <label>ФИО</label>
                 <input name="name" type="text" id="name" placeholder="Введите ваше полное имя"
@@ -22,25 +22,25 @@
             <div class="row-input">
                 <div class="form-group">
                     <label for="date-input">Дата заезда</label>
-                    <input name="start_date" type="date" id="start_date" class="date-input">
+                    <input name="start_date" type="date" id="start_date" class="date-input" required>
                 </div>
                 <div class="form-group">
                     <label for="date-input">Дата выезда</label>
-                    <input name="end_date" type="date" id="end_date" class="date-input">
+                    <input name="end_date" type="date" id="end_date" class="date-input" required>
                 </div>
             </div>
             <div class="row-input">
                 <div class="form-group">
                     <label for="adults-input">Гости</label>
-                    <input name="guests" type="number" id="guests" class="adults-input" min="1" max="10">
+                    <input name="guests" type="number" id="guests" class="adults-input" min="1" max="10" required value="1">
                 </div>
                 <div class="form-group">
                     <label for="adults-input">Гости</label>
-                    <input name="child" type="number" id="child" class="adults-input" min="1" max="10">
+                    <input name="child" type="number" id="child" class="adults-input" min="0" max="10" value="0">
                 </div>
             </div>
             <button type="submit" class="submit-btn">Забронировать</button>
-            <span>После бронирования с вами свяжется менеджер по номеру <a href="88006009344">8 (800) 600-93-44</a></span>
+            <span>После бронирования с вами свяжется менеджер по номеру <a href="tel:88006009344">8 (800) 600-93-44</a></span>
         </form>
     </div>
 </div>

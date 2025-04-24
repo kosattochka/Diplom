@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlacementController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,4 @@ Route::post('/auth/register', [UserController::class, 'register']);
 Route::post('/auth/forgot', [UserController::class, 'forgot']);
 Route::post('/auth/changePassword', [UserController::class, 'changePassword']);
 Route::post('/auth/edit', [UserController::class, 'edit']);
+Route::post('/reserve', [PlacementController::class, 'reserve']);

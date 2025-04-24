@@ -29,6 +29,20 @@
                 <h3>{{session('error')}}</h3>
             </div>
         </div>
+    @elseif(session('msg'))
+        <body class="modal-open">
+        <div id="errorModal" class="modal error" style="display: block">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div class="subtitle">
+                    <div>
+                        <img src="/img/logo.svg" alt=""/>
+                    </div>
+                </div>
+                <h2>ВНИМАНИЕ</h2>
+                <h3>{{session('msg')}}</h3>
+            </div>
+        </div>
     @else
         <body>
     @endif
