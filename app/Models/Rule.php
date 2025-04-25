@@ -14,7 +14,6 @@ class Rule extends Model
         'alias',
         'img',
         'description',
-        'page_description',
         'vis',
         'sort'
     ];

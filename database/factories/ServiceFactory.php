@@ -74,11 +74,9 @@ class ServiceFactory extends Factory
         for ($i = 0; $i < $count; $i++) {
             $response[] = [
                 'title' => $this->faker->word(),
-                'value' => [
-                    $this->faker->numberBetween(100, 5000),
-                    $this->faker->numberBetween(100, 5000),
-                    $this->faker->numberBetween(100, 5000),
-                ]
+                'value1' => $this->faker->numberBetween(100, 5000),
+                'value2' => $this->faker->numberBetween(100, 5000),
+                'value3' => $this->faker->numberBetween(100, 5000),
             ];
         }
         return $response;

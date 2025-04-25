@@ -36,9 +36,9 @@
                 @foreach ($service->table_price as $string)
                     <tr>
                         <td class="bg-green">{{$string['title']}}</td>
-                        <td>{{$string['value'][0]}}</td>
-                        <td>{{$string['value'][1]}}</td>
-                        <td>{{$string['value'][2]}}</td>
+                        <td>{{$string['value1']}}</td>
+                        <td>{{$string['value2']}}</td>
+                        <td>{{$string['value3']}}</td>
                     </tr>
                 @endforeach
             </table>

@@ -2,12 +2,14 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RuleResource\Pages;
-use App\Filament\Resources\RuleResource\RelationManagers;
-use App\Filament\Tabs\ParagraphTab;
-use App\Models\Rule;
+use App\Filament\Resources\ServiceResource\Pages;
+use App\Filament\Resources\ServiceResource\RelationManagers;
+use App\Models\Service;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Tabs\Tab;
 use Filament\Forms\Components\Textarea;
@@ -20,10 +22,12 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use PhpParser\Node\Stmt\Label;
+use SebastianBergmann\CodeCoverage\Driver\Selector;
 
-class RuleResource extends Resource
+class ServiceResource extends Resource
 {
-    protected static ?string $model = Rule::class;
+    protected static ?string $model = Service::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -52,16 +56,54 @@ class RuleResource extends Resource
                                     ->label('Описание')
                                     ->columnSpan(2)
                                     ->required(),
+                                FileUpload::make('img')
+                                    ->label('Изображение')
+                                    ->disk('public')
+                                    ->columnSpan(2)
+                                    ->required(),
                                 TextInput::make('sort')
                                     ->label('Важность')
                                     ->numeric()
                                     ->default(0)
                                     ->required(),
+                                Select::make('parent')
+                                    ->Label('Родительская услуга')
+                                    ->relationship('parent')
+                                    ->options(Service::all()->pluck('title', 'id')),
                                 Toggle::make('vis')
                                     ->label('Активность')
                                     ->default(true)
                             ]),
-                        ParagraphTab::make()
+                        Tab::make('Детальная страница')
+                            ->schema([
+                                Textarea::make('page_description')
+                                    ->label('Текст баннера')
+                                    ->required(),
+                                Textarea::make('page_heading')
+                                    ->label('Заголовок после баннера')
+                                    ->required(),
+                                Repeater::make('table_price')
+                                    ->label('Таблица')
+                                    ->columns(4)
+                                    ->required()
+                                    ->schema([
+                                        TextInput::make('title')
+                                            ->label('Название')
+                                            ->required(),
+                                        TextInput::make('value1')
+                                            ->label('Значения')
+                                            ->required(),
+                                        TextInput::make('value2')
+                                            ->label('Значения')
+                                            ->required(),
+                                        TextInput::make('value3')
+                                            ->label('Значения')
+                                            ->required(),
+                                    ]),
+                                Textarea::make('page_text')
+                                    ->label('Текст страницы')
+                                    ->required(),
+                            ])
                     ])
                 ])
             ]);
@@ -83,7 +125,7 @@ class RuleResource extends Resource
                 TextColumn::make('alias')
                     ->label('Ссылка')
                     ->searchable()
-                    ->url(fn($state) => env('APP_URL') . '/rule/' . $state, true),
+                    ->url(fn($state) => env('APP_URL') . '/service/' . $state, true),
             ])
             ->filters([
                 //
@@ -108,9 +150,9 @@ class RuleResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRules::route('/'),
-            'create' => Pages\CreateRule::route('/create'),
-            'edit' => Pages\EditRule::route('/{record}/edit'),
+            'index' => Pages\ListServices::route('/'),
+            'create' => Pages\CreateService::route('/create'),
+            'edit' => Pages\EditService::route('/{record}/edit'),
         ];
     }
 }
