@@ -20,12 +20,14 @@ class UserSeeder extends Seeder
                 'email' => 'admin@admin.ru',
                 'password' => Hash::make('admin'),
                 'phone' => '123123123',
+                'is_admin' => true
             ],
             [
                 'name' => 'test',
                 'email' => 'test@test.ru',
                 'password' => Hash::make('test'),
                 'phone' => '321321321',
+                'is_admin' => false
             ],
         ]);
     }
