@@ -1,13 +1,19 @@
+@php
+    $baseUrl = explode('/', request()->getPathInfo());
+    if (count($baseUrl) >= 2)
+        unset($baseUrl[2]);
+    $baseUrl = implode('/', $baseUrl);
+@endphp
 <div class="paginate-button" id="{{$id}}">
     <div>
         @isset($lastPage)
             <a
-                href="{{request()->url() . "?$field=1" .  '#' . $id}}"
+                href="{{$baseUrl . "?$field=1" .  '#' . $id}}"
             >Первая</a>
         @endisset
         @foreach ($list as $alias=>$title)
             <a
-                href="{{request()->url() . "?$field=" . $alias .  '#' . $id}}"
+                href="{{$baseUrl . "?$field=" . $alias .  '#' . $id}}"
                 @if (request()->input($field) == $alias)
                     style="background-color: #FDB10B;"
                 @endif
@@ -15,7 +21,7 @@
         @endforeach
         @isset($lastPage)
             <a
-                href="{{request()->url() . "?$field=$lastPage" .  '#' . $id}}"
+                href="{{$baseUrl . "?$field=$lastPage" .  '#' . $id}}"
             >Последняя</a>
         @endisset
     </div>
