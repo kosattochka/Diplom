@@ -2,11 +2,14 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AlbumResource\Pages;
-use App\Filament\Resources\AlbumResource\RelationManagers;
-use App\Filament\Tabs\ImgsTab;
-use App\Models\Album;
+use App\Filament\Resources\NewsResource\Pages;
+use App\Filament\Resources\NewsResource\RelationManagers;
+use App\Filament\Tabs\ParagraphTab;
+use App\Models\News;
 use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Tabs\Tab;
@@ -16,16 +19,16 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
-class AlbumResource extends Resource
+class NewsResource extends Resource
 {
-    protected static ?string $model = Album::class;
+    protected static ?string $model = News::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -36,7 +39,7 @@ class AlbumResource extends Resource
                 Grid::make([
                     'lg' => 1,
                 ])->schema([
-                    Tabs::make('pages')->tabs([
+                    Tabs::make('Pages')->tabs([
                         Tab::make('Основное')
                             ->columns(2)
                             ->schema([
@@ -50,20 +53,19 @@ class AlbumResource extends Resource
                                 TextInput::make('alias')
                                     ->label('Ссылка')
                                     ->required(),
-                                Textarea::make('description')
-                                    ->label('Описание')
+                                FileUpload::make('img')
+                                    ->label('Изображение')
+                                    ->disk('public')
                                     ->columnSpan(2)
                                     ->required(),
-                                TextInput::make('sort')
-                                    ->label('Важность')
-                                    ->numeric()
-                                    ->default(0)
+                                Textarea::make('short_description')
+                                    ->label('Текст карточки')
+                                    ->columnSpan(2)
                                     ->required(),
-                                Toggle::make('vis')
-                                    ->label('Активность')
-                                    ->default(true)
+                                DateTimePicker::make('date')
+                                    ->label('Дата публикации'),
                             ]),
-                        ImgsTab::make()
+                        ParagraphTab::make()
                     ])
                 ])
             ]);
@@ -73,11 +75,9 @@ class AlbumResource extends Resource
     {
         return $table
             ->columns([
-                ToggleColumn::make('vis')
-                    ->label('Активность')
-                    ->sortable(),
-                TextColumn::make('sort')
-                    ->label('Важность')
+                TextColumn::make('date')
+                    ->label('Дата публикации')
+                    ->date()
                     ->sortable(),
                 TextColumn::make('title')
                     ->label('Название')
@@ -85,7 +85,9 @@ class AlbumResource extends Resource
                 TextColumn::make('alias')
                     ->label('Ссылка')
                     ->searchable()
-                    ->url(fn($state) => env('APP_URL') . '/gallery/' . $state, true),
+                    ->url(fn($state) => env('APP_URL') . '/news/' . $state, true),
+                ImageColumn::make('img')
+                    ->label('Изображение')
             ])
             ->filters([
                 //
@@ -110,9 +112,9 @@ class AlbumResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAlbums::route('/'),
-            'create' => Pages\CreateAlbum::route('/create'),
-            'edit' => Pages\EditAlbum::route('/{record}/edit'),
+            'index' => Pages\ListNews::route('/'),
+            'create' => Pages\CreateNews::route('/create'),
+            'edit' => Pages\EditNews::route('/{record}/edit'),
         ];
     }
 }

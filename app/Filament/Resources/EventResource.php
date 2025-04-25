@@ -19,6 +19,9 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -84,7 +87,22 @@ class EventResource extends Resource
     {
         return $table
             ->columns([
-                //
+                ToggleColumn::make('vis')
+                    ->label('Отображать')
+                    ->sortable(),
+                ToggleColumn::make('active')
+                    ->label('Активность')
+                    ->sortable(),
+                TextColumn::make('sort')
+                    ->label('Важность')
+                    ->sortable(),
+                TextColumn::make('title')
+                    ->label('Название')
+                    ->searchable(),
+                TextColumn::make('alias')
+                    ->label('Ссылка')
+                    ->searchable()
+                    ->url(fn($state) => env('APP_URL') . '/events/' . $state, true),
             ])
             ->filters([
                 //
