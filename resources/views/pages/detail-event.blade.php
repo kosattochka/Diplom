@@ -15,6 +15,7 @@
         'telegram' => $contacts->telegram,
         'vk' => $contacts->vk,
         'certificate' => $events->certificate,
+        'title' => $events->title
     ])
 
     <section class="news-paragraphs">

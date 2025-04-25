@@ -16,13 +16,13 @@ return new class extends Migration
             $table->string('img');
             $table->string('title');
             $table->string('alias')->unique();
-            $table->string('slogan');
-            $table->text('short_description');
+            // $table->string('slogan')->nullable();
+            // $table->text('short_description')->nullable();
             $table->text('description');
-            $table->text('detailed');
+            // $table->text('detailed')->nullable();
 
-            $table->integer('sort') -> default(0);
-            $table->integer('vis') ->default(0);
+            $table->integer('sort')->default(0);
+            $table->integer('vis')->default(0);
             $table->timestamp('limit_date')->nullable();
             $table->boolean('active')->default(true)->nullable();
         });

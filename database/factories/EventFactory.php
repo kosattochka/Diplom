@@ -24,10 +24,10 @@ class EventFactory extends Factory
             'img' => $this->randomImg(),
             'title' => $title,
             'alias' => $alias,
-            'slogan' => $this->faker->sentence,
-            'short_description' => $this->faker->sentence(12),
+            // 'slogan' => $this->faker->sentence,
+            // 'short_description' => $this->faker->sentence(12),
             'description' => $this->faker->text(),
-            'detailed' => $this->faker->text(),
+            // 'detailed' => $this->faker->text(),
             'limit_date' => $this->faker->date(),
             'active' => $this->faker->boolean,
             'vis' => 1
