@@ -38,13 +38,19 @@ class AlbumController extends Controller
             ->where('alias', $alias)
             ->first();
 
-        if ($photos === null) {
+        if ($photos === null)
             return redirect('/')->with('error', 'Альбом не найден');
-        }
+
+        $all = Album::query()
+            ->where('vis', true)
+            ->whereNot('alias', $alias)
+            ->get();
+        $all = CardResource::collection($all);
 
         return view('pages.detail-gallery', [
             'contacts' => $contacts,
             'photos' => new AlbumDetailResource($photos),
+            'all' => $this->component('element.card.card', $all)
         ]);
     }
 }
