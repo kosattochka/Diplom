@@ -22,7 +22,7 @@
         <div>
             <span class="text-yellow">Дополнительное место: <span>{{$room->price_extra_space}} руб.</span></span>
             <span class="text-yellow">Все цены Павловского парка: <a href="/">полный прайс</a></span>
-            <span class="text-yellow">Связаться с менеджером: <a href="/">8 (800) 600-93-44</a></span>
+            <span class="text-yellow">Связаться с менеджером: <a href="tel:88006009344">8 (800) 600-93-44</a></span>
         </div>
         <div>
             <div class="price-container-row">

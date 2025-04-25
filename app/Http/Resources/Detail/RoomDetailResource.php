@@ -18,7 +18,7 @@ class RoomDetailResource extends JsonResource
             'price_extra_space' => $this->price_extra_space,
             'imgs' => array_map(function ($path) {
                 return view('element.gallery', ['img' => $path])->render();
-            }, json_decode($this->imgs)),
+            }, $this->imgs),
             'paragraphs' => $this->paragraphs->map(function ($item) {
                 $data = ['text' => $item->text];
                 if ($item->title) $data['title'] = $item->title;

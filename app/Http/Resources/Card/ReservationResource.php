@@ -29,7 +29,7 @@ class ReservationResource extends JsonResource
         $score = $days * ($room->price + $extraGuests * $room->price_extra_space);
 
         return [
-            'img' => json_decode($room->imgs, true)[0],
+            'img' => $room->imgs[0],
             'title' => $room->title,
             'start_date' => $startDate->format('d.m.y'),
             'end_date' => $endDate->format('d.m.y'),

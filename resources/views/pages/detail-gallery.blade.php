@@ -13,7 +13,7 @@
         'phone' => $contacts->phone,
         'telegram' => $contacts->telegram,
         'vk' => $contacts->vk,
-        'img' => json_decode($photos->imgs)[0],
+        'img' => $photos->imgs[0],
         'title' => $photos ->title,
     ])
 

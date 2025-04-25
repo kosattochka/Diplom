@@ -19,4 +19,8 @@ class Album extends Model
     ];
 
     public $timestamps = false;
+
+    protected $casts = [
+        'imgs' => 'array'
+    ];
 }

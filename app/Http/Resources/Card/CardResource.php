@@ -15,7 +15,7 @@ class CardResource extends JsonResource
     public function toArray(Request $request): array
     {
         $img = isset($this->imgs) ?
-            json_decode($this->imgs, true)[0] :
+            $this->imgs[0] :
             $this->img;
 
         if (!isset($request->alias)) {

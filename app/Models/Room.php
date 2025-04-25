@@ -20,6 +20,12 @@ class Room extends Model
         'description'
     ];
 
+    public $timestamps = false;
+
+    protected $casts = [
+        'imgs' => 'array'
+    ];
+
     public function rooms()
     {
         return $this->hasMany(Room::class);

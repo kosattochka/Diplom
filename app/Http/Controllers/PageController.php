@@ -61,7 +61,6 @@ class PageController extends Controller
             ->where('alias', request('gallery'))
             ->firstOrFail()
             ->imgs;
-        $photo = json_decode($photo);
 
         $photo = array_map(function ($item) {
             return ['img' => $item];
@@ -159,4 +158,3 @@ class PageController extends Controller
         ]);
     }
 }
-
