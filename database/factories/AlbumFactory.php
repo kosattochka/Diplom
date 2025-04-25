@@ -24,7 +24,7 @@ class AlbumFactory extends Factory
             'title' => $title,
             'alias' => $alias,
             'description' => $this->faker->text,
-            'imgs' => json_encode(array_fill(0, 8, $this->randomImg()))
+            'imgs' => array_fill(0, 8, $this->randomImg())
         ];
     }
 
