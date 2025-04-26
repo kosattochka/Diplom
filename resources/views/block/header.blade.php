@@ -479,6 +479,12 @@
                     <img src="{{$img}}" alt="">
                 </div>
                 @break
+            @case(17)
+                <div class="baner-content-placement">
+                    <span>{{$title}}</span>
+                    <img src="{{$img}}" alt="">
+                </div>
+                @break
             @default
         @endswitch
     </div>

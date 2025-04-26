@@ -8,7 +8,7 @@
 @section('title'){{$new->title}}@endsection
 @section('main_content')
     @include('block.header', [
-        'active' =>11,
+        'active' =>17,
         'phone' =>$contacts->phone,
         'telegram' =>$contacts->telegram,
         'vk' =>$contacts->vk,
