@@ -37,6 +37,10 @@
     box-sizing: border-box;
 }
 
+.sf-dump {
+    display: none !important;
+}
+
 body {
     background-color: #c4fbbc;
     margin: 0;

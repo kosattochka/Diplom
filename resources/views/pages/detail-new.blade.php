@@ -2,6 +2,7 @@
 @section('links')
     <link rel="stylesheet" href="/css/new.css">
     <link rel="stylesheet" href="/css/main.css">
+    <script defer src="/js/slider.js"></script>
 @endsection
 
 @section('title'){{$new->title}}@endsection

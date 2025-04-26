@@ -47,6 +47,12 @@
         <body>
     @endif
 
-        @yield('main_content')
-    </body>
+    @yield('main_content')
+    {{-- @dd(Auth::check()) --}}
+    @php
+        // Auth::check();
+        // session()->save()
+    @endphp
+    @dd(1)
+</body>
 </html>
