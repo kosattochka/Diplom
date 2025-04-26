@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ReservationResource\Pages;
-use App\Filament\Resources\ReservationResource\RelationManagers;
 use App\Models\Reservation;
 use App\Models\Room;
 use Carbon\Carbon;
@@ -16,12 +15,13 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Tabs\Tab;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\Filter;
 
 class ReservationResource extends Resource
 {
@@ -156,15 +156,60 @@ class ReservationResource extends Resource
                     ->searchable()
             ])
             ->filters([
-                //
+                SelectFilter::make('status')
+                    ->label('Статус')
+                    ->options([
+                        'new' => 'Новый',
+                        'confirmed' => 'Подтверждён',
+                        'completed' => 'В архиве',
+                        'cancelled' => 'Отменённый'
+                    ])
+                    ->multiple()
+                    ->searchable(),
+
+                SelectFilter::make('room')
+                    ->label('Комната')
+                    ->relationship('room', 'title')
+                    ->searchable()
+                    ->preload(),
+
+                Filter::make('dates')
+                    ->label('Даты бронирования')
+                    ->form([
+                        Forms\Components\DatePicker::make('start_date')
+                            ->label('С'),
+                        Forms\Components\DatePicker::make('end_date')
+                            ->label('По'),
+                    ])
+                    ->query(function (Builder $query, array $data) {
+                        return $query
+                            ->when(
+                                $data['start_date'],
+                                fn($q) => $q->where('start_date', '>=', $data['start_date'])
+                            )
+                            ->when(
+                                $data['end_date'],
+                                fn($q) => $q->where('end_date', '<=', $data['end_date'])
+                            );
+                    }),
+
+                Filter::make('actual')
+                    ->label('Текущие бронирования')
+                    ->query(fn(Builder $query) => $query
+                        ->where('status', 'confirmed')
+                        ->where('end_date', '>=', now()))
             ])
+            ->persistFiltersInSession()
+            ->filtersApplyAction(
+                fn() => Tables\Actions\Action::make('apply')
+                    ->button()
+                    ->label('Применить'),
+            )
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make('Подробнее'),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\BulkActionGroup::make([]),
             ]);
     }
 
