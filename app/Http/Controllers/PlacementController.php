@@ -22,13 +22,14 @@ class PlacementController extends Controller
                 ->whereDoesntHave('reservation', function ($query) use ($startDate, $endDate) {
                     $query->where(function ($q) use ($startDate, $endDate) {
                         $q->where('start_date', '<', $endDate)
-                            ->where('end_date', '>', $startDate);
+                            ->where('end_date', '>', $startDate)
+                            ->whereNot('status', 'cancelled');
                     });
                 })
                 ->get();
-        } else {
+        } else
             $room = Room::query()->get();
-        }
+
         $room = CardResource::collection($room);
 
         $contacts = Contact::where('vis', true)->first();
@@ -86,7 +87,8 @@ class PlacementController extends Controller
             ->whereDoesntHave('reservation', function ($query) use ($request) {
                 $query->where(function ($q) use ($request) {
                     $q->where('start_date', '<', $request->end_date)
-                        ->where('end_date', '>', $request->start_date);
+                        ->where('end_date', '>', $request->start_date)
+                        ->whereNot('status', 'cancelled');
                 });
             })
             ->first();
