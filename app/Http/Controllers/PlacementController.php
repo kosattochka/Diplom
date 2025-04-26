@@ -54,7 +54,9 @@ class PlacementController extends Controller
             ->first();
 
         if ($room == null)
-            return redirect('/')->with('error', 'Такого номера не найдено');
+            return redirect('/')
+                ->with(session()->all())
+                ->with('error', 'Такого номера не найдено');
 
         $room = new RoomDetailResource($room);
         $room = (object) $this->convertObject($room);
@@ -79,7 +81,10 @@ class PlacementController extends Controller
             ->first();
 
         if ($room == null)
-            return redirect()->back()->with('error', 'Такого номера не найдено');
+            return redirect()
+                ->back()
+                ->with(session()->all())
+                ->with('error', 'Такого номера не найдено');
 
         $room = Room::query()
             ->where('alias', $request->alias)
@@ -94,7 +99,10 @@ class PlacementController extends Controller
             ->first();
 
         if ($room == null)
-            return redirect()->back()->with('error', 'Простите, этот номер уже забронирован в этот день');
+            return redirect()
+                ->back()
+                ->with(session()->all())
+                ->with('error', 'Простите, этот номер уже забронирован в этот день');
 
         $user = auth()->check() ? auth()->user()->id : null;
 
@@ -110,6 +118,9 @@ class PlacementController extends Controller
             'status' => 'new'
         ]);
 
-        return redirect()->back()->with('msg', 'Ваша бронь зарегистрирована, скоро оператор свяжется с вами для подтверждения');
+        return redirect()
+            ->back()
+            ->with(session()->all())
+            ->with('msg', 'Ваша бронь зарегистрирована, скоро оператор свяжется с вами для подтверждения');
     }
 }

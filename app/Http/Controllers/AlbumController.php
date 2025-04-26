@@ -39,7 +39,9 @@ class AlbumController extends Controller
             ->first();
 
         if ($photos === null)
-            return redirect('/')->with('error', 'Альбом не найден');
+            return redirect('/')
+                ->with(session()->all())
+                ->with('error', 'Альбом не найден');
 
         $all = Album::query()
             ->where('vis', true)

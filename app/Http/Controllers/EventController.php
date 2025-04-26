@@ -38,7 +38,7 @@ class EventController extends Controller
     public function index(string $alias)
     {
         if (!request()->has('page'))
-            return redirect(request()->url().'?page=1')
+            return redirect(request()->url() . '?page=1')
                 ->with(session()->all());
 
         $contacts = Contact::query()
@@ -55,7 +55,9 @@ class EventController extends Controller
             ->first();
 
         if ($events === null)
-            return redirect('/')->with('error', 'Событие не найдено');
+            return redirect('/')
+                ->with(session()->all())
+                ->with('error', 'Событие не найдено');
 
         $events = $this->convertObject(new EventDetailResource($events));
         $events = (object) $events;

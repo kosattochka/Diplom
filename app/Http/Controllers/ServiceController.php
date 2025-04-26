@@ -6,6 +6,7 @@ use App\Http\Resources\Card\CardResource;
 use App\Http\Resources\Detail\ServiceDetailResource;
 use App\Models\Contact;
 use App\Models\Service;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -40,7 +41,9 @@ class ServiceController extends Controller
             ->first();
 
         if ($service == null)
-            return redirect('/')->with('error', 'Услуга не найдена');
+            return redirect('/')
+                ->with(session()->all())
+                ->with('error', 'Услуга не найдена');
 
         $all = Service::query()
             ->where('vis', true)

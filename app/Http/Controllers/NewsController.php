@@ -47,8 +47,10 @@ class NewsController extends Controller
                     ->orderByDesc('sort');
             })
             ->first();
-        if($new === null)
-            return redirect('/')->with('error', 'Новость не найдена');
+        if ($new === null)
+            return redirect('/')
+                ->with(session()->all())
+                ->with('error', 'Новость не найдена');
 
         $next = News::query()
             ->where('date', '>', $new->date)

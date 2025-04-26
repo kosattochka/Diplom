@@ -25,7 +25,7 @@ class UserController extends Controller
     public function page()
     {
         if (!Auth::check())
-            return redirect('/');
+            return redirect('/')->with(session()->all());
 
         $contacts = Contact::query()
             ->where('vis', true)
@@ -106,9 +106,13 @@ class UserController extends Controller
         $email = $request->query('email');
 
         if (!Password::tokenExists(User::where('email', $email)->first(), $token))
-            return redirect('/')->with('error', 'Недействительный токен');
+            return redirect('/')
+                ->with(session()->all())
+                ->with('error', 'Недействительный токен');
 
-        return redirect('/')->with('email', $email);
+        return redirect('/')
+            ->with(session()->all())
+            ->with('email', $email);
     }
 
     public function changePassword(PasswordRequest $request): Response
@@ -133,5 +137,4 @@ class UserController extends Controller
         $user->update($data);
         return response(['status' => true]);
     }
-
 }

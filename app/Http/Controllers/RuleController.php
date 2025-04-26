@@ -29,7 +29,6 @@ class RuleController extends Controller
 
     public function index(string $alias)
     {
-
         $contacts = Contact::query()
             ->where('vis', true)
             ->first();
