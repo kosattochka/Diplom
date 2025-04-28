@@ -9,6 +9,7 @@ use App\Models\Contact;
 use App\Models\Reservation;
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class PlacementController extends Controller
 {
@@ -53,10 +54,11 @@ class PlacementController extends Controller
             })
             ->first();
 
-        if ($room == null)
+        if ($room == null) {
+            Cookie::queue('error', 'Такого номера не найдено', 10);
             return redirect('/')
-                ->with(session()->all())
                 ->with('error', 'Такого номера не найдено');
+        }
 
         $room = new RoomDetailResource($room);
         $room = (object) $this->convertObject($room);
@@ -80,11 +82,10 @@ class PlacementController extends Controller
             ->where('alias', $request->alias)
             ->first();
 
-        if ($room == null)
-            return redirect()
-                ->back()
-                ->with(session()->all())
-                ->with('error', 'Такого номера не найдено');
+        if ($room == null) {
+            Cookie::queue('error', 'Такого номера не найдено', 10);
+            return redirect()->back();
+        }
 
         $room = Room::query()
             ->where('alias', $request->alias)
@@ -98,11 +99,10 @@ class PlacementController extends Controller
             })
             ->first();
 
-        if ($room == null)
-            return redirect()
-                ->back()
-                ->with(session()->all())
-                ->with('error', 'Простите, этот номер уже забронирован в этот день');
+        if ($room == null) {
+            Cookie::queue('error', 'Простите, этот номер уже забронирован в этот день', 10);
+            return redirect()->back();
+        }
 
         $user = auth()->check() ? auth()->user()->id : null;
 
@@ -118,9 +118,7 @@ class PlacementController extends Controller
             'status' => 'new'
         ]);
 
-        return redirect()
-            ->back()
-            ->with(session()->all())
-            ->with('msg', 'Ваша бронь зарегистрирована, скоро оператор свяжется с вами для подтверждения');
+        Cookie::queue('msg', 'Ваша бронь зарегистрирована, скоро оператор свяжется с вами для подтверждения', 10);
+        return redirect()->back();
     }
 }

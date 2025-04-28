@@ -7,14 +7,14 @@ use App\Http\Resources\Detail\EventDetailResource;
 use App\Http\Resources\PaginatedResource;
 use App\Models\Contact;
 use App\Models\Event;
+use Illuminate\Support\Facades\Cookie;
 
 class EventController extends Controller
 {
     public function many()
     {
         if (!request()->has('page'))
-            return redirect('/event?page=1')
-                ->with(session()->all());
+            return redirect('/event?page=1');
 
         $contacts = Contact::query()
             ->where('vis', true)
@@ -38,8 +38,7 @@ class EventController extends Controller
     public function index(string $alias)
     {
         if (!request()->has('page'))
-            return redirect(request()->url() . '?page=1')
-                ->with(session()->all());
+            return redirect(request()->url() . '?page=1');
 
         $contacts = Contact::query()
             ->where('vis', true)
@@ -54,10 +53,10 @@ class EventController extends Controller
             })
             ->first();
 
-        if ($events === null)
-            return redirect('/')
-                ->with(session()->all())
-                ->with('error', 'Событие не найдено');
+        if ($events === null) {
+            Cookie::queue('error', 'Событие не найдено', 10);
+            return redirect('/');
+        }
 
         $events = $this->convertObject(new EventDetailResource($events));
         $events = (object) $events;

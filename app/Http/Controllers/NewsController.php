@@ -8,14 +8,14 @@ use App\Http\Resources\PaginatedResource;
 use App\Models\Contact;
 use App\Models\News;
 use App\Models\Paragraph;
+use Illuminate\Support\Facades\Cookie;
 
 class NewsController extends Controller
 {
     public function many()
     {
         if (!request()->has('page'))
-            return redirect('/new?page=1')
-                ->with(session()->all());
+            return redirect('/new?page=1');
 
         $contacts = Contact::query()
             ->where('vis', true)
@@ -47,10 +47,10 @@ class NewsController extends Controller
                     ->orderByDesc('sort');
             })
             ->first();
-        if ($new === null)
-            return redirect('/')
-                ->with(session()->all())
-                ->with('error', 'Новость не найдена');
+        if ($new === null) {
+            Cookie::queue('error', 'Новость не найдена', 10);
+            return redirect('/');
+        }
 
         $next = News::query()
             ->where('date', '>', $new->date)

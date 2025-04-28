@@ -7,6 +7,7 @@ use App\Http\Resources\Detail\ServiceDetailResource;
 use App\Models\Contact;
 use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class ServiceController extends Controller
 {
@@ -40,10 +41,10 @@ class ServiceController extends Controller
             ->where('vis', true)
             ->first();
 
-        if ($service == null)
-            return redirect('/')
-                ->with(session()->all())
-                ->with('error', 'Услуга не найдена');
+        if ($service == null) {
+            Cookie::queue('error', 'Услуга не найдена', 10);
+            return redirect('/');
+        }
 
         $all = Service::query()
             ->where('vis', true)

@@ -5,18 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Resources\Card\CardResource;
 use App\Http\Resources\Card\NewResource;
 use App\Http\Resources\Card\ReviewResource;
-use App\Http\Resources\PaginatedResource;
 use App\Models\Album;
 use App\Models\Contact;
 use App\Models\Event;
 use App\Models\News;
 use App\Models\Review;
 use App\Models\Room;
-use App\Models\Rule;
-use App\Models\Service;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
@@ -25,8 +21,7 @@ class PageController extends Controller
     {
         if (!request()->has('gallery')) {
             $album = Album::first();
-            return redirect('/?gallery=' . $album->alias)
-                ->with(session()->all());
+            return redirect('/?gallery=' . $album->alias);
         }
 
         $contact = Contact::query()
@@ -60,8 +55,13 @@ class PageController extends Controller
 
         $photo = Album::query()
             ->where('alias', request('gallery'))
-            ->firstOrFail()
-            ->imgs;
+            ->first()
+            ?->imgs;
+
+        if ($photo == null) {
+            Cookie::queue('error', 'Альбом не найден', 10);
+            return redirect('/');
+        }
 
         $photo = array_map(function ($item) {
             return ['img' => $item];
@@ -88,8 +88,7 @@ class PageController extends Controller
                 ->first();
             $year = Carbon::parse($year->date)->year;
 
-            return redirect('/review?year=' . $year)
-                ->with(session()->all());
+            return redirect('/review?year=' . $year);
         }
 
         $contact = Contact::query()

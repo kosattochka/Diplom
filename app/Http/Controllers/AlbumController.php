@@ -6,6 +6,7 @@ use App\Http\Resources\Card\CardResource;
 use App\Http\Resources\Detail\AlbumDetailResource;
 use App\Models\Album;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Cookie;
 
 class AlbumController extends Controller
 {
@@ -38,10 +39,10 @@ class AlbumController extends Controller
             ->where('alias', $alias)
             ->first();
 
-        if ($photos === null)
-            return redirect('/')
-                ->with(session()->all())
-                ->with('error', 'Альбом не найден');
+        if ($photos === null) {
+            Cookie::queue('error', 'Альбом не найден', 10);
+            return redirect('/');
+        }
 
         $all = Album::query()
             ->where('vis', true)

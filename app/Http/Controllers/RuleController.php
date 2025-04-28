@@ -6,6 +6,7 @@ use App\Http\Resources\Card\CardResource;
 use App\Http\Resources\Detail\RuleDetailResource;
 use App\Models\Contact;
 use App\Models\Rule;
+use Illuminate\Support\Facades\Cookie;
 
 class RuleController extends Controller
 {
@@ -37,6 +38,11 @@ class RuleController extends Controller
             ->where('alias', $alias)
             ->where('vis', true)
             ->first();
+
+        if ($rule == null) {
+            Cookie::queue('error', 'Правило не найдено', 10);
+            return redirect('/');
+        }
 
         $all = Rule::query()
             ->where('vis', true)

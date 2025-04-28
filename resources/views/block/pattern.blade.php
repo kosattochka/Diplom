@@ -15,7 +15,7 @@
     <script defer type="module" src="/js/form/register.js"></script>
     <script defer type="module" src="/js/form/forgot.js"></script>
 </head>
-    @if(session('error'))
+    @if(request()->cookie('error'))
         <body class="modal-open">
         <div id="errorModal" class="modal error" style="display: block">
             <div class="modal-content">
@@ -26,10 +26,13 @@
                     </div>
                 </div>
                 <h2>ОШИБКА</h2>
-                <h3>{{session('error')}}</h3>
+                <h3>{{request()->cookie('error')}}</h3>
             </div>
         </div>
-    @elseif(session('msg'))
+        @php
+            Cookie::expire('error');
+        @endphp
+    @elseif(request()->cookie('msg'))
         <body class="modal-open">
         <div id="errorModal" class="modal error" style="display: block">
             <div class="modal-content">
@@ -40,19 +43,18 @@
                     </div>
                 </div>
                 <h2>ВНИМАНИЕ</h2>
-                <h3>{{session('msg')}}</h3>
+                <h3>{{request()->cookie('msg')}}</h3>
             </div>
         </div>
+        @php
+            Cookie::expire('msg');
+        @endphp
     @else
         <body>
     @endif
 
     @yield('main_content')
-    {{-- @dd(Auth::check()) --}}
-    @php
-        // Auth::check();
-        // session()->save()
-    @endphp
-    @dd(1)
+
+    {{-- @dd(1) --}}
 </body>
 </html>
