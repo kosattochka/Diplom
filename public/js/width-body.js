@@ -1,3 +1,5 @@
+let scrollY = window.scrollY;
+
 window.addEventListener("load", () => {
     window.scrollTo(0, window.scrollY);
 });
@@ -7,8 +9,7 @@ window.addEventListener("scroll", () => {
         window.scrollTo(0, window.scrollY);
     }
     if (document.querySelector(".modal:not([style*='display: none'])")) {
-        let scrollY = window.scrollY;
         window.scrollTo(0, scrollY);
-        console.log(window.scrollY);
     }
+    scrollY = window.scrollY;
 });
