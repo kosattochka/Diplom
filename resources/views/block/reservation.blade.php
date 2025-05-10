@@ -7,7 +7,7 @@
             </div>
         </div>
         <h2>БРОНИРОВАНИЕ</h2>
-        <form class="registration-form" id="register" action="/api/reserve" method="POST">
+        <form class="registration-form" id="reservation" action="/api/reserve" method="POST">
             <input name="alias" type="hidden" id="room_alias" required>
             <div class="form-group">
                 <label>ФИО</label>
