@@ -21,8 +21,8 @@ return new class extends Migration
             $table->integer('guests')->default(1);
             $table->integer('child')->default(0);
 
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->timestamp('start_date')->useCurrent();
+            $table->timestamp('end_date')->useCurrent();
             $table->timestamps();
             $table->string('status')->default('new');
         });

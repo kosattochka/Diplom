@@ -20,7 +20,7 @@ class ReservationFactory extends Factory
     public function definition(): array
     {
         $startDate = Carbon::now()->addDays(rand(1, 30));
-        $endDate = Carbon::now()->addDays(rand(31, 35));
+        $endDate = (clone $startDate)->addDays(rand(1, 5));
 
         return [
             'room_id' => Room::query()->inRandomOrder()->first()->id,
