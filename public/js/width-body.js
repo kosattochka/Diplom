@@ -9,5 +9,6 @@ window.addEventListener("scroll", () => {
     if (document.querySelector(".modal:not([style*='display: none'])")) {
         let scrollY = window.scrollY;
         window.scrollTo(0, scrollY);
+        console.log(window.scrollY);
     }
 });
