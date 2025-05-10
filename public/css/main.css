@@ -45,6 +45,7 @@ body {
     background-color: #c4fbbc;
     margin: 0;
     overflow-x: hidden;
+    max-width: 100vw;
 }
 body.modal-open {
     overflow: hidden;
