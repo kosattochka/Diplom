@@ -52,7 +52,7 @@ class Slider {
             this.slide = this.row.querySelector(".slide");
             this.slideWindow.style.width = this.slide.offsetWidth + "px";
             this.slideWindow.style.height = this.slide.offsetHeight + "px";
-        }, 200);
+        }, 300);
     }
 
     addEventListeners() {
