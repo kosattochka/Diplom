@@ -11,5 +11,6 @@ window.addEventListener("scroll", () => {
     if (document.querySelector(".modal[style='display: block']")) {
         window.scrollTo(0, scrollY);
     }
+    console.log(document.querySelector(".modal[style='display: block']"));
     scrollY = window.scrollY;
 });
