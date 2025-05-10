@@ -2,6 +2,7 @@
     width: 100%;
     height: 100px;
     background-color: #0d504d;
+    margin-top: 100px;
 
     span {
         color: #ffae00;
@@ -84,6 +85,13 @@
 
     .reservation {
         flex-direction: column;
+        height: 400px;
+        margin-top: 0;
+        margin-bottom: 40px;
+
+        .submit-btn {
+            width: 73vw;
+        }
 
         .book-form {
             flex-direction: column;
@@ -91,7 +99,21 @@
             div {
                 flex-direction: column;
             }
+
+            .form-group input {
+                width: 73vw;
+            }
     }
 }
 
+}
+
+@media (max-width: 300px) {
+
+    .reservation {
+
+        span {
+            font-size: 16px;
+        }
+    }
 }

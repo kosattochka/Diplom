@@ -44,7 +44,7 @@
             </table>
         </div>
     </section>
-    <div class="rectangle-white-container">
+    <div class="paragraphs-container">
         <div>
             <span>{{$service->page_text}}</span>
         </div>

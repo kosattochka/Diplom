@@ -20,7 +20,9 @@
 
     <section>
         <div class="six"><p><span><img src="/img/contact/car-icon.svg" alt="">Местоположение офиса продаж</span></p></div>
-        {!!$contacts->map!!}
+        <div class="map-transport">
+            {!!$contacts->map!!}
+        </div>
         <div class="six"><p><span><img src="/img/contact/car-icon.svg" alt="">Схема проезда</span></p></div>
         <div class="rectangle-white-container line-yellow-bottom">
             <p>Как до нас добраться на общественном транспорте: ежедневно ездят коммерческие автобусы от стадиона «Нефтяник» до с. Павловки!<br>

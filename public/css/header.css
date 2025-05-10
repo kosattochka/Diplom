@@ -1,6 +1,6 @@
 header {
     position: relative;
-    padding-bottom: 160px;
+    padding-bottom: 100px;
 }
 
 .header-logo {
@@ -115,27 +115,22 @@ header {
 
 .baner-content-index .icon-container:nth-child(1) {
     margin-left: 280px;
-    /* Первый элемент без смещения */
 }
 
 .baner-content-index .icon-container:nth-child(2) {
     margin-left: 140px;
-    /* Второй элемент смещен на 50px */
 }
 
 .baner-content-index .icon-container:nth-child(3) {
     margin-left: 10px;
-    /* Третий элемент смещен на 100px */
 }
 
 .baner-content-index .icon-container:nth-child(4) {
-    margin-left: -60px;
-    /* Четвертый элемент смещен на 150px */
+    margin-left: -50px;
 }
 
 .baner-content-index .icon-container:nth-child(5) {
-    margin-left: -230px;
-    /* Пятый элемент смещен на 200px */
+    margin-left: -160px;
 }
 
 .baner-content-index .icon-container div {
@@ -143,17 +138,25 @@ header {
     flex-direction: column;
 }
 
-.text-icon-big {
-    font-family: PlayfairDisplay_Bold;
-    font-size: 28px;
-    color: #0d504d;
+.icon-container {
+
+    img {
+        width: 7vw;
+    }
+
+    .text-icon-big {
+        font-family: PlayfairDisplay_Bold;
+        font-size: 22px;
+        color: #0d504d;
+    }
+
+    .text-icon-small {
+        font-family: PlayfairDisplay_Bold;
+        font-size: 20px;
+        color: #00847e;
+    }
 }
 
-.text-icon-small {
-    font-family: PlayfairDisplay_Bold;
-    font-size: 24px;
-    color: #00847e;
-}
 
 .baner {
     display: flex;
@@ -203,6 +206,8 @@ header {
 
         p {
             color: #0d504d;
+            font-size: 20px;
+            text-align: justify;
 
             a {
                 color: #fdb10b;
@@ -222,7 +227,7 @@ header {
             font-family: PlayfairDisplay_Bold;
             color: #0d504d;
             text-align: start;
-            font-size: 24px;
+            font-size: 20px;
 
             a {
                 text-wrap: nowrap;
@@ -240,6 +245,7 @@ header {
 
         li {
             color: #0d504d;
+            font-size: 20px;
         }
 
         a:not(.review-block) {
@@ -661,6 +667,7 @@ hr {
     .share-content a {
         display: flex;
         flex-direction: row;
+        align-items: center;
         gap: 10px;
         width: 200px;
         font-family: PlayfairDisplay_Bold;

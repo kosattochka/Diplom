@@ -24,6 +24,7 @@
                 <div class="share-content">
                     @if (Auth::check())
                     <a href="/account"><img src="/img/account-icon.svg" alt="">{{Auth::user()->name}}</a>
+                    <a href="/logout"><img src="/img/login-icon.svg" alt="">Выход</a>
                     @else
                         <a href="">
                             <img src="/img/registration-icon.svg" alt="">
@@ -154,6 +155,7 @@
             <div class="share-content">
                 @if (Auth::check())
                     <a href="/account"><img src="/img/account-icon.svg" alt="">{{Auth::user()->name}}</a>
+                    <a href="/logout"><img src="/img/login-icon.svg" alt="">Выход</a>
                 @else
                     <a href=""><img src="/img/registration-icon.svg" alt=""><button class="modal-open" data-modal="modal1">Регистрация</button></a>
                     <a href=""><img src="/img/login-icon.svg" alt=""><button class="modal-open" data-modal="modal2">Вход</button></a>
@@ -237,18 +239,15 @@
                         <br>
                         <span>Мы стремимся создать комфортную и безопасную атмосферу для всех гостей нашего центра отдыха. Пожалуйста, соблюдайте следующие правила:</span>
                         <br>
-                        <br>
                         <span class="text-yellow">
                         1. Будьте вежливы и уважительны
                         <span>по отношению к другим гостям и персоналу. Мы ценим доброжелательную атмосферу и просим вас избегать конфликтных ситуаций.</span>
                         </span>
                         <br>
-                        <br>
                         <span class="text-yellow">
                         2. Соблюдайте тишину с 22:00 до 08:00.
                         <span>Это время предназначено для отдыха, и мы просим вас не шуметь, чтобы не мешать другим гостям.</span>
                         </span>
-                        <br>
                         <br>
                         <span class="text-yellow">
                         3. Курение разрешено
@@ -258,7 +257,6 @@
                         местах
                         <span>Пожалуйста, не курите в помещениях, на детских площадках и в других зонах, где это запрещено. Это помогает нам поддерживать чистоту и заботиться о здоровье всех посетителей.</span>
                         </span>
-                        <br>
                         <br>
                         <span>Соблюдение этих правил поможет сделать ваш отдых и отдых других гостей приятным и безопасным. Благодарим за понимание и сотрудничество!</span>
                   </div>

@@ -40,7 +40,7 @@
                 {{$item['title']}}
             </span></p></div>
         @endif
-        <div class="baner-content-placement">
+        <div class="room-container">
             <div class="rectangle-white-container @if($key==0) line-yellow-bottom column-gap @endif">
                 {!! $item['text'] !!}
             </div>
@@ -48,12 +48,11 @@
     @endforeach
 
     <div class="six"><p><span><img src="/img/rooms/icon-title-room.svg" alt="">Другие номера</span></p></div>
-    @include('block.slider', [
-        'id'=>2,
-        'desktopCount' => 2,
-        'mobileCount' => 1,
-        'elements' => $allRoom
-    ])
+    <div class="room-row-gap">
+        @foreach($allRoom as $item)
+            {!!$item!!}
+        @endforeach
+    </div>
 
     @include('block.footer', [
         'phone' =>$contacts->phone,
