@@ -49,11 +49,11 @@ class Slider {
         this.dots = dots.querySelectorAll("figure");
 
         // Обновление размеров
-        let height =
-            this.slide.offsetHeight < 216 ? 216 : this.slide.offsetHeight;
         setTimeout(() => {
             this.slide = this.row.querySelector(".slide");
             this.slideWindow.style.width = this.slide.offsetWidth + "px";
+            let height =
+                this.slide.offsetHeight < 216 ? 216 : this.slide.offsetHeight;
             this.slideWindow.style.height = height + "px";
         }, 400);
     }
