@@ -13,6 +13,7 @@ class Slider {
         this.initSlider();
         this.colorFigure();
         this.addEventListeners();
+        this.clearParamElem();
     }
 
     initSlider() {
@@ -51,8 +52,10 @@ class Slider {
         setTimeout(() => {
             this.slide = this.row.querySelector(".slide");
             this.slideWindow.style.width = this.slide.offsetWidth + "px";
-            this.slideWindow.style.height = this.slide.offsetHeight + "px";
-        }, 200);
+            let height =
+                this.slide.offsetHeight < 216 ? 216 : this.slide.offsetHeight;
+            this.slideWindow.style.height = height + "px";
+        }, 400);
     }
 
     addEventListeners() {
@@ -68,6 +71,12 @@ class Slider {
         const slide = document.createElement("div");
         slide.className = "slide";
         return slide;
+    }
+
+    clearParamElem() {
+        this.slider.dataset.mobileCount = "";
+        this.slider.dataset.desktopCount = "";
+        this.slider.dataset.elements = "";
     }
 
     next() {
