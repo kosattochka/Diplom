@@ -129,11 +129,25 @@ class UserController extends Controller
 
     public function edit(EditRequest $request): Response
     {
-        $data = $request->only(['name', 'email']);
+        $user = User::query()
+            ->where('email', $request->email)
+            ->whereNot('id', $request->id)
+            ->first();
+        if ($user != null)
+            return response(['status' => false, 'message' => 'Такая почта уже занята'], 404);
+
+        $user = User::query()
+            ->where('phone', $request->phone)
+            ->whereNot('id', $request->id)
+            ->first();
+        if ($user != null)
+            return response(['status' => false, 'message' => 'Такай номер телефона уже занята'], 404);
+
         $user = User::find($request->id);
         if ($user == null)
             return response(['status' => false, 'message' => 'Пользователь не найден'], 404);
 
+        $data = $request->only(['name', 'email', 'phone', 'is_man', 'birthday']);
         $user->update($data);
         return response(['status' => true]);
     }

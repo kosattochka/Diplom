@@ -2,6 +2,8 @@
 @section('links')
 <link rel="stylesheet" href="/css/account.css">
 <link rel="stylesheet" href="/css/main.css">
+<script type="module" defer src="/js/form/edit.js"></script>
+<script type="module" defer src="/js/form/changePassword.js"></script>
 @endsection
 @section('title')Личный кабинет@endsection
 @section('main_content')

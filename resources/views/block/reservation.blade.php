@@ -31,11 +31,11 @@
             </div>
             <div class="row-input">
                 <div class="form-group">
-                    <label for="adults-input">Гости</label>
+                    <label for="adults-input">Взрослые</label>
                     <input name="guests" type="number" id="guests" class="adults-input" min="1" max="10" required value="1">
                 </div>
                 <div class="form-group">
-                    <label for="adults-input">Гости</label>
+                    <label for="adults-input">Дети</label>
                     <input name="child" type="number" id="child" class="adults-input" min="0" max="10" value="0">
                 </div>
             </div>

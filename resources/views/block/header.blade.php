@@ -106,7 +106,7 @@
                     <button type="submit" class="submit-btn">Войти</button>
                     <div class="share-modal">
                         <button type="button" class="modal-open" data-modal="modal3">Забыли пароль?</button>
-                        <button type="button" class="modal-open" data-modal="modal1">Зарегестрироваться</button>
+                        <button type="button" class="modal-open" data-modal="modal1">Зарегистрироваться</button>
                     </div>
                 </form>
             </div>
@@ -416,7 +416,8 @@
                         <div class="rectangle-white-container account-baner">
                             <p class="account-text">Эти данные необходимы, чтобы автоматически заполнять соответствующие поля и ускорять процесс бронирования.</p>
                         </div>
-                        <form class="registration-form" id="register">
+                        <form class="registration-form" id="editUser">
+                            <input type="hidden" name="id" value="{{Auth::user()->id}}">
                             <div class="form-group" id="name">
                                 <input type="text" name="name" placeholder="Введите ваше полное имя" required value='{{$user->name}}'>
                             </div>
@@ -424,10 +425,10 @@
                                 <div class="form-group" id="email">
                                     <input type="email" name="email" placeholder="example@mail.com" required value='{{$user->email}}'>
                                 </div>
-                                <select class="form-group" id="sex">
+                                <select class="form-group" id="sex" name="is_man">
                                     <option value="" disabled {{$user->is_man == null ? 'selected' : ''}}>Пол</option>
-                                    <option value="1" title="Женский пол" {{$user->is_man == 0 ? 'selected' : ''}}>Жен</option>
-                                    <option value="2" title="Мужской пол" {{$user->is_man == 1 ? 'selected' : ''}}>Муж</option>
+                                    <option value="0" title="Женский пол" {{$user->is_man == 0 ? 'selected' : ''}}>Жен</option>
+                                    <option value="1" title="Мужской пол" {{$user->is_man == 1 ? 'selected' : ''}}>Муж</option>
                                 </select>
                             </div>
                             <div>
@@ -438,12 +439,12 @@
                                     @php
                                         $user->birthday = Carbon\Carbon::parse($user->birthday)->format('Y-m-d');
                                     @endphp
-                                    <input type="date" name="date" placeholder="Дата рождения" required value='{{$user->birthday}}'>
+                                    <input type="date" name="birthday" placeholder="Дата рождения" required value='{{$user->birthday}}'>
                                 </div>
                             </div>
                             <div>
                                 <button type="submit" class="submit-btn form-button">Сохранить изменения</button>
-                                <button type="submit" class="submit-btn form-button">Изменить пароль</button>
+                                <button type="button" class="submit-btn form-button" id="changePasswordBtn">Изменить пароль</button>
                             </div>
                         </form>
                     </div>

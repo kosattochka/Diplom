@@ -16,7 +16,10 @@ class EditRequest extends FormRequest
         return [
             'id' => ['required', 'numeric', 'min:1'],
             'name' => ['required', 'string', 'filled', 'min:1'],
-            'email' => ['required', 'email', 'unique:App\Models\User,email'],
+            'email' => ['required', 'email'],
+            'phone' => ['required', 'string'],
+            'is_man' => ['required', 'boolean'],
+            'birthday' => ['required', 'date']
         ];
     }
 

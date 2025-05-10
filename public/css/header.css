@@ -87,7 +87,7 @@ header {
     background-color: #0d504d;
 }
 
-.head-column>img {
+.head-column > img {
     padding-bottom: 20px;
 }
 
@@ -139,7 +139,6 @@ header {
 }
 
 .icon-container {
-
     img {
         width: 7vw;
     }
@@ -156,7 +155,6 @@ header {
         color: #00847e;
     }
 }
-
 
 .baner {
     display: flex;
@@ -258,7 +256,7 @@ header {
             opacity: 0.8;
         }
 
-        >div {
+        > div {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -337,7 +335,7 @@ header {
             font-size: 18px;
         }
 
-        >.subtitle {
+        > .subtitle {
             display: flex;
             justify-content: center;
             padding-bottom: 10px;
@@ -440,7 +438,7 @@ header {
     z-index: 99;
 }
 
-.registration-form button[type='button'] {
+.registration-form button[type="button"]:not(.submit-btn) {
     border: none;
     background: none;
     font-family: PlayfairDisplay_Bold;
@@ -450,12 +448,12 @@ header {
     cursor: pointer;
 }
 
-.registration-form button[type='button']:hover {
+.registration-form button[type="button"]:not(.submit-btn):hover {
     color: #0d504d;
 }
 
 .registration-form span {
-    color: #D9D9D9;
+    color: #d9d9d9;
     font-family: Gabriela;
     font-size: 12px;
 }
@@ -467,7 +465,7 @@ header {
 
 hr {
     border: none;
-    border-top: 2px solid #D9D9D9;
+    border-top: 2px solid #d9d9d9;
     margin: 20px 0;
 }
 
@@ -502,12 +500,11 @@ hr {
         justify-content: center;
         align-items: stretch;
 
-        >div {
+        > div {
             width: 100%;
             display: flex;
             flex-direction: row;
             gap: 10px;
-
         }
 
         #name {
@@ -532,7 +529,8 @@ hr {
 
         .form-group input,
         select {
-            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+                rgba(0, 0, 0, 0.23) 0px 6px 6px;
         }
 
         select {
@@ -634,7 +632,7 @@ hr {
         background-color: white;
         color: #fdb10b;
 
-        >a {
+        > a {
             color: #fdb10b;
             font-family: Gabriela;
             padding: 15px 30px;
@@ -651,7 +649,7 @@ hr {
         gap: 10px;
     }
 
-    .burger-footer>img {
+    .burger-footer > img {
         width: 45%;
     }
 
@@ -717,7 +715,6 @@ hr {
             .rewiev-block {
                 display: flex;
                 flex-direction: column;
-
             }
         }
     }
@@ -746,7 +743,7 @@ hr {
 }
 
 @media (max-width: 550px) {
-    .burger-footer>img {
+    .burger-footer > img {
         display: none;
     }
 }
