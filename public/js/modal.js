@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (modalId) {
                 const modal = document.getElementById(modalId);
                 if (modal) {
-                    document.body.classList.add("modal-open");
+                    // document.body.classList.add("modal-open");
                     modal.style.display = "block";
                     if (roomAlias)
                         modal.querySelector("#room_alias").value = roomAlias;
@@ -35,7 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (modalCloseButton) {
             e.stopPropagation();
             const modal = modalCloseButton.closest(".modal");
-            if (modal) modal.style.display = "none";
+            if (modal) {
+                modal.style.display = "none";
+                document.body.classList.remove("modal-open");
+            }
         }
     });
 
@@ -43,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", function (e) {
         if (e.target.classList.contains("modal")) {
             e.target.style.display = "none";
+            document.body.classList.remove("modal-open");
         }
     });
 
