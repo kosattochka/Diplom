@@ -51,9 +51,12 @@ class Slider {
         // Обновление размеров
         setTimeout(() => {
             this.slide = this.row.querySelector(".slide");
-            this.slideWindow.style.width = this.slide.offsetWidth + "px";
+            let width =
+                this.slide.offsetWidth < 317 ? 317 : this.slide.offsetWidth;
             let height =
                 this.slide.offsetHeight < 216 ? 216 : this.slide.offsetHeight;
+
+            this.slideWindow.style.width = width + "px";
             this.slideWindow.style.height = height + "px";
         }, 400);
     }
