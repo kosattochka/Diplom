@@ -322,7 +322,7 @@
                     <span>Отзывы</span>
                     <div class="rectangle-white-container line-yellow-bottom column-gap">
                         <span>Павловский Парк предлагает ознакомиться с фотографиями, сделанными отдыхающими.<br>Ваше мнение важно для нас! Поделитесь впечатлениями о парке, услугах, развлечениях и кухне. Ваши отзывы помогут нам стать лучше. Оставьте их на Яндекс.Картах или 2ГИС. Спасибо!</span>
-                        <div>
+                        <div class="rewiev-block">
                             <a href="https://yandex.ru/maps/org/pavlovskiy_park/1203779586/reviews/?ll=56.525875%2C55.459164&utm_campaign=v1&utm_medium=rating&utm_source=badge&z=13" class="review-block">
                                 <img src="/img/Yandex.svg" alt="">
                                 <div>
