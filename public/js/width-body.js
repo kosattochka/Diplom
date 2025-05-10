@@ -8,7 +8,7 @@ window.addEventListener("scroll", () => {
     if (window.scrollX !== 0) {
         window.scrollTo(0, window.scrollY);
     }
-    if (document.querySelector(".modal:not([style*='display: none'])")) {
+    if (document.querySelector(".modal[style='display: block']")) {
         window.scrollTo(0, scrollY);
     }
     scrollY = window.scrollY;
