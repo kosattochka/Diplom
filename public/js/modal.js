@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (modalId) {
                 const modal = document.getElementById(modalId);
                 if (modal) {
-                    document.body.classList.add("modal-open");
+                    // document.body.classList.add("modal-open");
                     modal.style.display = "block";
                     if (roomAlias)
                         modal.querySelector("#room_alias").value = roomAlias;
@@ -44,10 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Закрытие при клике вне модального окна
     document.addEventListener("click", function (e) {
-        if (
-            e.target.classList.contains("modal") &&
-            !e.target.closest(".modal-content")
-        ) {
+        if (e.target.classList.contains("modal")) {
             e.target.style.display = "none";
             document.body.classList.remove("modal-open");
         }
