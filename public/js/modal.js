@@ -44,7 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Закрытие при клике вне модального окна
     document.addEventListener("click", function (e) {
-        if (e.target.classList.contains("modal")) {
+        if (
+            e.target.classList.contains("modal") &&
+            !e.target.closest(".modal-content")
+        ) {
             e.target.style.display = "none";
             document.body.classList.remove("modal-open");
         }
