@@ -4,7 +4,7 @@
     <script defer src="/js/slider.js"></script>
 @endsection
 
-@section('title') Услуги @endsection
+@section('title') Услуги Павловского парка @endsection
 
 @section('main_content')
     @include('block.header', [

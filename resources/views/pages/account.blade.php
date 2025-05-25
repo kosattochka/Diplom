@@ -5,7 +5,7 @@
 <script type="module" defer src="/js/form/edit.js"></script>
 <script type="module" defer src="/js/form/changePassword.js"></script>
 @endsection
-@section('title')Личный кабинет@endsection
+@section('title') Личный кабинет @endsection
 @section('main_content')
     @include('block.header', [
         'active' => 12,

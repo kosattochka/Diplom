@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/css/contact.css">
 @endsection
 
-@section('title') Акции Павловского парка @endsection
+@section('title') Контакты Павловского парка @endsection
 @section('main_content')
     @include('block.header', [
         'active' => 8,
