@@ -108,9 +108,7 @@ header {
     align-items: center;
     gap: 30px;
     margin-left: 0;
-    /* Начальное смещение */
     transition: margin-left 0.3s ease;
-    /* Плавное смещение */
 }
 
 .baner-content-index .icon-container:nth-child(1) {
@@ -165,8 +163,8 @@ header {
     display: flex;
     flex-direction: column;
     gap: 60px;
-    padding-left: 180px;
-    padding-top: 140px;
+    padding-left: 300px;
+    padding-top: 160px;
 
     span {
         text-align: center;
@@ -174,6 +172,10 @@ header {
         font-family: Gabriela;
         font-size: 32px;
         color: #fdb10b;
+    }
+
+    .foto-certificate {
+        width: 40vw;
     }
 
     .rectangle-white-container {
@@ -745,5 +747,13 @@ hr {
 @media (max-width: 550px) {
     .burger-footer > img {
         display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .baner-content-placement {
+        .foto-certificate {
+            width: 100%;
+        }
     }
 }

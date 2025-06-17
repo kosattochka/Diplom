@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 180px;
 
     >.rectangle-white-container:not(:first-child) {
         padding: 30px;

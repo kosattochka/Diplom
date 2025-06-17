@@ -469,7 +469,7 @@
             @case(15)
                 <div class="baner-content-placement">
                     <span>Акции/{{$title}}</span>
-                    <img src="{{$certificate}}" alt="">
+                    <img src="{{$certificate}}" alt="" class="foto-certificate">
                 </div>
                 @break
             @case(16)
