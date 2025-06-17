@@ -148,7 +148,7 @@
                 <img src="/img/telegram.svg" alt="">
                 Телеграм
             </a>
-            <a href="{{$phone}}">
+            <a href="tel:{{$phone}}">
                 <img src="/img/phone.svg" alt="">
                 Офис продаж (звонок бесплатный): <br>{{$phone}}
             </a>
@@ -288,8 +288,8 @@
                         <br>
                         <span class="text-yellow text-center">НЕ УПУСТИТЕ ВОЗМОЖНОСТЬ!</span>
                         <br>
-                        <span class="text-yellow">Звоните:</span><a href="">{{$phone}}</a><br>
-                        <span class="text-yellow">Пишите:</span><a href="">{{$email}}</a>
+                        <span class="text-yellow">Звоните:</span><a href="tel:{{$phone}}">{{$phone}}</a><br>
+                        <span class="text-yellow">Пишите:</span><a href="mailto:{{$email}}">{{$email}}</a>
                   </div>
                 </div>
                 @break
@@ -312,7 +312,7 @@
                         </div>
                         <div>
                             <img src="/img/albums/icon-gallery-2.svg" alt="">
-                            <span>Для бронирования домиков обязательно свяжитесь с менеджером по телефону: <a href="">{{$phone}}</a>.</span>
+                            <span>Для бронирования домиков обязательно свяжитесь с менеджером по телефону: <a href="tel:{{$phone}}">{{$phone}}</a>.</span>
                         </div>
                   </div>
                 </div>
@@ -357,11 +357,11 @@
                         <span>{{$mail_index}}, {{$address_office}}</span><br>
                         <span class="text-yellow">
                         Телефон:
-                        <a>{{$phone}}</a>
+                        <a href="tel:{{$phone}}">{{$phone}}</a>
                         </span><br>
                         <span class="text-yellow">
                         e-mail:
-                        <a>{{$email}}</a>
+                        <a href="mailto:{{$email}}">{{$email}}</a>
                         </span><br>
                         <span class="text-yellow">
                         Режим работы:

@@ -22,4 +22,6 @@ class Contact extends Model
         'map_route',
         'vis'
     ];
+
+    public $timestamps = false;
 }
