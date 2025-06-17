@@ -4,7 +4,7 @@
             <div class="column">
                 <div class="pank">
                     <img src="/img/footer-icon-phone.svg" alt="">
-                    <a href="">Офис продаж (звонок бесплатный) {{$phone}}</a>
+                    <a href="tel:{{$phone}}">Офис продаж (звонок бесплатный) {{$phone}}</a>
                 </div>
                 <div>
                     <img src="/img/footer-icon-telegram.svg" alt="">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="pank">
                     <img src="/img/footer-icon-email.svg" alt="">
-                    <a href="">E-mail: {{$email}}</a>
+                    <a href="mailto:{{$email}}">E-mail: {{$email}}</a>
                 </div>
             </div>
         </div>
