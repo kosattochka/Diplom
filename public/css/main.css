@@ -56,6 +56,10 @@ a {
     padding: 0 50px 20px;
     text-align: center;
 
+    .icon-price {
+        width: 80px;
+    }
+
     p {
         font-family: Gabriela;
         color: #0d504d;
@@ -107,6 +111,10 @@ a {
         right: 0;
         bottom: 0;
     }
+}
+
+.padding-top {
+    margin-top: 180px;
 }
 
 .Playfair_Bold_24 {

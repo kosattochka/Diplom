@@ -16,8 +16,8 @@
         'page_description' => $service->page_description
     ])
 
-    <div class="six"><p><span>
-        <img src="/img/icon-price.svg" alt="">
+    <div class="six padding-top"><p><span>
+        <img src="/img/icon-price.svg" alt="" class="icon-price">
         {{$service->page_heading}}
     </span></p></div>
     <section class="table-container">
