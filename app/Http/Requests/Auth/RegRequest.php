@@ -16,7 +16,7 @@ class RegRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'filled', 'min:1'],
             'email' => ['required', 'email', 'unique:users,email'],
-            'phone' => ['required', 'string', 'unique:users,phone'],
+            'phone' => ['required', 'string', 'unique:users,phone', 'regex:/(\+7|8)[\s(]?\d{3}[)\s]?\d{3}[\s-]?\d{2}[\s-]?\d{2}/i'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'rule' => ['accepted']
         ];
