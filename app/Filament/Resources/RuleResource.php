@@ -19,6 +19,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Support\Str;
 
 class RuleResource extends Resource
@@ -50,6 +51,11 @@ class RuleResource extends Resource
                                     ->required(),
                                 Textarea::make('description')
                                     ->label('Описание')
+                                    ->columnSpan(2)
+                                    ->required(),
+                                FileUpload::make('img')
+                                    ->label('Изображение')
+                                    ->disk('public')
                                     ->columnSpan(2)
                                     ->required(),
                                 TextInput::make('sort')

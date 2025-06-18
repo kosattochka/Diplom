@@ -279,7 +279,7 @@ a {
         width: 370px;
         height: 593px;
         overflow: hidden;
-        padding: 45px 45px;
+        padding: 20px 20px;
         box-sizing: unset;
 
         > div {
@@ -297,6 +297,8 @@ a {
         flex-direction: row;
         width: fit-content;
         gap: 10px;
+        align-items: center;
+
     }
 
     > div:nth-child(2) {
@@ -311,6 +313,11 @@ a {
         background-color: #0d504d;
         transition: 0.3s;
     }
+
+}
+
+.galleryPhoto {
+    width: 25vw;
 }
 
 .new-card {
